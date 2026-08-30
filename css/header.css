@@ -1,0 +1,337 @@
+/* =========================================
+   Luméra Skin — Header CSS
+   Navbar, Navigation, Sticky, Mobile
+   ========================================= */
+
+/* ---- Navbar Base ---- */
+.lumera-navbar {
+  background-color: rgba(250, 248, 244, .96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0;
+  min-height: 66px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1050;
+  transform: translate3d(0, var(--navbar-viewport-offset, 0px), 0);
+  will-change: transform;
+  transition: background-color var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+/* Only regular pages contain the shared navbar. Auth pages remain untouched. */
+body:has(> .lumera-navbar) {
+  padding-top: 66px;
+}
+
+.lumera-navbar.scrolled {
+  box-shadow: 0 2px 20px rgba(0, 0, 0, .07);
+}
+
+[data-theme="dark"] .lumera-navbar {
+  background-color: rgba(23, 27, 24, .96);
+  border-color: var(--border-color);
+}
+
+/* ---- Navbar Inner Grid ---- */
+.navbar-inner {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0 36px;
+  min-height: 66px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ---- Brand ---- */
+.navbar-brand-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.navbar-logo {
+  width: 38px;
+  height: 38px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.navbar-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.navbar-logo:has(img) {
+  background: transparent;
+  border-radius: 0;
+  overflow: visible;
+}
+
+.navbar-logo:has(img) img {
+  object-fit: contain;
+}
+
+.navbar-logo svg {
+  width: 22px;
+  height: 22px;
+  fill: #fff;
+}
+
+.navbar-brand-text {
+  line-height: 1;
+}
+
+.navbar-brand-name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-heading);
+  display: block;
+  transition: color var(--transition-fast);
+}
+
+.navbar-brand-tagline {
+  font-size: 0.62rem;
+  color: var(--color-primary);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  display: block;
+  white-space: nowrap;
+}
+
+.navbar-brand-wrap:hover .navbar-brand-name {
+  color: var(--color-primary);
+}
+
+/* ---- Center Nav ---- */
+.navbar-nav-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-nav-center .nav-item {
+  position: relative;
+}
+
+.navbar-nav-center .nav-link {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-body);
+  padding: 0.45rem 0.8rem;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  transition: color var(--transition-fast), background var(--transition-fast);
+  text-decoration: none;
+  display: block;
+}
+
+.navbar-nav-center .nav-link:hover {
+  color: var(--color-primary);
+  background: rgba(96, 121, 107, .08);
+}
+
+.navbar-nav-center .nav-link.active {
+  color: var(--color-primary);
+  background: rgba(96, 121, 107, .10);
+  font-weight: 600;
+}
+
+/* ---- Right Utilities ---- */
+.navbar-utils {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.navbar-util-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-body);
+  font-size: 0.9rem;
+  transition: color var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.navbar-util-btn:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  background: rgba(96, 121, 107, .08);
+}
+
+.navbar-util-btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+}
+
+.navbar-rtl-btn {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-family: var(--font-body);
+  padding: 0;
+  min-width: 36px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+
+.btn-login-nav {
+  background: var(--color-primary);
+  color: #fff !important;
+  border: none;
+  padding: 0.45rem 1.1rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.btn-login-nav:hover {
+  background: var(--color-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(96, 121, 107, .3);
+  color: #fff !important;
+}
+
+/* ---- Mobile Toggle ---- */
+.navbar-mobile-toggle {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  background: transparent;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-heading);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.navbar-mobile-toggle:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+/* ---- Mobile Nav Drawer ---- */
+.navbar-mobile-menu {
+  display: none;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  padding: 1rem 1.5rem 1.5rem;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1049;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, .12);
+  max-height: calc(100vh - 66px);
+  overflow-y: auto;
+}
+
+.navbar-mobile-menu.open {
+  display: block;
+}
+
+.navbar-mobile-menu .nav-link {
+  display: block;
+  padding: 0.65rem 0.5rem;
+  color: var(--text-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-bottom: 1px solid var(--border-color);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.navbar-mobile-menu .nav-link:hover,
+.navbar-mobile-menu .nav-link.active {
+  color: var(--color-primary);
+}
+
+.navbar-mobile-menu .mobile-utils {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-top: 1rem;
+}
+
+/* ---- Responsive Breakpoints: Hamburger Drawer Nav on iPad Pro & Tablet View (max-width: 1366px) ---- */
+@media (max-width: 1366px) {
+  .navbar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+  }
+
+  .navbar-nav-center {
+    display: none !important;
+  }
+
+  .navbar-mobile-toggle {
+    display: flex !important;
+  }
+
+  .navbar-utils > .theme-toggle-btn,
+  .navbar-utils > .rtl-toggle-btn,
+  .navbar-utils .btn-login-nav {
+    display: none !important;
+  }
+
+  .navbar-mobile-menu .mobile-utils .theme-toggle-btn,
+  .navbar-mobile-menu .mobile-utils .rtl-toggle-btn,
+  .navbar-mobile-menu .mobile-utils .btn-login-nav {
+    display: inline-flex !important;
+  }
+}
+
+@media (max-width: 576px) {
+  body:has(> .lumera-navbar) {
+    padding-top: 58px;
+  }
+
+  .navbar-inner {
+    padding: 0 16px;
+  }
+
+  .navbar-brand-tagline {
+    display: none;
+  }
+}

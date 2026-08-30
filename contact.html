@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Luméra Skin — Get in Touch</title>
+  <meta name="description" content="Contact Luméra Skin — reach our skincare consultants, customer care team, or book a complimentary skin consultation.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/dark-theme.css">
+  <link rel="stylesheet" href="css/rtl.css">
+  <link rel="stylesheet" href="css/desktop.css">
+  <link rel="stylesheet" href="css/tablet.css">
+  <link rel="stylesheet" href="css/mobile.css">
+  <style>
+    .contact-info-cards {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 1rem;
+    }
+    .contact-info-card { grid-column: span 2; }
+    .contact-info-card:nth-child(4) { grid-column: 2 / span 2; }
+    .contact-info-card:nth-child(5) { grid-column: 4 / span 2; }
+    .contact-info-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.5rem;
+      display: flex; align-items: flex-start; gap: 1rem;
+      transition: all var(--transition-base);
+    }
+    .contact-info-card:hover { border-color: rgba(96,121,107,.3); transform:translateX(4px); }
+    [dir="rtl"] .contact-info-card:hover { transform:translateX(-4px); }
+    .contact-icon-wrap { width:44px; height:44px; background:rgba(96,121,107,.1); border-radius:var(--radius-md); display:flex; align-items:center; justify-content:center; font-size:1.2rem; color:var(--color-primary); flex-shrink:0; }
+    .contact-info-card .ci-title { font-size:0.82rem; font-weight:700; color:var(--text-heading); margin-bottom:0.15rem; }
+    .contact-info-card .ci-detail { font-size:0.82rem; color:var(--text-muted); }
+    .contact-info-card .ci-note { font-size:0.72rem; color:var(--text-muted); margin-top:0.2rem; }
+
+    /* Contact form */
+    .contact-form-card {
+      width: 100%;
+      max-width: 920px;
+      margin-inline: auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 2.5rem;
+    }
+    @media (max-width: 1366px) {
+      .contact-info-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 1.5rem !important;
+      }
+      .contact-info-card,
+      .contact-info-card:nth-child(4) { grid-column: auto !important; }
+      .contact-info-card:nth-child(5) {
+        grid-column: 1 / -1 !important;
+        max-width: 480px !important;
+        width: 100% !important;
+        justify-self: center !important;
+      }
+    }
+    @media (max-width: 576px) {
+      .contact-info-cards { grid-template-columns: 1fr !important; gap: 0.85rem !important; }
+      .contact-info-card,
+      .contact-info-card:nth-child(4),
+      .contact-info-card:nth-child(5) {
+        grid-column: auto !important;
+        width: 100% !important;
+      }
+      .contact-form-card { padding: 1.5rem 1.1rem; }
+    }
+
+    /* FAQ section */
+    .faq-list { display:flex; flex-direction:column; gap:0.75rem; }
+    .faq-item { background:var(--bg-card); border:1px solid var(--border-color); border-radius:var(--radius-md); overflow:hidden; }
+    .faq-question { display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:1.1rem 1.25rem; cursor:pointer; background:none; border:none; width:100%; text-align:left; font-family:var(--font-body); font-size:0.9rem; font-weight:600; color:var(--text-heading); }
+    [dir="rtl"] .faq-question { text-align:right; }
+    .faq-icon { font-size:1rem; color:var(--color-primary); flex-shrink:0; transition:transform var(--transition-fast); }
+    .faq-answer { max-height:0; overflow:hidden; transition:max-height 350ms ease; padding:0 1.25rem; }
+    .faq-answer-inner { padding:0.25rem 0 1.25rem; font-size:0.88rem; color:var(--text-body); line-height:1.7; }
+    .faq-item.open .faq-answer { max-height:300px; }
+    .faq-item.open .faq-icon { transform:rotate(45deg); }
+  </style>
+</head>
+<body>
+<!-- NAVBAR -->
+<nav class="lumera-navbar" id="mainNavbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-brand-wrap"><div class="navbar-logo"><img src="assets/images/logo.png" alt="Luméra Skin Logo"></div><div class="navbar-brand-text"><span class="navbar-brand-name">Luméra Skin</span><span class="navbar-brand-tagline">Clarity for Your Skin. Care You Can Trust.</span></div></a>
+    <ul class="navbar-nav-center"><li><a href="index.html" class="nav-link">Home</a></li><li><a href="about.html" class="nav-link">About</a></li><li><a href="home2.html" class="nav-link">Routines</a></li><li><a href="shop.html" class="nav-link">Shop</a></li><li><a href="ingredients.html" class="nav-link">Ingredients</a></li><li><a href="skin-type-guide.html" class="nav-link">Skin Guide</a></li><li><a href="bundle-deals.html" class="nav-link">Bundles</a></li><li><a href="contact.html" class="nav-link active">Contact</a></li></ul>
+    <div class="navbar-utils"><button class="navbar-util-btn theme-toggle-btn" aria-label="Toggle dark mode"><i class="bi bi-moon theme-toggle-icon"></i></button><button class="navbar-util-btn navbar-rtl-btn rtl-toggle-btn">RTL</button><a href="login.html" class="btn-login-nav"><i class="bi bi-person"></i> Login</a><button class="navbar-mobile-toggle" id="navMobileToggle" aria-expanded="false"><i class="bi bi-list"></i></button></div>
+  </div>
+  <div class="navbar-mobile-menu" id="navMobileMenu"><a href="index.html" class="nav-link">Home</a><a href="about.html" class="nav-link">About</a><a href="home2.html" class="nav-link">Routines</a><a href="shop.html" class="nav-link">Shop</a><a href="ingredients.html" class="nav-link">Ingredients</a><a href="skin-type-guide.html" class="nav-link">Skin Guide</a><a href="bundle-deals.html" class="nav-link">Bundles</a><a href="contact.html" class="nav-link active">Contact</a><div class="mobile-utils"><button class="navbar-util-btn theme-toggle-btn"><i class="bi bi-moon theme-toggle-icon"></i></button><button class="navbar-util-btn navbar-rtl-btn rtl-toggle-btn">RTL</button><a href="login.html" class="btn-login-nav ms-auto"><i class="bi bi-person"></i> Login</a></div></div>
+</nav>
+
+<!-- PAGE BANNER -->
+<div class="page-banner" style="background-image:url('assets/images/contact-banner.png'); min-height:240px;">
+  <div class="banner-overlay"></div>
+  <div class="banner-content container-brand">
+    <nav aria-label="breadcrumb"><ol class="breadcrumb" style="justify-content:center;"><li class="breadcrumb-item"><a href="index.html">Home</a></li><li class="breadcrumb-item active">Contact</li></ol></nav>
+    <h1 style="font-size:2.4rem; margin-bottom:0.4rem;">Get in Touch</h1>
+    <p style="color:rgba(255,255,255,.85); max-width:480px; margin:0 auto;">We're here to help. Whether it's a product question, order support or a skin consultation — our team responds within one business day.</p>
+  </div>
+</div>
+
+<!-- SECTION 1: CONTACT INFORMATION -->
+<section class="section-py section-bg" id="contact-info" aria-label="Contact information">
+  <div class="container-brand">
+      <div>
+        <div class="section-header text-center fade-up">
+          <span class="section-label">How to Reach Us</span>
+          <h2 style="font-size:1.6rem; margin-bottom:0.5rem;">We'd love to hear from you</h2>
+          <div class="brand-divider center" style="margin-bottom:1.5rem;"></div>
+        </div>
+        <div class="contact-info-cards fade-up" style="transition-delay:80ms">
+          <div class="contact-info-card">
+            <div class="contact-icon-wrap"><i class="bi bi-chat-text-fill"></i></div>
+            <div>
+              <div class="ci-title">General Enquiries</div>
+              <div class="ci-detail">hello@lumeraskin.com</div>
+              <div class="ci-note">Response within 1 business day</div>
+            </div>
+          </div>
+          <div class="contact-info-card">
+            <div class="contact-icon-wrap"><i class="bi bi-bag-check-fill"></i></div>
+            <div>
+              <div class="ci-title">Order Support</div>
+              <div class="ci-detail">orders@lumeraskin.com</div>
+              <div class="ci-note">Track your order, returns and shipping queries</div>
+            </div>
+          </div>
+          <div class="contact-info-card">
+            <div class="contact-icon-wrap"><i class="bi bi-person-heart"></i></div>
+            <div>
+              <div class="ci-title">Free Skin Consultation</div>
+              <div class="ci-detail">consultations@lumeraskin.com</div>
+              <div class="ci-note">Book a 1-on-1 video or email consultation with our skincare team</div>
+            </div>
+          </div>
+          <div class="contact-info-card">
+            <div class="contact-icon-wrap"><i class="bi bi-building"></i></div>
+            <div>
+              <div class="ci-title">Press & Partnerships</div>
+              <div class="ci-detail">press@lumeraskin.com</div>
+              <div class="ci-note">Brand collaborations and media enquiries</div>
+            </div>
+          </div>
+          <div class="contact-info-card">
+            <div class="contact-icon-wrap"><i class="bi bi-clock-history"></i></div>
+            <div>
+              <div class="ci-title">Response Times</div>
+              <div class="ci-detail">Monday – Friday, 9am – 6pm (GMT)</div>
+              <div class="ci-note">We aim to respond to all queries within 24 hours on business days</div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-4 fade-up" style="transition-delay:160ms; text-align:center;">
+          <p class="section-label mb-2">Follow Us</p>
+          <div style="display:flex; gap:0.75rem; flex-wrap:wrap; justify-content:center;">
+            <a href="#" class="social-icon-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
+
+<!-- SECTION 2: CONTACT FORM -->
+<section class="section-py" id="contact-form" aria-label="Send us a message">
+  <div class="container-brand">
+      <div class="contact-form-card fade-up" style="transition-delay:120ms">
+        <h3 style="margin-bottom:0.4rem;">Send us a message</h3>
+        <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:1.75rem;">Fill in the form below and we'll get back to you as soon as possible.</p>
+        <form data-lumera-form aria-label="Contact form">
+          <div class="form-row-two">
+            <div class="form-group-brand">
+              <label class="label-brand" for="contactFirstName">First Name <span class="required">*</span></label>
+              <input type="text" id="contactFirstName" class="input-brand" placeholder="Your first name" required>
+              <span class="form-error" aria-live="polite"></span>
+            </div>
+            <div class="form-group-brand">
+              <label class="label-brand" for="contactLastName">Last Name <span class="required">*</span></label>
+              <input type="text" id="contactLastName" class="input-brand" placeholder="Your last name" required>
+              <span class="form-error" aria-live="polite"></span>
+            </div>
+          </div>
+          <div class="form-group-brand">
+            <label class="label-brand" for="contactEmail">Email Address <span class="required">*</span></label>
+            <input type="email" id="contactEmail" class="input-brand" placeholder="you@example.com" required>
+            <span class="form-error" aria-live="polite"></span>
+          </div>
+          <div class="form-group-brand">
+            <label class="label-brand" for="contactSubject">Subject <span class="required">*</span></label>
+            <select id="contactSubject" class="input-brand select-brand" required>
+              <option value="" disabled selected>Select a subject</option>
+              <option value="general">General Enquiry</option>
+              <option value="product">Product Question</option>
+              <option value="order">Order Support</option>
+              <option value="consultation">Skin Consultation</option>
+              <option value="returns">Returns / Refunds</option>
+              <option value="press">Press / Partnership</option>
+              <option value="other">Other</option>
+            </select>
+            <span class="form-error" aria-live="polite"></span>
+          </div>
+          <div class="form-group-brand">
+            <label class="label-brand" for="contactSkinType">Your Skin Type (optional)</label>
+            <select id="contactSkinType" class="input-brand select-brand">
+              <option value="" disabled selected>Select if relevant</option>
+              <option>Dry Skin</option>
+              <option>Oily Skin</option>
+              <option>Combination Skin</option>
+              <option>Normal Skin</option>
+              <option>Sensitive Skin</option>
+              <option>Not sure</option>
+            </select>
+          </div>
+          <div class="form-group-brand">
+            <label class="label-brand" for="contactMessage">Message <span class="required">*</span></label>
+            <textarea id="contactMessage" class="input-brand textarea-brand" placeholder="Tell us how we can help..." rows="5" required></textarea>
+            <span class="form-error" aria-live="polite"></span>
+          </div>
+          <div class="form-group-brand">
+            <label class="check-option" style="cursor:pointer; display:flex; gap:0.5rem; align-items:flex-start;">
+              <input type="checkbox" style="margin-top:2px; flex-shrink:0;">
+              <span style="font-size:0.78rem; color:var(--text-muted);">I agree to Luméra Skin's Privacy Policy and consent to my data being used to respond to this enquiry.</span>
+            </label>
+          </div>
+          <button type="submit" class="btn-primary-brand btn-form-submit" style="width:100%; justify-content:center;" id="contactSubmitBtn">Send Message <i class="bi bi-send"></i></button>
+          <div class="form-success-msg mt-3" style="display:none; text-align:center; padding:1.5rem; background:rgba(96,121,107,.08); border-radius:var(--radius-md); border:1px solid rgba(96,121,107,.2);">
+            <i class="bi bi-check-circle-fill" style="color:var(--color-primary); font-size:1.5rem; display:block; margin-bottom:0.5rem;"></i>
+            <strong>Message sent successfully.</strong><br>
+            <span style="font-size:0.85rem; color:var(--text-muted);">We'll respond to you at the email provided within one business day.</span>
+          </div>
+        </form>
+      </div>
+  </div>
+</section>
+
+<!-- SECTION 3: FREE CONSULTATION -->
+<section class="section-py section-bg" id="consultation" aria-label="Free skin consultation">
+  <div class="container-brand">
+    <div style="max-width:680px; margin:0 auto; text-align:center;" class="fade-up">
+      <span class="section-label">Complimentary Service</span>
+      <h2>Free Skin Consultation</h2>
+      <div class="brand-divider center"></div>
+      <p>Not sure which products to start with? Our skincare consultants offer a complimentary email or video consultation to help you build a routine matched to your skin type, concerns and current regimen.</p>
+      <p class="mt-3" style="font-size:0.85rem; color:var(--text-muted);">Consultations are provided by trained skincare advisors. These are not medical appointments and do not constitute dermatological or medical advice.</p>
+      <div class="mt-3 d-flex gap-2 justify-content-center flex-wrap">
+        <a href="mailto:consultations@lumeraskin.com" class="btn-primary-brand">Book a Consultation <i class="bi bi-calendar-check"></i></a>
+        <a href="index.html#skin-quiz" class="btn-outline-brand">Take Skin Quiz First</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: FAQ -->
+<section class="section-py" id="faq" aria-label="Frequently asked questions">
+  <div class="container-brand">
+    <div class="section-header text-center fade-up">
+      <span class="section-label">Common Questions</span>
+      <h2>Frequently Asked Questions</h2>
+      <div class="brand-divider center"></div>
+    </div>
+    <div class="faq-list" style="max-width:800px; margin:0 auto;">
+      <div class="faq-item fade-up"><button class="faq-question">How long does delivery take?<i class="bi bi-plus faq-icon"></i></button><div class="faq-answer"><div class="faq-answer-inner">Standard UK delivery is 2–5 business days. Express delivery options are available at checkout. International delivery typically takes 7–14 business days depending on destination country. All bundle orders qualify for complimentary standard shipping.</div></div></div>
+      <div class="faq-item fade-up" style="transition-delay:60ms"><button class="faq-question">What is your return policy?<i class="bi bi-plus faq-icon"></i></button><div class="faq-answer"><div class="faq-answer-inner">We accept returns within 30 days of purchase for unopened and unused products. If you experienced a reaction to a product, please contact us at orders@lumeraskin.com — we handle these cases individually with care and sensitivity.</div></div></div>
+      <div class="faq-item fade-up" style="transition-delay:120ms"><button class="faq-question">Can I use multiple Luméra products together?<i class="bi bi-plus faq-icon"></i></button><div class="faq-answer"><div class="faq-answer-inner">Yes — all Luméra products are formulated to work compatibly within a layered routine. However, if you're introducing multiple active ingredients (such as Vitamin C and AHAs) into a new routine, we recommend introducing one product at a time to monitor tolerance. Our skin type guides and consultation team can advise on sequencing.</div></div></div>
+      <div class="faq-item fade-up" style="transition-delay:180ms"><button class="faq-question">Are Luméra products suitable for sensitive skin?<i class="bi bi-plus faq-icon"></i></button><div class="faq-answer"><div class="faq-answer-inner">Several Luméra products are specifically formulated for sensitive skin — including our Centella Soothing Serum, Ceramide Barrier Repair Cream and Ultra-Gentle Cleanser. All are fragrance-free. We always recommend patch testing any new product before full application, particularly if you have reactive or highly sensitive skin.</div></div></div>
+      <div class="faq-item fade-up" style="transition-delay:240ms"><button class="faq-question">What does "dermatologist reviewed" mean exactly?<i class="bi bi-plus faq-icon"></i></button><div class="faq-answer"><div class="faq-answer-inner">All Luméra formulations are reviewed by external, independent qualified dermatologists before they are included in our range. This means an independent clinician has reviewed the formulation, the ingredient list, the concentrations and the safety profile — not just signed off on a "tested by" claim. We do not pay for endorsements.</div></div></div>
+      <div class="faq-item fade-up" style="transition-delay:300ms"><button class="faq-question">How do I find the right products for my skin?<i class="bi bi-plus faq-icon"></i></button><div class="faq-answer"><div class="faq-answer-inner">The best starting point is our 5-question Skin Quiz — designed to identify your skin type and suggest products suited to your skin's current behaviour. You can also filter products by skin type and concern in our Shop page, or reach out to our consultation team for personalised guidance.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" style="background-image:url('assets/images/contact-cta.png');">
+  <div class="overlay-dark"></div>
+  <div class="cta-inner fade-up">
+    <h2 style="font-size:clamp(1.8rem,4vw,3rem); margin-bottom:1rem;">Still Not Sure Where to Start?</h2>
+    <p style="max-width:480px; margin:0 auto 2rem; opacity:.9;">Take the free skin quiz and get personalised product suggestions in under 2 minutes.</p>
+    <a href="index.html#skin-quiz" class="btn-primary-brand">Take Skin Quiz <i class="bi bi-arrow-right"></i></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="lumera-footer" aria-label="Site footer">
+  <div class="container-brand">
+    <div class="footer-grid">
+      <!-- Brand -->
+      <div class="footer-brand-col">
+        <a href="index.html" class="footer-logo-wrap" aria-label="Luméra Skin Home">
+          <div class="footer-logo" aria-hidden="true">
+            <img src="assets/images/logo.png" alt="Luméra Skin Logo">
+          </div>
+          <span class="footer-brand-name">Luméra Skin</span>
+        </a>
+        <p class="footer-tagline">Clarity for Your Skin. Care You Can Trust.<br>Science-backed formulations for your daily rituals.</p>
+        <div class="footer-social" aria-label="Social media links">
+          <a href="#" class="social-icon-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-icon-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="social-icon-btn" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+          <a href="#" class="social-icon-btn" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+      <!-- Shop -->
+      <div>
+        <span class="footer-col-title">Shop</span>
+        <ul class="footer-nav-list">
+          <li><a href="shop.html">All Products</a></li>
+          <li><a href="bundle-deals.html">Routine Bundles</a></li>
+          <li><a href="shop.html?category=serums">Best Sellers</a></li>
+          <li><a href="shop.html?sort=newest">New Releases</a></li>
+        </ul>
+      </div>
+      <!-- Learn -->
+      <div>
+        <span class="footer-col-title">Learn</span>
+        <ul class="footer-nav-list">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="ingredients.html">Ingredient Library</a></li>
+          <li><a href="skin-type-guide.html">Skin Type Guide</a></li>
+          <li><a href="home2.html">Daily Routines</a></li>
+        </ul>
+      </div>
+      <!-- Support -->
+      <div>
+        <span class="footer-col-title">Support</span>
+        <ul class="footer-nav-list">
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="contact.html#faq">Help & FAQ</a></li>
+          <li><a href="contact.html#shipping">Shipping Policy</a></li>
+          <li><a href="contact.html#returns">Returns & Guarantee</a></li>
+        </ul>
+      </div>
+      <!-- Newsletter -->
+      <div>
+        <span class="footer-col-title">Newsletter</span>
+        <form data-lumera-form aria-label="Newsletter signup">
+          <div class="newsletter-input-wrap">
+            <input type="email" class="input-brand" placeholder="Your email address" required>
+            <button type="submit" class="newsletter-submit-btn">Subscribe</button>
+          </div>
+          <div class="form-success-msg mt-2" style="display:none;">Thank you for subscribing!</div>
+        </form>
+      </div>
+    </div>
+    <!-- Bottom Bar -->
+    <div class="footer-bottom">
+      <p class="footer-copyright">© 2026 Luméra Skin. All rights reserved. Skincare recommendations are for general guidance only.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<!-- Back to Top Button -->
+<button type="button" class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top" title="Scroll to top"><i class="bi bi-arrow-up"></i></button>
+</body>
+</html>

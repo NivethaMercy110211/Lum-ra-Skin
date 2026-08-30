@@ -1,0 +1,478 @@
+/* =========================================
+   Luméra Skin — Auth CSS
+   Login, Signup, Forgot Password Pages
+   ========================================= */
+
+/* ---- Auth Page Layout ---- */
+.auth-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+}
+
+/* ---- Auth Visual Panel (Image Side) ---- */
+.auth-visual {
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-visual-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(37, 40, 37, .65) 0%, rgba(96, 121, 107, .35) 100%);
+  z-index: 1;
+}
+
+.auth-visual-content {
+  position: relative;
+  z-index: 2;
+  padding: 4rem 3.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  color: #fff;
+}
+
+.auth-visual-content h3 {
+  color: #fff;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.auth-visual-content p {
+  color: rgba(255, 255, 255, .85);
+  font-size: 0.9rem;
+}
+
+.auth-visual-heading {
+  color: #ffffff;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+}
+
+/* ---- Auth Form Panel ---- */
+.auth-form-panel {
+  background: var(--bg-main);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 4rem 1.5rem 3rem;
+  min-height: 100vh;
+  height: 100%;
+  position: relative;
+  overflow-y: auto;
+  transition: background var(--transition-base);
+}
+
+/* ---- Auth Top Utilities ---- */
+.auth-top-utils {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+[dir="rtl"] .auth-top-utils {
+  right: auto;
+  left: 1.5rem;
+}
+
+/* ---- Auth Form Container ---- */
+.auth-form-container {
+  width: 100%;
+  max-width: 440px;
+  padding: 3rem 2rem;
+  margin: 0 auto;
+}
+
+.auth-title {
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.65rem;
+}
+
+@media (max-width: 576px) {
+  .auth-form-container {
+    padding: 2rem 1.25rem;
+  }
+
+  .auth-title {
+    font-size: 2rem;
+  }
+}
+
+/* ---- Auth Brand Block ---- */
+.auth-brand-mark {
+  margin-bottom: 1.5rem;
+}
+
+.auth-brand-mark .navbar-brand-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+}
+
+.auth-brand-mark .navbar-logo {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-brand-mark .navbar-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.auth-brand-mark .navbar-brand-name {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: var(--text-heading);
+  line-height: 1.1;
+  display: block;
+}
+
+.auth-brand-mark .navbar-brand-tagline {
+  font-size: 0.72rem;
+  color: var(--color-primary);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  margin-top: 0.15rem;
+  display: block;
+}
+
+/* ---- Auth Heading ---- */
+.auth-heading {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.auth-subheading {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 1.75rem;
+}
+
+/* ---- Auth Divider ---- */
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-color);
+}
+
+/* ---- Social Login Buttons ---- */
+.social-login-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.btn-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.7rem 1.25rem;
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-pill);
+  background: var(--bg-card);
+  color: var(--text-heading);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color var(--transition-fast), background var(--transition-fast), box-shadow var(--transition-fast);
+  font-family: var(--font-body);
+  text-decoration: none;
+}
+
+.btn-social:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
+  color: var(--text-heading);
+}
+
+.btn-social svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.btn-social:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ---- Auth Footer Links ---- */
+.auth-footer-links {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.auth-footer-links a {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* ---- Password Toggle ---- */
+.input-password-wrap {
+  position: relative;
+}
+
+.input-password-wrap .input-brand {
+  padding-right: 2.75rem;
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0.25rem;
+  transition: color var(--transition-fast);
+}
+
+.password-toggle-btn:hover {
+  color: var(--color-primary);
+}
+
+[dir="rtl"] .input-password-wrap .input-brand {
+  padding-right: 1rem;
+  padding-left: 2.75rem;
+}
+
+[dir="rtl"] .password-toggle-btn {
+  right: auto;
+  left: 0.75rem;
+}
+
+/* ---- Remember / Forgot Row ---- */
+.auth-form-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  margin-bottom: 1.25rem;
+}
+
+.auth-remember {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  color: var(--text-body);
+}
+
+.auth-remember input[type="checkbox"] {
+  accent-color: var(--color-primary);
+}
+
+.auth-forgot-link {
+  color: var(--color-primary);
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+
+/* ---- Strength Meter ---- */
+.password-strength {
+  height: 3px;
+  background: var(--border-color);
+  border-radius: 2px;
+  margin-top: 0.4rem;
+  overflow: hidden;
+}
+
+.password-strength-bar {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 300ms ease, background 300ms ease;
+  width: 0;
+}
+
+/* ---- Tablet Portrait & iPad Mini (768px – 991px): 2-Column Split so Image Side is 100% Fully Shown ---- */
+@media (min-width: 768px) and (max-width: 991px) {
+  .auth-page {
+    grid-template-columns: 42% 58%;
+    min-height: 100vh;
+  }
+
+  .auth-visual {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    height: 100%;
+    width: 100%;
+  }
+
+  .auth-visual-content {
+    padding: 3rem 2.25rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+  }
+
+  .auth-visual-logo {
+    justify-content: center;
+  }
+
+  .auth-visual-heading {
+    font-size: 1.55rem;
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+  }
+
+  .auth-visual-desc {
+    max-width: 280px;
+    margin-inline: auto;
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+
+  .auth-form-panel {
+    padding: 3rem 2rem 3rem;
+    min-height: 100vh;
+  }
+}
+
+/* ---- Mobile Screens (max-width: 767px): Full Content Top Section ---- */
+@media (max-width: 767px) {
+  .auth-page {
+    grid-template-columns: 1fr;
+    min-height: 100vh;
+  }
+
+  .auth-visual {
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+    height: auto;
+    width: 100%;
+  }
+
+  .auth-visual-content {
+    padding: 2.25rem 1.5rem 2rem;
+  }
+
+  .auth-visual-heading {
+    font-size: 1.35rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .auth-visual-desc {
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+
+  .auth-form-panel {
+    min-height: auto;
+    padding: 2.25rem 1.25rem 2rem;
+  }
+
+  .auth-top-utils {
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+}
+
+/* Preserve the shared brand lockup on responsive auth pages. Only the full
+   content group is vertically centered; logo, name and tagline keep their
+   normal start alignment just like the rest of the website. */
+@media (max-width: 991px) {
+  .auth-visual-content {
+    align-items: stretch !important;
+    text-align: start !important;
+  }
+
+  .auth-visual-logo {
+    width: 100%;
+    justify-content: flex-start !important;
+    text-align: start !important;
+  }
+
+  .auth-visual-logo>div {
+    min-width: 0;
+    text-align: start;
+  }
+
+  .auth-visual-logo>div>span:last-child {
+    display: block;
+    white-space: nowrap;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .auth-visual-logo>div>span:last-child {
+    font-size: 0.58rem !important;
+    letter-spacing: 0.02em !important;
+  }
+}
+
+/* Keep the auth artwork visible above the form on phones. The earlier mobile
+   declaration used an automatic row for an absolutely-positioned child,
+   which allowed the visual column to collapse to zero height. */
+@media (max-width: 767px) {
+  body .auth-page {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: 300px auto;
+  }
+
+  body .auth-page>.auth-visual {
+    display: flex !important;
+    width: 100% !important;
+    height: 300px !important;
+    min-height: 300px !important;
+    grid-row: 1;
+    visibility: visible !important;
+    opacity: 1 !important;
+    background-position: center !important;
+  }
+
+  body .auth-page>.auth-form-panel {
+    grid-row: 2;
+  }
+
+  .auth-visual-content {
+    height: 100% !important;
+    padding: 1.5rem !important;
+    justify-content: center !important;
+  }
+}

@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ingredient Transparency — Luméra Skin</title>
+  <meta name="description" content="Discover the science behind Luméra Skin's formulations. Full ingredient transparency — what we use, why we use it, and what we choose to leave out.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/filters.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/dark-theme.css">
+  <link rel="stylesheet" href="css/rtl.css">
+  <link rel="stylesheet" href="css/desktop.css">
+  <link rel="stylesheet" href="css/tablet.css">
+  <link rel="stylesheet" href="css/mobile.css">
+  <style>
+    /* Ingredient Cards */
+    .ingredients-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    @media (max-width: 1366px) {
+      .ingredients-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1.5rem !important;
+      }
+      .ingredients-grid > *:last-child:nth-child(odd) {
+        grid-column: 1 / -1 !important;
+        justify-self: center !important;
+        max-width: 480px !important;
+        width: 100% !important;
+      }
+    }
+    @media(max-width:576px) { .ingredients-grid { grid-template-columns: 1fr; } }
+
+    .ingredient-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      transition: all var(--transition-base);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .ingredient-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-card-hover);
+      border-color: rgba(96,121,107,.3);
+    }
+    .ingredient-img-wrap {
+      width: 100%;
+      height: 160px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: 0.75rem;
+      background: var(--bg-secondary);
+    }
+    .ingredient-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .ingredient-card:hover .ingredient-img-wrap img {
+      transform: scale(1.08);
+    }
+    .ingredient-card-icon {
+      width: 52px; height: 52px;
+      background: rgba(96,121,107,.1);
+      border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+      color: var(--color-primary);
+      margin-bottom: 0.25rem;
+    }
+    .ingredient-card-name {
+      min-height: 2.8em;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--text-heading);
+      text-wrap: normal;
+      overflow-wrap: break-word;
+    }
+    .ingredient-card-inci {
+      min-height: 3em;
+      font-size: 0.72rem;
+      line-height: 1.5;
+      color: var(--text-muted);
+      font-style: italic;
+      text-wrap: normal;
+      overflow-wrap: anywhere;
+    }
+    .ingredient-card-desc {
+      min-width: 0;
+      font-size: 0.85rem;
+      color: var(--text-body);
+      line-height: 1.65;
+      flex: 1;
+      text-wrap: pretty;
+      overflow-wrap: break-word;
+    }
+    .tablet-line { display: inline; }
+    .ingredient-card-tags {
+      min-height: 2em;
+      display: flex;
+      align-content: flex-start;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.5rem;
+    }
+
+    @media (min-width:577px) and (max-width:991px) {
+      .ingredient-card-desc {
+        font-size: 0.8rem;
+        line-height: 1.7;
+      }
+
+      #hero-ingredients .ingredient-card-name {
+        min-height: 1.4em;
+      }
+
+      #hero-ingredients .ingredient-card-inci {
+        min-height: 1.5em;
+      }
+
+      #hero-ingredients .ingredient-card-desc {
+        min-height: calc(1.7em * 6);
+        flex: 0 0 calc(1.7em * 6);
+      }
+
+      #hero-ingredients .ingredient-card-desc .tablet-line {
+        display: block;
+        white-space: nowrap;
+      }
+    }
+    .ingredient-card-tag {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.2em 0.6em;
+      background: rgba(96,121,107,.1);
+      color: var(--color-primary);
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(96,121,107,.2);
+    }
+    .ingredient-search-bar {
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .ingredient-search-input-wrap {
+      position: relative; flex: 1; min-width: 240px;
+    }
+    .ingredient-search-input-wrap i {
+      position: absolute; left: 0.85rem; top: 50%; transform: translateY(-50%);
+      color: var(--text-muted);
+    }
+    [dir="rtl"] .ingredient-search-input-wrap i { left: auto; right: 0.85rem; }
+    .ingredient-search-input-wrap .input-brand { padding-left: 2.5rem; }
+    [dir="rtl"] .ingredient-search-input-wrap .input-brand { padding-left: 1rem; padding-right: 2.5rem; }
+    .ingredient-filter-bar { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .ingredient-filter-btn {
+      padding: 0.4rem 1rem;
+      border: 1.5px solid var(--border-color);
+      border-radius: var(--radius-pill);
+      font-size: 0.78rem; font-weight: 500;
+      background: var(--bg-card); color: var(--text-body);
+      cursor: pointer; transition: all var(--transition-fast);
+    }
+    .ingredient-filter-btn:hover { border-color: var(--color-primary); color: var(--color-primary); }
+    .ingredient-filter-btn.active { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
+
+    @media (max-width: 991px) {
+      .ingredient-search-bar {
+        justify-content: center;
+      }
+      .ingredient-search-input-wrap,
+      .ingredient-filter-bar {
+        width: 100%;
+      }
+      .ingredient-filter-bar {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .ingredient-card-name,
+      .ingredient-card-inci,
+      .ingredient-card-tags {
+        min-height: 0;
+      }
+
+      .ingredient-filter-bar {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.6rem;
+      }
+      .ingredient-filter-btn {
+        width: 100%;
+        min-width: 0;
+        padding: 0.5rem 0.35rem;
+        text-align: center;
+        white-space: nowrap;
+      }
+    }
+
+    /* Avoid Grid */
+    .avoid-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 1fr;
+      gap: 1rem;
+    }
+    @media (max-width: 1366px) {
+      .avoid-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1.5rem !important;
+      }
+    }
+    @media (max-width: 576px) { .avoid-grid { grid-template-columns: 1fr; grid-auto-rows: auto; gap: 0.75rem; } }
+    .avoid-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.1rem;
+      display: flex; align-items: flex-start; gap: 0.75rem;
+    }
+    .avoid-card > div {
+      display: grid;
+      grid-template-rows: minmax(1.3em, auto) minmax(2.8em, auto);
+      flex: 1;
+      min-width: 0;
+    }
+    .avoid-icon { margin-top: 0.15rem; font-size: 1.1rem; color: #b94a4a; flex-shrink: 0; }
+    .avoid-name { font-size: 0.85rem; font-weight: 600; line-height: 1.3; color: var(--text-heading); }
+    .avoid-reason {
+      width: 100%;
+      max-width: 170px;
+      font-size: 0.73rem;
+      line-height: 1.4;
+      color: var(--text-muted);
+      text-wrap: balance;
+    }
+
+    /* Philosophy split */
+    .philosophy-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .philosophy-split-img { border-radius: var(--radius-xl); overflow: hidden; aspect-ratio: 4/3; }
+    .philosophy-split-img img { width:100%; height:100%; object-fit:cover; }
+    @media(max-width:768px) { .philosophy-split { grid-template-columns: 1fr; gap:2rem; } }
+    [dir="rtl"] .philosophy-split { direction:rtl; }
+  </style>
+</head>
+<body>
+<!-- NAVBAR -->
+<nav class="lumera-navbar" id="mainNavbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-brand-wrap"><div class="navbar-logo"><img src="assets/images/logo.png" alt="Luméra Skin Logo"></div><div class="navbar-brand-text"><span class="navbar-brand-name">Luméra Skin</span><span class="navbar-brand-tagline">Clarity for Your Skin. Care You Can Trust.</span></div></a>
+    <ul class="navbar-nav-center"><li><a href="index.html" class="nav-link">Home</a></li><li><a href="about.html" class="nav-link">About</a></li><li><a href="home2.html" class="nav-link">Routines</a></li><li><a href="shop.html" class="nav-link">Shop</a></li><li><a href="ingredients.html" class="nav-link active">Ingredients</a></li><li><a href="skin-type-guide.html" class="nav-link">Skin Guide</a></li><li><a href="bundle-deals.html" class="nav-link">Bundles</a></li><li><a href="contact.html" class="nav-link">Contact</a></li></ul>
+    <div class="navbar-utils"><button class="navbar-util-btn theme-toggle-btn" aria-label="Toggle dark mode"><i class="bi bi-moon theme-toggle-icon"></i></button><button class="navbar-util-btn navbar-rtl-btn rtl-toggle-btn">RTL</button><a href="login.html" class="btn-login-nav"><i class="bi bi-person"></i> Login</a><button class="navbar-mobile-toggle" id="navMobileToggle" aria-expanded="false"><i class="bi bi-list"></i></button></div>
+  </div>
+  <div class="navbar-mobile-menu" id="navMobileMenu"><a href="index.html" class="nav-link">Home</a><a href="about.html" class="nav-link">About</a><a href="home2.html" class="nav-link">Routines</a><a href="shop.html" class="nav-link">Shop</a><a href="ingredients.html" class="nav-link active">Ingredients</a><a href="skin-type-guide.html" class="nav-link">Skin Guide</a><a href="bundle-deals.html" class="nav-link">Bundles</a><a href="contact.html" class="nav-link">Contact</a><div class="mobile-utils"><button class="navbar-util-btn theme-toggle-btn"><i class="bi bi-moon theme-toggle-icon"></i></button><button class="navbar-util-btn navbar-rtl-btn rtl-toggle-btn">RTL</button><a href="login.html" class="btn-login-nav ms-auto"><i class="bi bi-person"></i> Login</a></div></div>
+</nav>
+
+<!-- PAGE BANNER -->
+<div class="page-banner" style="background-image:url('assets/images/ingrediants-banner.png'); min-height:260px;">
+  <div class="banner-overlay"></div>
+  <div class="banner-content container-brand">
+    <nav aria-label="breadcrumb"><ol class="breadcrumb" style="justify-content:center;"><li class="breadcrumb-item"><a href="index.html">Home</a></li><li class="breadcrumb-item active">Ingredients</li></ol></nav>
+    <h1 style="font-size:2.4rem; margin-bottom:0.4rem;">Ingredient Transparency</h1>
+    <p style="color:rgba(255,255,255,.85); max-width:500px; margin:0 auto;">Every ingredient, clearly explained. We believe you deserve to know exactly what goes into your skincare — and why.</p>
+  </div>
+</div>
+
+<!-- SECTION 1: PHILOSOPHY -->
+<section class="section-py" id="philosophy">
+  <div class="container-brand">
+    <div class="philosophy-split">
+      <div class="fade-up">
+        <span class="section-label">Our Approach</span>
+        <h2>Our Ingredient Philosophy</h2>
+        <div class="brand-divider"></div>
+        <p>Every ingredient in every Luméra formula is selected based on peer-reviewed evidence, safety profile and skin compatibility. We do not use ingredients for marketing appeal — only for demonstrable function.</p>
+        <p class="mt-3">Our formulations disclose all INCI names, concentrations where meaningful, and the function each ingredient serves. This page is a living document — updated whenever our formulations evolve.</p>
+        <p class="mt-3" style="font-size:0.82rem; color:var(--text-muted);">Note: Luméra products are cosmetic formulations. Ingredient descriptions reflect cosmetic function — not medical or therapeutic claims. Individual results will vary.</p>
+        <div class="mt-3 d-flex gap-2 flex-wrap">
+          <a href="shop.html" class="btn-primary-brand">Shop by Ingredient <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="philosophy-split-img fade-up" style="transition-delay:120ms">
+        <img src="assets/images/about-story.jpg" alt="Skincare scientist examining ingredient formulations in laboratory" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: INGREDIENT SEARCH + HERO INGREDIENTS -->
+<section class="section-py section-bg" id="hero-ingredients">
+  <div class="container-brand">
+    <div class="section-header text-center fade-up">
+      <span class="section-label">Core Actives</span>
+      <h2>Hero Ingredients</h2>
+      <div class="brand-divider center"></div>
+      <p>The foundation ingredients that appear across the core Luméra range.</p>
+    </div>
+    <!-- Search + Filters -->
+    <div class="ingredient-search-bar fade-up">
+      <div class="ingredient-search-input-wrap">
+        <i class="bi bi-search"></i>
+        <input type="text" id="ingredientSearch" class="input-brand" placeholder="Search ingredients..." aria-label="Search ingredients">
+      </div>
+      <div class="ingredient-filter-bar">
+        <button class="ingredient-filter-btn active" data-category="all" type="button">All</button>
+        <button class="ingredient-filter-btn" data-category="hydration" type="button">Hydration</button>
+        <button class="ingredient-filter-btn" data-category="barrier" type="button">Barrier</button>
+        <button class="ingredient-filter-btn" data-category="antioxidant" type="button">Antioxidant</button>
+        <button class="ingredient-filter-btn" data-category="exfoliant" type="button">Exfoliant</button>
+        <button class="ingredient-filter-btn" data-category="soothing" type="button">Soothing</button>
+      </div>
+    </div>
+    <div class="ingredients-grid">
+      <div class="ingredient-card fade-up" data-category="hydration" data-name="hyaluronic acid">
+        <div class="ingredient-img-wrap">
+          <img src="assets/images/ingrediant-1.png" alt="Hyaluronic Acid ingredient formula" loading="lazy">
+        </div>
+        <div class="ingredient-card-name">Hyaluronic Acid</div>
+        <div class="ingredient-card-inci">Sodium Hyaluronate</div>
+        <div class="ingredient-card-desc"><span class="tablet-line">A humectant molecule that may help draw </span><span class="tablet-line">and retain water within the skin. Luméra </span><span class="tablet-line">uses a multi-molecular-weight blend to </span><span class="tablet-line">support surface and deeper hydration. </span><span class="tablet-line">Well-tolerated across all skin types, </span><span class="tablet-line">including sensitive skin.</span></div>
+        <div class="ingredient-card-tags"><span class="ingredient-card-tag">Hydration</span><span class="ingredient-card-tag">All Skin Types</span><span class="ingredient-card-tag">AM + PM</span></div>
+      </div>
+      <div class="ingredient-card fade-up" style="transition-delay:80ms" data-category="antioxidant" data-name="niacinamide">
+        <div class="ingredient-img-wrap">
+          <img src="assets/images/ingrediant-2.png" alt="Niacinamide Vitamin B3 active ingredient" loading="lazy">
+        </div>
+        <div class="ingredient-card-name">Niacinamide</div>
+        <div class="ingredient-card-inci">Niacinamide (Vitamin B3)</div>
+        <div class="ingredient-card-desc"><span class="tablet-line">A water-soluble form of Vitamin B3 </span><span class="tablet-line">studied to support skin tone evenness, </span><span class="tablet-line">sebum balance and pore appearance. </span><span class="tablet-line">A well-researched cosmetic active, </span><span class="tablet-line">suited to oily, combination and </span><span class="tablet-line">acne-prone skin types.</span></div>
+        <div class="ingredient-card-tags"><span class="ingredient-card-tag">Clarity</span><span class="ingredient-card-tag">Oil Control</span><span class="ingredient-card-tag">AM + PM</span></div>
+      </div>
+      <div class="ingredient-card fade-up" style="transition-delay:160ms" data-category="barrier" data-name="ceramides">
+        <div class="ingredient-img-wrap">
+          <img src="assets/images/ingrediant-3.png" alt="Ceramides NP AP EOP barrier lipids" loading="lazy">
+        </div>
+        <div class="ingredient-card-name">Ceramides</div>
+        <div class="ingredient-card-inci">Ceramide NP, Ceramide AP, Ceramide EOP</div>
+        <div class="ingredient-card-desc"><span class="tablet-line">Lipid molecules naturally present in </span><span class="tablet-line">the skin's outer layer. Ceramide-based </span><span class="tablet-line">formulas may support barrier function </span><span class="tablet-line">and moisture retention, particularly </span><span class="tablet-line">for dry and sensitive skin experiencing </span><span class="tablet-line">barrier disruption.</span></div>
+        <div class="ingredient-card-tags"><span class="ingredient-card-tag">Barrier</span><span class="ingredient-card-tag">Dry Skin</span><span class="ingredient-card-tag">Sensitive</span></div>
+      </div>
+      <div class="ingredient-card fade-up" data-category="antioxidant" data-name="vitamin c">
+        <div class="ingredient-img-wrap">
+          <img src="assets/images/ingrediant-4.png" alt="Vitamin C L-Ascorbic Acid active ingredient" loading="lazy">
+        </div>
+        <div class="ingredient-card-name">Vitamin C</div>
+        <div class="ingredient-card-inci">L-Ascorbic Acid</div>
+        <div class="ingredient-card-desc"><span class="tablet-line">L-Ascorbic Acid is a widely studied </span><span class="tablet-line">form of Vitamin C. At 15%, it may </span><span class="tablet-line">support antioxidant protection and </span><span class="tablet-line">a radiant, even skin appearance. </span><span class="tablet-line">Best used in morning routines; store </span><span class="tablet-line">away from direct sunlight.</span></div>
+        <div class="ingredient-card-tags"><span class="ingredient-card-tag">Antioxidant</span><span class="ingredient-card-tag">Radiance</span><span class="ingredient-card-tag">AM Use</span></div>
+      </div>
+      <div class="ingredient-card fade-up" style="transition-delay:80ms" data-category="barrier" data-name="peptides">
+        <div class="ingredient-img-wrap">
+          <img src="assets/images/ingrediant-5.png" alt="Peptides Matrixyl 3000 amino acid chains" loading="lazy">
+        </div>
+        <div class="ingredient-card-name">Peptides</div>
+        <div class="ingredient-card-inci">Palmitoyl Tripeptide-1, Palmitoyl Tetrapeptide-7</div>
+        <div class="ingredient-card-desc"><span class="tablet-line">Short amino acid chains that support </span><span class="tablet-line">signals linked to skin firmness and </span><span class="tablet-line">resilience. Used in eye care and </span><span class="tablet-line">targeted treatment formulas, Matrixyl </span><span class="tablet-line">3000 is a studied peptide complex </span><span class="tablet-line">suited to morning and evening use.</span></div>
+        <div class="ingredient-card-tags"><span class="ingredient-card-tag">Firmness</span><span class="ingredient-card-tag">Eye Care</span><span class="ingredient-card-tag">AM + PM</span></div>
+      </div>
+      <div class="ingredient-card fade-up" style="transition-delay:160ms" data-category="barrier" data-name="squalane">
+        <div class="ingredient-img-wrap">
+          <img src="assets/images/ingrediant-6.png" alt="Plant-derived Squalane emollient ingredient" loading="lazy">
+        </div>
+        <div class="ingredient-card-name">Squalane</div>
+        <div class="ingredient-card-inci">Squalane (sugarcane-derived)</div>
+        <div class="ingredient-card-desc"><span class="tablet-line">A lightweight plant-derived emollient </span><span class="tablet-line">similar to the skin's natural squalene. </span><span class="tablet-line">It may support barrier function and </span><span class="tablet-line">softness without feeling greasy. </span><span class="tablet-line">Non-comedogenic and well-tolerated </span><span class="tablet-line">by most skin types, including sensitive.</span></div>
+        <div class="ingredient-card-tags"><span class="ingredient-card-tag">Emollient</span><span class="ingredient-card-tag">All Skin Types</span><span class="ingredient-card-tag">AM + PM</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: HYDRATION INGREDIENTS -->
+<section class="section-py" id="hydration-ingredients">
+  <div class="container-brand">
+    <div class="section-header text-center fade-up">
+      <span class="section-label">Moisture Science</span>
+      <h2>Hydration Ingredients</h2>
+      <div class="brand-divider center"></div>
+      <p>These ingredients support the skin's ability to attract, bind and retain water.</p>
+    </div>
+    <div class="ingredients-grid">
+      <div class="ingredient-card fade-up" data-category="hydration" data-name="glycerin">
+        <div class="ingredient-img-wrap">
+          <img src="assets/images/glycerin.png" alt="Pure clear Glycerin droplet formula" loading="lazy">
+        </div>
+        <div class="ingredient-card-name">Glycerin</div>
+        <div class="ingredient-card-inci">Glycerol</div>
+        <div class="ingredient-card-desc">One of the most effective and well-tolerated humectants in skincare. Glycerin draws moisture from the environment and may help maintain skin hydration throughout the day.</div>
+        <div class="ingredient-card-tags"><span class="ingredient-card-tag">Humectant</span><span class="ingredient-card-tag">All Skin Types</span></div>
+      </div>
+      <div class="ingredient-card fade-up" style="transition-delay:80ms" data-category="hydration" data-name="panthenol">
+        <div class="ingredient-img-wrap">
+          <img src="assets/images/panthenol.png" alt="Pro-Vitamin B5 Panthenol soothing gel" loading="lazy">
+        </div>
+        <div class="ingredient-card-name">Panthenol</div>
+        <div class="ingredient-card-inci">D-Panthenol (Pro-Vitamin B5)</div>
+        <div class="ingredient-card-desc">A provitamin that may help support moisture retention and skin softness. Often included in formulas designed for post-cleanse recovery, sensitive skin repair and daily barrier care.</div>
+        <div class="ingredient-card-tags"><span class="ingredient-card-tag">Hydration</span><span class="ingredient-card-tag">Soothing</span></div>
+      </div>
+      <div class="ingredient-card fade-up" style="transition-delay:160ms" data-category="hydration" data-name="beta-glucan">
+        <div class="ingredient-img-wrap">
+          <img src="assets/images/beta_glucan.png" alt="Oat Beta-Glucan polysaccharide extract" loading="lazy">
+        </div>
+        <div class="ingredient-card-name">Beta-Glucan</div>
+        <div class="ingredient-card-inci">Beta-1,3/1,6-Glucan</div>
+        <div class="ingredient-card-desc">Derived from oat or yeast, beta-glucan is a polysaccharide humectant that may help soothe and hydrate the skin. Often used in formulas for sensitive and reactive skin types.</div>
+        <div class="ingredient-card-tags"><span class="ingredient-card-tag">Soothing</span><span class="ingredient-card-tag">Sensitive Skin</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: BARRIER SUPPORT -->
+<section class="section-py section-bg" id="barrier-ingredients">
+  <div class="container-brand">
+    <div class="section-header text-center fade-up">
+      <span class="section-label">Barrier Integrity</span>
+      <h2>Barrier-Support Ingredients</h2>
+      <div class="brand-divider center"></div>
+      <p>These ingredients may help reinforce the skin's outermost protective layer.</p>
+    </div>
+    <div class="ingredients-grid">
+      <div class="ingredient-card fade-up" data-category="barrier" data-name="cholesterol">
+        <div class="ingredient-img-wrap">
+          <img src="assets/images/barrier_cholesterol.png" alt="Cholesterol lipid formula" loading="lazy">
+        </div>
+        <div class="ingredient-card-name">Cholesterol</div>
+        <div class="ingredient-card-inci">Cholesterol (plant-derived)</div>
+        <div class="ingredient-card-desc">A key lipid found naturally in the skin barrier. When combined with ceramides and fatty acids, it may support the structural integrity of the skin's outer layer and reduce transepidermal water loss.</div>
+        <div class="ingredient-card-tags"><span class="ingredient-card-tag">Barrier</span><span class="ingredient-card-tag">Dry Skin</span></div>
+      </div>
+      <div class="ingredient-card fade-up" style="transition-delay:80ms" data-category="barrier" data-name="fatty acids">
+        <div class="ingredient-img-wrap">
+          <img src="assets/images/barrier_fatty_acids.png" alt="Essential fatty acids oil drops" loading="lazy">
+        </div>
+        <div class="ingredient-card-name">Fatty Acids</div>
+        <div class="ingredient-card-inci">Linoleic Acid, Oleic Acid</div>
+        <div class="ingredient-card-desc">Essential fatty acids that may help maintain the integrity of the skin barrier and support its lipid matrix. Found naturally in many plant-derived oils used in our formulations.</div>
+        <div class="ingredient-card-tags"><span class="ingredient-card-tag">Barrier</span><span class="ingredient-card-tag">Nourishing</span></div>
+      </div>
+      <div class="ingredient-card fade-up" style="transition-delay:160ms" data-category="barrier" data-name="shea butter">
+        <div class="ingredient-img-wrap">
+          <img src="assets/images/barrier_shea_butter.png" alt="Raw organic shea butter emollient" loading="lazy">
+        </div>
+        <div class="ingredient-card-name">Shea Butter</div>
+        <div class="ingredient-card-inci">Butyrospermum Parkii Butter</div>
+        <div class="ingredient-card-desc">A rich natural emollient from the shea tree that may help support skin softness and moisture. Used in richer, PM formulations for dry and sensitive skin types and compromised barriers.</div>
+        <div class="ingredient-card-tags"><span class="ingredient-card-tag">Emollient</span><span class="ingredient-card-tag">Dry Skin</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: ANTIOXIDANTS -->
+<section class="section-py" id="antioxidants">
+  <div class="container-brand">
+    <div class="section-header text-center fade-up">
+      <span class="section-label">Environmental Defence</span>
+      <h2>Antioxidant Ingredients</h2>
+      <div class="brand-divider center"></div>
+      <p>These ingredients may help defend the skin against oxidative stress from environmental exposure.</p>
+    </div>
+    <div class="ingredients-grid">
+      <div class="ingredient-card fade-up" data-category="antioxidant" data-name="vitamin e">
+        <div class="ingredient-img-wrap">
+          <img src="assets/images/defence_vitamin_e.png" alt="Tocopherol Vitamin E golden oil drop" loading="lazy">
+        </div>
+        <div class="ingredient-card-name">Vitamin E</div>
+        <div class="ingredient-card-inci">Tocopherol</div>
+        <div class="ingredient-card-desc">A fat-soluble antioxidant that may help protect the skin from free radical damage. Works synergistically with Vitamin C. Also functions as a mild emollient and skin conditioner.</div>
+        <div class="ingredient-card-tags"><span class="ingredient-card-tag">Antioxidant</span><span class="ingredient-card-tag">AM + PM</span></div>
+      </div>
+      <div class="ingredient-card fade-up" style="transition-delay:80ms" data-category="antioxidant" data-name="green tea">
+        <div class="ingredient-img-wrap">
+          <img src="assets/images/defence_green_tea.png" alt="Camellia sinensis green tea leaf extract" loading="lazy">
+        </div>
+        <div class="ingredient-card-name">Green Tea Extract</div>
+        <div class="ingredient-card-inci">Camellia Sinensis Leaf Extract</div>
+        <div class="ingredient-card-desc">Rich in polyphenols (EGCG), green tea extract may provide antioxidant support and has a skin-soothing profile. Used in formulas where environmental resilience and calm are combined.</div>
+        <div class="ingredient-card-tags"><span class="ingredient-card-tag">Antioxidant</span><span class="ingredient-card-tag">Soothing</span></div>
+      </div>
+      <div class="ingredient-card fade-up" style="transition-delay:160ms" data-category="antioxidant" data-name="resveratrol">
+        <div class="ingredient-img-wrap">
+          <img src="assets/images/defence_resveratrol.png" alt="Resveratrol red grape serum drop" loading="lazy">
+        </div>
+        <div class="ingredient-card-name">Resveratrol</div>
+        <div class="ingredient-card-inci">Resveratrol (plant-derived)</div>
+        <div class="ingredient-card-desc">A polyphenol antioxidant found in certain plants. Research suggests it may support the skin's antioxidant defences against environmental stressors. Used in targeted treatment formulations.</div>
+        <div class="ingredient-card-tags"><span class="ingredient-card-tag">Antioxidant</span><span class="ingredient-card-tag">PM Use</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6: EXFOLIATING INGREDIENTS -->
+<section class="section-py section-bg" id="exfoliants">
+  <div class="container-brand">
+    <div class="section-header text-center fade-up">
+      <span class="section-label">Gentle Renewal</span>
+      <h2>Exfoliating Ingredients</h2>
+      <div class="brand-divider center"></div>
+      <p>Used at appropriate concentrations to support skin renewal without compromising barrier integrity.</p>
+    </div>
+    <div class="ingredients-grid">
+      <div class="ingredient-card fade-up" data-category="exfoliant" data-name="lactic acid">
+        <div class="ingredient-img-wrap">
+          <img src="assets/images/renewal_lactic_acid.png" alt="Lactic acid AHA liquid drop" loading="lazy">
+        </div>
+        <div class="ingredient-card-name">Lactic Acid</div>
+        <div class="ingredient-card-inci">Lactic Acid (AHA)</div>
+        <div class="ingredient-card-desc">A gentle alpha-hydroxy acid (AHA) derived from fermentation. At concentrations of 5–10%, it may support surface-level exfoliation and skin texture improvement. Well-suited to beginners and sensitive skin types compared to stronger AHAs.</div>
+        <div class="ingredient-card-tags"><span class="ingredient-card-tag">AHA</span><span class="ingredient-card-tag">Gentle</span><span class="ingredient-card-tag">PM Use</span></div>
+      </div>
+      <div class="ingredient-card fade-up" style="transition-delay:80ms" data-category="exfoliant" data-name="salicylic acid">
+        <div class="ingredient-img-wrap">
+          <img src="assets/images/renewal_salicylic_acid.png" alt="Salicylic acid BHA clear drop" loading="lazy">
+        </div>
+        <div class="ingredient-card-name">Salicylic Acid</div>
+        <div class="ingredient-card-inci">Salicylic Acid (BHA)</div>
+        <div class="ingredient-card-desc">A beta-hydroxy acid (BHA) that is oil-soluble, allowing it to penetrate into pores. At 1–2%, it may support clearer-looking skin and is commonly used in formulas for oily and breakout-prone skin types and targeted evening routines.</div>
+        <div class="ingredient-card-tags"><span class="ingredient-card-tag">BHA</span><span class="ingredient-card-tag">Oily Skin</span><span class="ingredient-card-tag">PM Use</span></div>
+      </div>
+      <div class="ingredient-card fade-up" style="transition-delay:160ms" data-category="exfoliant" data-name="mandelic acid">
+        <div class="ingredient-img-wrap">
+          <img src="assets/images/renewal_mandelic_acid.png" alt="Mandelic acid almond AHA extract" loading="lazy">
+        </div>
+        <div class="ingredient-card-name">Mandelic Acid</div>
+        <div class="ingredient-card-inci">Mandelic Acid (AHA)</div>
+        <div class="ingredient-card-desc">A larger-molecule AHA derived from bitter almonds. Its slower absorption rate makes it suitable for sensitive skin types seeking the benefits of chemical exfoliation with a lower irritation profile during regular use and ongoing care over time.</div>
+        <div class="ingredient-card-tags"><span class="ingredient-card-tag">AHA</span><span class="ingredient-card-tag">Sensitive</span><span class="ingredient-card-tag">PM Use</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7: INGREDIENTS WE AVOID -->
+<section class="section-py" id="avoid">
+  <div class="container-brand">
+    <div class="section-header text-center fade-up">
+      <span class="section-label">Our Exclusion List</span>
+      <h2>Ingredients We Choose Not to Use</h2>
+      <div class="brand-divider center"></div>
+      <p>Luméra maintains a clear list of ingredients we exclude — based on current evidence, known sensitisation risk, or lack of demonstrated benefit. This list is reviewed regularly.</p>
+    </div>
+    <div class="avoid-grid">
+      <div class="avoid-card fade-up"><i class="bi bi-x-circle-fill avoid-icon"></i><div><div class="avoid-name">Parabens</div><div class="avoid-reason">Potential endocrine disruption concerns</div></div></div>
+      <div class="avoid-card fade-up" style="transition-delay:60ms"><i class="bi bi-x-circle-fill avoid-icon"></i><div><div class="avoid-name">Synthetic Fragrances</div><div class="avoid-reason">Common sensitiser — especially for reactive skin</div></div></div>
+      <div class="avoid-card fade-up" style="transition-delay:120ms"><i class="bi bi-x-circle-fill avoid-icon"></i><div><div class="avoid-name">SLS / SLES</div><div class="avoid-reason">Potential irritant in repeated-use cleansers</div></div></div>
+      <div class="avoid-card fade-up" style="transition-delay:180ms"><i class="bi bi-x-circle-fill avoid-icon"></i><div><div class="avoid-name">Formaldehyde Releasers</div><div class="avoid-reason">Known sensitisers — DMDM Hydantoin, IPBC</div></div></div>
+      <div class="avoid-card fade-up" style="transition-delay:0ms"><i class="bi bi-x-circle-fill avoid-icon"></i><div><div class="avoid-name">Mineral Oil (heavy)</div><div class="avoid-reason">Occlusive without added skin benefit</div></div></div>
+      <div class="avoid-card fade-up" style="transition-delay:60ms"><i class="bi bi-x-circle-fill avoid-icon"></i><div><div class="avoid-name">Artificial Dyes</div><div class="avoid-reason">No benefit — potential sensitiser</div></div></div>
+      <div class="avoid-card fade-up" style="transition-delay:120ms"><i class="bi bi-x-circle-fill avoid-icon"></i><div><div class="avoid-name">Oxybenzone (chemical SPF)</div><div class="avoid-reason">Environmental and potential systemic concerns</div></div></div>
+      <div class="avoid-card fade-up" style="transition-delay:180ms"><i class="bi bi-x-circle-fill avoid-icon"></i><div><div class="avoid-name">Undisclosed Blends</div><div class="avoid-reason">We disclose all actives by INCI name</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 8: CTA -->
+<section class="cta-section" style="background-image:url('assets/images/ingrediant-cta.png');" aria-label="Ingredient transparency CTA">
+  <div class="overlay-dark"></div>
+  <div class="cta-inner fade-up">
+    <span class="section-label" style="color:rgba(255,255,255,.7)">Complete Transparency</span>
+    <h2 style="font-size:clamp(1.8rem,4vw,3rem); margin:0.75rem 0 1rem;">Understand What Goes Into Your Skincare</h2>
+    <p style="max-width:520px; margin:0 auto 2rem; opacity:.9;">Every Luméra formula is backed by transparent ingredient disclosure. Shop with full confidence in what you're applying to your skin.</p>
+    <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+      <a href="shop.html" class="btn-primary-brand">Shop Now <i class="bi bi-arrow-right"></i></a>
+      <a href="contact.html" class="btn-outline-brand" style="border-color:rgba(255,255,255,.7); color:#fff !important;">Book Consultation</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="lumera-footer" aria-label="Site footer">
+  <div class="container-brand">
+    <div class="footer-grid">
+      <!-- Brand -->
+      <div class="footer-brand-col">
+        <a href="index.html" class="footer-logo-wrap" aria-label="Luméra Skin Home">
+          <div class="footer-logo" aria-hidden="true">
+            <img src="assets/images/logo.png" alt="Luméra Skin Logo">
+          </div>
+          <span class="footer-brand-name">Luméra Skin</span>
+        </a>
+        <p class="footer-tagline">Clarity for Your Skin. Care You Can Trust.<br>Science-backed formulations for your daily rituals.</p>
+        <div class="footer-social" aria-label="Social media links">
+          <a href="#" class="social-icon-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-icon-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="social-icon-btn" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+          <a href="#" class="social-icon-btn" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+      <!-- Shop -->
+      <div>
+        <span class="footer-col-title">Shop</span>
+        <ul class="footer-nav-list">
+          <li><a href="shop.html">All Products</a></li>
+          <li><a href="bundle-deals.html">Routine Bundles</a></li>
+          <li><a href="shop.html?category=serums">Best Sellers</a></li>
+          <li><a href="shop.html?sort=newest">New Releases</a></li>
+        </ul>
+      </div>
+      <!-- Learn -->
+      <div>
+        <span class="footer-col-title">Learn</span>
+        <ul class="footer-nav-list">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="ingredients.html">Ingredient Library</a></li>
+          <li><a href="skin-type-guide.html">Skin Type Guide</a></li>
+          <li><a href="home2.html">Daily Routines</a></li>
+        </ul>
+      </div>
+      <!-- Support -->
+      <div>
+        <span class="footer-col-title">Support</span>
+        <ul class="footer-nav-list">
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="contact.html#faq">Help & FAQ</a></li>
+          <li><a href="contact.html#shipping">Shipping Policy</a></li>
+          <li><a href="contact.html#returns">Returns & Guarantee</a></li>
+        </ul>
+      </div>
+      <!-- Newsletter -->
+      <div>
+        <span class="footer-col-title">Newsletter</span>
+        <form data-lumera-form aria-label="Newsletter signup">
+          <div class="newsletter-input-wrap">
+            <input type="email" class="input-brand" placeholder="Your email address" required>
+            <button type="submit" class="newsletter-submit-btn">Subscribe</button>
+          </div>
+          <div class="form-success-msg mt-2" style="display:none;">Thank you for subscribing!</div>
+        </form>
+      </div>
+    </div>
+    <!-- Bottom Bar -->
+    <div class="footer-bottom">
+      <p class="footer-copyright">© 2026 Luméra Skin. All rights reserved. Skincare recommendations are for general guidance only.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/shop.js"></script>
+<!-- Back to Top Button -->
+<button type="button" class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top" title="Scroll to top"><i class="bi bi-arrow-up"></i></button>
+</body>
+</html>

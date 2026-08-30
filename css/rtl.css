@@ -1,0 +1,515 @@
+/* =========================================
+   Luméra Skin — RTL CSS
+   Right-to-Left layout direction overrides
+   ========================================= */
+
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+/* ---- Navbar RTL ---- */
+[dir="rtl"] .lumera-navbar {
+  direction: rtl;
+}
+
+[dir="rtl"] .navbar-inner {
+  direction: ltr;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 0 1.5rem;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+[dir="rtl"] .navbar-brand-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  direction: ltr;
+  flex-direction: row-reverse;
+  text-align: right;
+  flex-shrink: 0;
+  order: 3;
+}
+
+[dir="rtl"] .navbar-logo {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+}
+
+[dir="rtl"] .navbar-brand-text {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+[dir="rtl"] .navbar-brand-name {
+  text-align: right;
+  white-space: nowrap;
+}
+
+[dir="rtl"] .navbar-brand-tagline {
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Center Nav links aligned to the right side next to brand */
+[dir="rtl"] .navbar-nav-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  direction: ltr;
+  flex-direction: row-reverse;
+  flex-grow: 1;
+  order: 2;
+}
+
+/* Nav Utils aligned on the far left side */
+[dir="rtl"] .navbar-utils {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.6rem;
+  direction: ltr;
+  flex-direction: row;
+  flex-shrink: 0;
+  order: 1;
+}
+
+[dir="rtl"] .nav-dropdown-menu {
+  right: 0;
+  left: auto;
+  text-align: right;
+}
+
+/* Use the compact navigation through 1024px. The full RTL navigation and
+   utility group cannot fit safely at iPad Pro / small-laptop widths. */
+@media (max-width: 1100px) {
+  [dir="rtl"] .navbar-inner {
+    position: relative;
+    display: flex;
+    direction: rtl;
+    justify-content: initial;
+    padding: 0 1.25rem;
+  }
+  [dir="rtl"] .navbar-brand-wrap {
+    position: absolute;
+    right: 1.25rem;
+    left: auto;
+    order: initial;
+    flex-direction: row-reverse;
+    text-align: right;
+    max-width: calc(100% - 5.5rem);
+  }
+  [dir="rtl"] .navbar-brand-text,
+  [dir="rtl"] .navbar-brand-name,
+  [dir="rtl"] .navbar-brand-tagline { text-align: right; }
+  [dir="rtl"] .navbar-utils {
+    position: absolute;
+    left: 1.25rem;
+    right: auto;
+    order: initial;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  [dir="rtl"] .navbar-nav-center {
+    display: none;
+  }
+
+  [dir="rtl"] .navbar-mobile-toggle {
+    display: flex;
+  }
+
+  [dir="rtl"] .navbar-utils > .theme-toggle-btn,
+  [dir="rtl"] .navbar-utils > .rtl-toggle-btn,
+  [dir="rtl"] .navbar-utils .btn-login-nav {
+    display: none;
+  }
+
+  [dir="rtl"] .navbar-mobile-menu .mobile-utils .theme-toggle-btn,
+  [dir="rtl"] .navbar-mobile-menu .mobile-utils .rtl-toggle-btn,
+  [dir="rtl"] .navbar-mobile-menu .mobile-utils .btn-login-nav {
+    display: inline-flex;
+  }
+
+  [dir="rtl"] .navbar-mobile-menu,
+  [dir="rtl"] .navbar-mobile-menu .nav-link { text-align: right; }
+  [dir="rtl"] .navbar-mobile-menu .mobile-utils {
+    direction: rtl;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 576px) {
+  [dir="rtl"] .navbar-inner {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  [dir="rtl"] .navbar-brand-wrap {
+    right: 1rem;
+    max-width: calc(100% - 5rem);
+  }
+
+  [dir="rtl"] .navbar-utils {
+    left: 1rem;
+  }
+
+  [dir="rtl"] .navbar-brand-text {
+    min-width: 0;
+  }
+
+  [dir="rtl"] .navbar-brand-name,
+  [dir="rtl"] .navbar-brand-tagline {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  [dir="rtl"] .hero-cta-group {
+    align-items: stretch;
+  }
+
+  [dir="rtl"] .footer-brand-col {
+    align-items: flex-end;
+  }
+}
+
+/* ---- Hero RTL ---- */
+[dir="rtl"] .hero-content {
+  text-align: right;
+}
+
+[dir="rtl"] .hero-cta-group {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+/* ---- Section Headers ---- */
+[dir="rtl"] .section-header {
+  text-align: right;
+}
+
+[dir="rtl"] .section-header.text-center {
+  text-align: center;
+}
+
+[dir="rtl"] .brand-divider {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+[dir="rtl"] .brand-divider.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---- Footer RTL ---- */
+[dir="rtl"] .lumera-footer {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .footer-grid {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .footer-brand-col {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+[dir="rtl"] .footer-logo-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  direction: rtl;
+}
+
+[dir="rtl"] .footer-brand-name {
+  text-align: right;
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+[dir="rtl"] .footer-tagline {
+  text-align: right;
+  margin-right: 0;
+  margin-left: auto;
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+[dir="rtl"] .footer-col-title {
+  text-align: right;
+}
+
+[dir="rtl"] .footer-nav-list {
+  padding-right: 0;
+  padding-left: 0;
+  text-align: right;
+}
+
+[dir="rtl"] .footer-social {
+  display: flex;
+  flex-direction: row;
+  gap: 0.65rem;
+  justify-content: flex-start;
+  margin-top: 0.75rem;
+  direction: rtl;
+}
+
+[dir="rtl"] .footer-bottom {
+  direction: rtl;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: right;
+}
+
+[dir="rtl"] .footer-copyright,
+[dir="rtl"] .footer-bottom-copy {
+  direction: ltr;
+  unicode-bidi: isolate;
+  text-align: right;
+}
+
+[dir="rtl"] .footer-bottom-links {
+  display: flex;
+  gap: 1.25rem;
+  direction: rtl;
+}
+
+/* ---- Products ---- */
+[dir="rtl"] .product-badges {
+  left: auto;
+  right: 0.75rem;
+}
+
+[dir="rtl"] .product-footer {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .product-meta {
+  justify-content: flex-end;
+}
+
+[dir="rtl"] .products-horizontal {
+  flex-direction: row-reverse;
+}
+
+/* ---- Filters ---- */
+[dir="rtl"] .filter-sidebar {
+  direction: rtl;
+}
+
+[dir="rtl"] .active-filters-bar {
+  direction: rtl;
+}
+
+[dir="rtl"] .clear-all-filters {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+[dir="rtl"] .filter-options {
+  text-align: right;
+}
+
+[dir="rtl"] .filter-option {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .filter-tag {
+  direction: rtl;
+}
+
+[dir="rtl"] .active-filter-chip {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .sort-select {
+  background-position: left 0.75rem center;
+  padding-right: 1rem;
+  padding-left: 2.5rem;
+  text-align: right;
+}
+
+/* ---- Forms RTL ---- */
+[dir="rtl"] .select-brand {
+  background-position: left 1rem center;
+  padding-right: 1rem;
+  padding-left: 2.5rem;
+  text-align: right;
+}
+
+[dir="rtl"] .radio-group,
+[dir="rtl"] .check-group {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .form-row-two {
+  direction: rtl;
+}
+
+[dir="rtl"] .newsletter-input-wrap {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .label-brand .required {
+  margin-left: 0;
+  margin-right: 0.2em;
+}
+
+/* ---- Auth RTL ---- */
+[dir="rtl"] .auth-page {
+  direction: rtl;
+}
+
+[dir="rtl"] .auth-top-utils {
+  right: auto;
+  left: 1.25rem;
+}
+
+[dir="rtl"] .input-password-wrap .input-brand {
+  padding-right: 1rem;
+  padding-left: 2.75rem;
+}
+
+[dir="rtl"] .password-toggle-btn {
+  right: auto;
+  left: 0.75rem;
+}
+
+[dir="rtl"] .auth-form-meta {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .auth-remember {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .social-login-buttons {
+  direction: rtl;
+}
+
+/* ---- Quiz RTL ---- */
+[dir="rtl"] .quiz-options {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .quiz-navigation {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .quiz-progress-steps {
+  flex-direction: row-reverse;
+}
+
+/* ---- Ingredient RTL ---- */
+[dir="rtl"] .ingredient-filter-bar {
+  flex-direction: row-reverse;
+}
+
+/* ---- Skin Type RTL ---- */
+[dir="rtl"] .skin-type-tabs {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .skin-type-content {
+  text-align: right;
+}
+
+[dir="rtl"] .skin-type-list {
+  padding-right: 0;
+  padding-left: 1rem;
+}
+
+/* ---- Bundle RTL ---- */
+[dir="rtl"] .bundle-products-list {
+  direction: rtl;
+}
+
+[dir="rtl"] .bundle-savings-badge {
+  left: auto;
+  right: 1rem;
+}
+
+/* ---- Step Numbers RTL ---- */
+[dir="rtl"] .routine-step {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .routine-step-content {
+  text-align: right;
+}
+
+/* ---- FAQ RTL ---- */
+[dir="rtl"] .faq-question {
+  flex-direction: row-reverse;
+}
+
+/* ---- Breadcrumb RTL ---- */
+[dir="rtl"] .breadcrumb {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .breadcrumb-item+.breadcrumb-item::before {
+  content: "\2039";
+  margin-right: 0.3rem;
+  margin-left: 0;
+}
+
+/* ---- Testimonials RTL ---- */
+[dir="rtl"] .testimonial-card {
+  text-align: right;
+}
+
+[dir="rtl"] .testimonial-author {
+  flex-direction: row-reverse;
+}
+
+/* ---- Category Tags RTL ---- */
+[dir="rtl"] .shop-tags {
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+}
+
+/* ---- Icon adjustments (flip icons that have direction) ---- */
+[dir="rtl"] .bi-arrow-right::before {
+  content: "\f12f";
+}
+
+/* arrow-left */
+[dir="rtl"] .bi-arrow-left::before {
+  content: "\f138";
+}
+
+/* arrow-right */
+[dir="rtl"] .bi-chevron-right::before {
+  content: "\f284";
+}
+
+/* chevron-left */
+[dir="rtl"] .bi-chevron-left::before {
+  content: "\f285";
+}
+
+/* chevron-right */

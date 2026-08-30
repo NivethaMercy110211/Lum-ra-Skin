@@ -1,0 +1,111 @@
+/* =========================================
+   Luméra Skin — Desktop CSS
+   Large screen layout enhancements (1440px+)
+   ========================================= */
+
+@media (min-width: 1440px) {
+  .container-brand {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .navbar-inner {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  h1 {
+    font-size: 4.2rem;
+  }
+
+  h2 {
+    font-size: 3.2rem;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .section-py {
+    padding-top: 96px;
+    padding-bottom: 96px;
+  }
+
+  /* Hero — more generous */
+  .home-hero {
+    min-height: 680px;
+  }
+
+  .hero-content h1 {
+    font-size: 4.5rem;
+  }
+
+  /* Wider product cards */
+  .product-img-wrap {
+    min-height: 320px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .container-brand {
+    max-width: 1520px;
+  }
+}
+
+/* =========================================
+   Shared — 1024px (iPad Pro / Laptop)
+   ========================================= */
+
+@media (max-width: 1199px) {
+  .container-brand {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+  .section-py {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2.4rem;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem 2.5rem;
+  }
+
+  .filter-sidebar {
+    top: 76px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container-brand {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .navbar-inner {
+    padding: 0 24px;
+  }
+
+  .hero-editorial {
+    flex-direction: column;
+  }
+
+  .section-py {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+}

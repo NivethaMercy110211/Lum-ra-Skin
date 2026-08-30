@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Luméra Skin — Our Philosophy & Story</title>
+  <meta name="description"
+    content="Learn about Luméra Skin — our founding philosophy, ingredient commitments, and what drives our belief in science-informed, transparent skincare.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/dark-theme.css">
+  <link rel="stylesheet" href="css/rtl.css">
+  <link rel="stylesheet" href="css/desktop.css">
+  <link rel="stylesheet" href="css/tablet.css">
+  <link rel="stylesheet" href="css/mobile.css">
+  <style>
+    /* Story split */
+    .about-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    @media(max-width:768px) {
+      .about-split {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    [dir="rtl"] .about-split {
+      direction: rtl;
+    }
+
+    .about-split-img {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+
+    .about-split-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Stats */
+    .about-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    @media(max-width:768px) {
+      .about-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.25rem;
+      text-align: center;
+      transition: all var(--transition-base);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-card-hover);
+    }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      line-height: 1;
+      margin-bottom: 0.85rem;
+    }
+
+    .stat-label {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    /* Values — Split Layout */
+    .values-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    @media (max-width: 991px) {
+      .values-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    .values-left-img {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-md);
+      height: 100%;
+      min-height: 420px;
+    }
+
+    .values-left-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .values-right-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    @media (max-width: 576px) {
+      .values-right-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .value-card {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      transition: all var(--transition-base);
+    }
+
+    .value-card:hover {
+      transform: translateX(4px);
+      border-color: rgba(96, 121, 107, .3);
+    }
+
+    [dir="rtl"] .value-card:hover {
+      transform: translateX(-4px);
+    }
+
+    .value-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(96, 121, 107, .1);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: var(--color-primary);
+      flex-shrink: 0;
+    }
+
+    .value-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin-bottom: 0.3rem;
+    }
+
+    .value-desc {
+      font-size: 0.82rem;
+      color: var(--text-body);
+      line-height: 1.65;
+    }
+
+    /* Timeline with Background Image */
+    #timeline {
+      position: relative;
+      background-image: url('assets/images/our-journey-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: scroll;
+      color: #ffffff;
+      overflow: hidden;
+    }
+
+    #timeline::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(15, 18, 16, 0.75) 0%, rgba(15, 18, 16, 0.88) 100%);
+      z-index: 1;
+    }
+
+    #timeline .container-brand {
+      position: relative;
+      z-index: 2;
+    }
+
+    #timeline .section-label {
+      color: #c5d8cd !important;
+    }
+
+    #timeline h2 {
+      color: #ffffff !important;
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 1.25rem;
+      align-items: stretch;
+      position: relative;
+    }
+
+    .timeline-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+      width: 24px;
+    }
+
+    .timeline-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #c5d8cd;
+      border: 3px solid #171b18;
+      box-shadow: 0 0 0 2px #c5d8cd;
+      flex-shrink: 0;
+      margin-top: 1rem;
+      z-index: 2;
+    }
+
+    .timeline-line {
+      flex: 1;
+      width: 2px;
+      background: #c5d8cd;
+      opacity: 0.4;
+      margin-top: 4px;
+    }
+
+    .timeline-content {
+      flex: 1;
+      padding-bottom: 0.5rem;
+    }
+
+    .timeline-card {
+      background: rgba(23, 27, 24, 0.78);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: var(--radius-lg);
+      padding: 1.35rem 1.6rem;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+      transition: all var(--transition-base);
+    }
+
+    .timeline-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.35);
+      background: rgba(30, 35, 31, 0.88);
+      box-shadow: 0 16px 44px rgba(0, 0, 0, 0.5);
+    }
+
+    .timeline-year {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #e2ba84;
+      margin-bottom: 0.35rem;
+    }
+
+    .timeline-event {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.45rem;
+    }
+
+    .timeline-detail {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.92);
+      line-height: 1.65;
+    }
+
+    /* Team grid */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+
+    @media(max-width:991px) {
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media(max-width:576px) {
+      .team-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .team-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: all var(--transition-base);
+      text-align: center;
+    }
+
+    .team-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-card-hover);
+    }
+
+    .team-avatar {
+      width: 100%;
+      aspect-ratio: 1/1;
+      overflow: hidden;
+      background: var(--bg-secondary);
+    }
+
+    .team-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      transition: transform 400ms ease;
+    }
+
+    .team-card:hover .team-avatar img {
+      transform: scale(1.06);
+    }
+
+    .team-info {
+      padding: 1rem;
+    }
+
+    .team-name {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text-heading);
+    }
+
+    .team-role {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <nav class="lumera-navbar" id="mainNavbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-brand-wrap">
+        <div class="navbar-logo"><img src="assets/images/logo.png" alt="Luméra Skin Logo"></div>
+        <div class="navbar-brand-text"><span class="navbar-brand-name">Luméra Skin</span><span
+            class="navbar-brand-tagline">Clarity for Your Skin. Care You Can Trust.</span></div>
+      </a>
+      <ul class="navbar-nav-center">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link active">About</a></li>
+        <li><a href="home2.html" class="nav-link">Routines</a></li>
+        <li><a href="shop.html" class="nav-link">Shop</a></li>
+        <li><a href="ingredients.html" class="nav-link">Ingredients</a></li>
+        <li><a href="skin-type-guide.html" class="nav-link">Skin Guide</a></li>
+        <li><a href="bundle-deals.html" class="nav-link">Bundles</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="navbar-utils"><button class="navbar-util-btn theme-toggle-btn" aria-label="Toggle dark mode"><i
+            class="bi bi-moon theme-toggle-icon"></i></button><button
+          class="navbar-util-btn navbar-rtl-btn rtl-toggle-btn">RTL</button><a href="login.html"
+          class="btn-login-nav"><i class="bi bi-person"></i> Login</a><button class="navbar-mobile-toggle"
+          id="navMobileToggle" aria-expanded="false"><i class="bi bi-list"></i></button></div>
+    </div>
+    <div class="navbar-mobile-menu" id="navMobileMenu"><a href="index.html" class="nav-link">Home</a><a
+        href="about.html" class="nav-link active">About</a><a href="home2.html" class="nav-link">Routines</a><a
+        href="shop.html" class="nav-link">Shop</a><a href="ingredients.html" class="nav-link">Ingredients</a><a
+        href="skin-type-guide.html" class="nav-link">Skin Guide</a><a href="bundle-deals.html"
+        class="nav-link">Bundles</a><a href="contact.html" class="nav-link">Contact</a>
+      <div class="mobile-utils"><button class="navbar-util-btn theme-toggle-btn"><i
+            class="bi bi-moon theme-toggle-icon"></i></button><button
+          class="navbar-util-btn navbar-rtl-btn rtl-toggle-btn">RTL</button><a href="login.html"
+          class="btn-login-nav ms-auto"><i class="bi bi-person"></i> Login</a></div>
+    </div>
+  </nav>
+
+  <!-- PAGE BANNER -->
+  <div class="page-banner" style="background-image:url('assets/images/about-banner.png'); min-height:280px;">
+    <div class="banner-overlay"></div>
+    <div class="banner-content container-brand">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb" style="justify-content:center;">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active">About Us</li>
+        </ol>
+      </nav>
+      <h1 style="font-size:2.5rem; margin-bottom:0.4rem;">Our Story</h1>
+      <p
+        style="color:rgba(255,255,255,.85); max-width:520px; margin:0 auto; font-style:italic; font-family:var(--font-display); font-size:1.15rem;">
+        "We started Luméra because we believed the skincare industry owed its customers more clarity."</p>
+    </div>
+  </div>
+
+  <!-- SECTION 1: FOUNDING STORY -->
+  <section class="section-py" id="story">
+    <div class="container-brand">
+      <div class="about-split">
+        <div class="fade-up">
+          <span class="section-label">Our Founding</span>
+          <h2>Built on the Belief That Skincare Should Be Honest</h2>
+          <div class="brand-divider"></div>
+          <p>Luméra Skin was founded in 2021 by a team of formulation chemists and clinical skincare practitioners who
+            were tired of vague ingredient labels, unsupported claims and confusing product choices.</p>
+          <p class="mt-3">We believed then — and still believe — that customers deserve to know exactly what they're
+            applying to their skin. Not just the ingredient name, but the function it serves, the concentration it's
+            included at, and the evidence behind it.</p>
+          <p class="mt-3">The name "Luméra" draws from the Latin <em>lumen</em> — meaning light. We use it as a metaphor
+            for clarity: in our formulations, in our communication, and in our relationship with our customers.</p>
+        </div>
+        <div class="about-split-img fade-up" style="transition-delay:120ms">
+          <img src="assets/images/our_funding.png"
+            alt="Luméra Skin founders reviewing formulations in a clean laboratory setting" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: BRAND STATS -->
+  <section class="section-py section-bg" id="impact">
+    <div class="container-brand">
+      <div class="section-header text-center fade-up">
+        <span class="section-label">By the Numbers</span>
+        <h2>Luméra Skin Today</h2>
+        <div class="brand-divider center"></div>
+      </div>
+      <div class="about-stats-grid">
+        <div class="stat-card fade-up" style="transition-delay:0ms">
+          <div class="stat-number">36+</div>
+          <div class="stat-label">Products in the range</div>
+        </div>
+        <div class="stat-card fade-up" style="transition-delay:80ms">
+          <div class="stat-number">4.9★</div>
+          <div class="stat-label">Average product rating</div>
+        </div>
+        <div class="stat-card fade-up" style="transition-delay:160ms">
+          <div class="stat-number">24k+</div>
+          <div class="stat-label">Verified customer reviews</div>
+        </div>
+        <div class="stat-card fade-up" style="transition-delay:240ms">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Full INCI disclosure on all products</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: VALUES -->
+  <section class="section-py" id="values">
+    <div class="container-brand">
+      <div class="section-header text-center fade-up">
+        <span class="section-label">What We Stand For</span>
+        <h2>Our Core Values</h2>
+        <div class="brand-divider center"></div>
+        <p>These principles shape every formulation decision, every ingredient choice and every customer interaction at
+          Luméra Skin.</p>
+      </div>
+      <div class="values-wrapper">
+        <div class="values-left-img fade-up">
+          <img src="assets/images/what-we-stand-for.jpg"
+            alt="What We Stand For — Luméra Skin Brand Values & Scientific Transparency" loading="lazy">
+        </div>
+        <div class="values-right-grid">
+          <div class="value-card fade-up" style="transition-delay:0ms">
+            <div class="value-icon"><i class="bi bi-eyeglasses"></i></div>
+            <div>
+              <div class="value-title">Radical Transparency</div>
+              <div class="value-desc">Every ingredient disclosed. Every function explained. No proprietary blends or hidden actives.</div>
+            </div>
+          </div>
+          <div class="value-card fade-up" style="transition-delay:80ms">
+            <div class="value-icon"><i class="bi bi-journal-check"></i></div>
+            <div>
+              <div class="value-title">Evidence-Informed</div>
+              <div class="value-desc">Ingredient selections guided by peer-reviewed research and used at studied clinical concentrations.</div>
+            </div>
+          </div>
+          <div class="value-card fade-up" style="transition-delay:160ms">
+            <div class="value-icon"><i class="bi bi-shield-check"></i></div>
+            <div>
+              <div class="value-title">Independent Review</div>
+              <div class="value-desc">Formulations independently reviewed by qualified external dermatologists before release.</div>
+            </div>
+          </div>
+          <div class="value-card fade-up" style="transition-delay:240ms">
+            <div class="value-icon"><i class="bi bi-person-check"></i></div>
+            <div>
+              <div class="value-title">Skin-Type Specificity</div>
+              <div class="value-desc">Targeted formulas designed to support individuals' actual skin behavior and needs.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: JOURNEY / TIMELINE -->
+  <section class="section-py" id="timeline">
+    <div class="container-brand">
+      <div class="section-header text-center fade-up">
+        <span class="section-label">Our Journey</span>
+        <h2>From Concept to Collection</h2>
+        <div class="brand-divider center"></div>
+      </div>
+      <div style="max-width:620px; margin:0 auto;">
+        <div class="timeline">
+          <div class="timeline-item fade-up">
+            <div class="timeline-left">
+              <div class="timeline-dot"></div>
+              <div class="timeline-line"></div>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-card">
+                <div class="timeline-year">2021</div>
+                <div class="timeline-event">Luméra Skin Founded</div>
+                <div class="timeline-detail">Started by a team of formulators, dermatologists and ingredient scientists with a shared belief in transparency.</div>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item fade-up" style="transition-delay:80ms">
+            <div class="timeline-left">
+              <div class="timeline-dot"></div>
+              <div class="timeline-line"></div>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-card">
+                <div class="timeline-year">2022</div>
+                <div class="timeline-event">Core Serum Range Launched</div>
+                <div class="timeline-detail">Our Hyaluronic Acid, Niacinamide and Vitamin C serums became the foundation of the range — all receiving independent dermatological review.</div>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item fade-up" style="transition-delay:160ms">
+            <div class="timeline-left">
+              <div class="timeline-dot"></div>
+              <div class="timeline-line"></div>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-card">
+                <div class="timeline-year">2023</div>
+                <div class="timeline-event">Ingredient Transparency Platform Launched</div>
+                <div class="timeline-detail">We became one of the first skincare brands to publish full INCI names, concentrations and functions for every formulation.</div>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item fade-up" style="transition-delay:240ms">
+            <div class="timeline-left">
+              <div class="timeline-dot"></div>
+              <div class="timeline-line"></div>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-card">
+                <div class="timeline-year">2024</div>
+                <div class="timeline-event">Skin Type Guide and Quiz Introduced</div>
+                <div class="timeline-detail">Launched the skin type quiz and personalised guide — helping customers match products to their actual skin behaviour rather than categories.</div>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item fade-up" style="transition-delay:320ms">
+            <div class="timeline-left">
+              <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-card">
+                <div class="timeline-year">2026</div>
+                <div class="timeline-event">36-Product Range + Bundle Collection</div>
+                <div class="timeline-detail">Our most complete range yet — now with curated bundles, an expanded eye care line and our first mineral SPF offerings.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: TEAM -->
+  <section class="section-py" id="team">
+    <div class="container-brand">
+      <div class="section-header text-center fade-up">
+        <span class="section-label">The People Behind Luméra</span>
+        <h2>Our Team</h2>
+        <div class="brand-divider center"></div>
+        <p>Our team includes formulators, dermatology professionals and customer care specialists — all connected by a
+          belief in honest skincare.</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card fade-up">
+          <div class="team-avatar">
+            <img src="assets/images/amara.png" alt="Dr. Amara Osei — Chief Formulation Scientist" loading="lazy">
+          </div>
+          <div class="team-info">
+            <div class="team-name">Dr. Amara Osei</div>
+            <div class="team-role">Chief Formulation Scientist</div>
+          </div>
+        </div>
+        <div class="team-card fade-up" style="transition-delay:80ms">
+          <div class="team-avatar">
+            <img src="assets/images/sarah.png" alt="Dr. Priya Menon — Consulting Dermatologist" loading="lazy">
+          </div>
+          <div class="team-info">
+            <div class="team-name">Dr. Priya Menon</div>
+            <div class="team-role">Consulting Dermatologist</div>
+          </div>
+        </div>
+        <div class="team-card fade-up" style="transition-delay:160ms">
+          <div class="team-avatar">
+            <img src="assets/images/james.png" alt="Jonas Reuter — Regulatory & INCI Affairs" loading="lazy">
+          </div>
+          <div class="team-info">
+            <div class="team-name">Jonas Reuter</div>
+            <div class="team-role">Regulatory & INCI Affairs</div>
+          </div>
+        </div>
+        <div class="team-card fade-up" style="transition-delay:240ms">
+          <div class="team-avatar">
+            <img src="assets/images/female2.png" alt="Elif Çelik — Head of Customer Education" loading="lazy">
+          </div>
+          <div class="team-info">
+            <div class="team-name">Elif Çelik</div>
+            <div class="team-role">Head of Customer Education</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" style="background-image:url('assets/images/about-cta.png');">
+    <div class="overlay-dark"></div>
+    <div class="cta-inner fade-up">
+      <h2 style="font-size:clamp(1.8rem,4vw,3rem); margin-bottom:1rem;">Experience Skincare You Can Trust</h2>
+      <p style="max-width:480px; margin:0 auto 2rem; opacity:.9;">Discover the Luméra range — every product formulated
+        with honesty, evidence and care.</p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a href="shop.html" class="btn-primary-brand">Shop Now <i class="bi bi-arrow-right"></i></a>
+        <a href="contact.html" class="btn-outline-brand"
+          style="border-color:rgba(255,255,255,.7); color:#fff !important;">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <!-- FOOTER -->
+  <footer class="lumera-footer" aria-label="Site footer">
+    <div class="container-brand">
+      <div class="footer-grid">
+        <!-- Brand -->
+        <div class="footer-brand-col">
+          <a href="index.html" class="footer-logo-wrap" aria-label="Luméra Skin Home">
+            <div class="footer-logo" aria-hidden="true">
+              <img src="assets/images/logo.png" alt="Luméra Skin Logo">
+            </div>
+            <span class="footer-brand-name">Luméra Skin</span>
+          </a>
+          <p class="footer-tagline">Clarity for Your Skin. Care You Can Trust.<br>Science-backed formulations for your daily rituals.</p>
+          <div class="footer-social" aria-label="Social media links">
+            <a href="#" class="social-icon-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+        <!-- Shop -->
+        <div>
+          <span class="footer-col-title">Shop</span>
+          <ul class="footer-nav-list">
+            <li><a href="shop.html">All Products</a></li>
+            <li><a href="bundle-deals.html">Routine Bundles</a></li>
+            <li><a href="shop.html?category=serums">Best Sellers</a></li>
+            <li><a href="shop.html?sort=newest">New Releases</a></li>
+          </ul>
+        </div>
+        <!-- Learn -->
+        <div>
+          <span class="footer-col-title">Learn</span>
+          <ul class="footer-nav-list">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="ingredients.html">Ingredient Library</a></li>
+            <li><a href="skin-type-guide.html">Skin Type Guide</a></li>
+            <li><a href="home2.html">Daily Routines</a></li>
+          </ul>
+        </div>
+        <!-- Support -->
+        <div>
+          <span class="footer-col-title">Support</span>
+          <ul class="footer-nav-list">
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="contact.html#faq">Help & FAQ</a></li>
+            <li><a href="contact.html#shipping">Shipping Policy</a></li>
+            <li><a href="contact.html#returns">Returns & Guarantee</a></li>
+          </ul>
+        </div>
+        <!-- Newsletter -->
+        <div>
+          <span class="footer-col-title">Newsletter</span>
+          <form data-lumera-form aria-label="Newsletter signup">
+            <div class="newsletter-input-wrap">
+              <input type="email" class="input-brand" placeholder="Your email address" required>
+              <button type="submit" class="newsletter-submit-btn">Subscribe</button>
+            </div>
+            <div class="form-success-msg mt-2" style="display:none;">Thank you for subscribing!</div>
+          </form>
+        </div>
+      </div>
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2026 Luméra Skin. All rights reserved. Skincare recommendations are for general guidance only.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+  <!-- Back to Top Button -->
+  <button type="button" class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top" title="Scroll to top"><i class="bi bi-arrow-up"></i></button>
+</body>
+
+</html>

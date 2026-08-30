@@ -1,0 +1,308 @@
+/* =========================================
+   Luméra Skin — Tablet & Medium Device CSS
+   Optimized for:
+   - 768px * 1024px (iPad Portrait)
+   - 1024px * 1366px (iPad Pro / Small Laptop)
+   ========================================= */
+
+/* ---- Tablet Landscape & Medium Screens (1024px – 1366px) ---- */
+@media (min-width: 992px) and (max-width: 1366px) {
+  .container-brand {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+  /* ALL card grids aligned 2 by 2 on iPad Pro (1024x1366) */
+  .products-grid,
+  .ingredients-grid,
+  .bundles-grid,
+  .trust-grid,
+  .testimonials-grid,
+  .about-stats-grid,
+  .trendy-essentials-grid,
+  .routine-steps-grid,
+  .why-grid,
+  .ingredient-preview-grid,
+  .skin-type-preview-grid,
+  .community-grid,
+  .avoid-grid,
+  .contact-info-cards {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem !important;
+  }
+
+  /* Center the last card when odd-numbered in .testimonials-grid, .skin-type-preview-grid & .ingredients-grid on iPad Pro */
+  .testimonials-grid>*:last-child:nth-child(odd),
+  .skin-type-preview-grid>*:last-child:nth-child(odd),
+  .ingredients-grid>*:last-child:nth-child(odd) {
+    grid-column: 1 / -1 !important;
+    justify-self: center !important;
+    max-width: 480px !important;
+    width: 100% !important;
+  }
+
+  .bundles-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .bundle-desc {
+    min-height: calc(1.65em * 3) !important;
+    line-height: 1.65 !important;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 2rem 2.5rem !important;
+  }
+
+  .about-split {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .skin-type-content-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .skin-type-tab-nav {
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 0.75rem !important;
+  }
+
+  .routine-section-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  .shop-layout {
+    grid-template-columns: 240px 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* ---- Tablet View (max-width: 991px) ---- */
+@media (max-width: 991px) {
+  .container-brand {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  .section-py {
+    padding-top: 52px;
+    padding-bottom: 52px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.95rem;
+  }
+
+  h3 {
+    font-size: 1.45rem;
+  }
+
+  /* Products */
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .products-horizontal .product-card {
+    min-width: 200px;
+  }
+
+  /* Category bento */
+  .category-bento {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .category-bento .bento-item.bento-large {
+    grid-column: span 2;
+    aspect-ratio: 2 / 1;
+  }
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.75rem;
+  }
+
+  .footer-brand-col {
+    grid-column: 1 / -1;
+  }
+
+  /* Shop layout */
+  .shop-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .shop-toolbar {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+  }
+
+  .shop-toolbar > div {
+    width: auto !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+  }
+
+  .shop-toolbar .sort-select {
+    margin-left: auto !important;
+    margin-inline: 0 !important;
+  }
+
+  .filter-sidebar-col {
+    display: none;
+  }
+
+  /* Auth */
+  .auth-page {
+    grid-template-columns: 42% 58%;
+  }
+
+  /* Skin type tabs - scrollable */
+  .skin-type-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    scrollbar-width: none;
+  }
+
+  .skin-type-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Bundle cards */
+  .bundles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ---- Tablet Portrait (768px * 1024px) ---- */
+@media (max-width: 768px) {
+  .container-brand {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .section-py {
+    padding-top: 44px;
+    padding-bottom: 44px;
+  }
+
+  h1 {
+    font-size: 2.1rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  /* Page banner */
+  .page-banner {
+    min-height: 190px;
+  }
+
+  .page-banner .banner-content {
+    padding-bottom: 1.75rem;
+  }
+
+  /* Navbar */
+  .navbar-inner {
+    padding: 0 20px;
+  }
+
+  /* Products */
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem;
+  }
+
+  /* Quiz */
+  .quiz-options {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Ingredient cards */
+  .ingredients-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  /* Contact info */
+  .contact-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Bundles */
+  .bundles-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  /* Skin type content */
+  .skin-type-content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Testimonials */
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* About grid */
+  .about-split {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  /* Hero CTA group wraps */
+  .hero-cta-group {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .footer-brand-col {
+    grid-column: 1 / -1;
+  }
+}
+
+/* True two-column footer for tablet widths. With five footer sections, keep
+   the final newsletter column centered at the same width as either column. */
+@media (min-width: 577px) and (max-width: 991px) {
+  .footer-brand-col {
+    grid-column: auto;
+  }
+
+  .footer-grid > :last-child {
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+    max-width: 540px !important;
+    justify-self: start !important;
+    text-align: left !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+}

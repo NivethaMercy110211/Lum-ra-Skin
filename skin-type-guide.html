@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skin Type Guide — Luméra Skin</title>
+  <meta name="description"
+    content="Understand your skin type — dry, oily, combination, normal or sensitive. Discover recommended routines and Luméra products suited to each skin profile.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/dark-theme.css">
+  <link rel="stylesheet" href="css/rtl.css">
+  <link rel="stylesheet" href="css/desktop.css">
+  <link rel="stylesheet" href="css/tablet.css">
+  <link rel="stylesheet" href="css/mobile.css">
+  <style>
+    /* Skin Type Tabs */
+    .skin-type-tab-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      padding-bottom: 0.25rem;
+      margin-top: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .skin-type-tab-nav {
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+    }
+
+    .skin-type-tab-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .skin-type-tab {
+      flex-shrink: 0;
+      padding: 0.6rem 1.4rem;
+      border: 1.5px solid var(--border-color);
+      border-radius: var(--radius-pill);
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      background: var(--bg-card);
+      color: var(--text-body);
+      transition: all var(--transition-fast);
+    }
+
+    .skin-type-tab:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+
+    .skin-type-tab.active {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: #fff;
+    }
+
+    /* Panel content */
+    .skin-type-panel {
+      display: none;
+    }
+
+    .skin-type-panel.active {
+      display: block;
+    }
+
+    .skin-profile-card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--radius-xl);
+      padding: 2.5rem;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #ffffff;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      transition: transform var(--transition-base), box-shadow var(--transition-base);
+    }
+
+    .skin-profile-card[data-bg="dry"] {
+      background-image: linear-gradient(180deg, rgba(20, 24, 21, 0.55) 0%, rgba(20, 24, 21, 0.75) 100%), url('assets/images/dry-skin.png');
+    }
+    .skin-profile-card[data-bg="oily"] {
+      background-image: linear-gradient(180deg, rgba(20, 24, 21, 0.55) 0%, rgba(20, 24, 21, 0.75) 100%), url('assets/images/oily-skin.png');
+    }
+    .skin-profile-card[data-bg="combination"] {
+      background-image: linear-gradient(180deg, rgba(20, 24, 21, 0.55) 0%, rgba(20, 24, 21, 0.75) 100%), url('assets/images/combination-skin.png');
+    }
+    .skin-profile-card[data-bg="normal"] {
+      background-image: linear-gradient(180deg, rgba(20, 24, 21, 0.55) 0%, rgba(20, 24, 21, 0.75) 100%), url('assets/images/normal-skin.png');
+    }
+    .skin-profile-card[data-bg="sensitive"] {
+      background-image: linear-gradient(180deg, rgba(20, 24, 21, 0.55) 0%, rgba(20, 24, 21, 0.75) 100%), url('assets/images/sensitive-skin.png');
+    }
+
+    .skin-profile-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      color: #ffffff !important;
+      margin-bottom: 0.75rem;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+    }
+
+    .skin-profile-card p, 
+    .skin-profile-card .skin-profile-characteristics li {
+      color: rgba(255, 255, 255, 0.95) !important;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    .skin-profile-icon {
+      font-size: 2.2rem;
+      color: #A3C9B0 !important;
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6));
+    }
+
+    .skin-profile-characteristics {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .skin-profile-characteristics li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.95) !important;
+    }
+
+    .skin-profile-characteristics li i {
+      color: #A3C9B0 !important;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .skin-profile-card .skin-product-chip {
+      background: rgba(255, 255, 255, 0.22) !important;
+      color: #ffffff !important;
+      border: 1px solid rgba(255, 255, 255, 0.4) !important;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    .skin-profile-card .skin-product-chip i {
+      color: #A3C9B0 !important;
+    }
+
+    .skin-profile-card .skin-product-chip {
+      background: rgba(255, 255, 255, 0.2) !important;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: #ffffff !important;
+      border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    }
+
+    .skin-profile-card .skin-product-chip i {
+      color: #8EB39B !important;
+    }
+
+    .skin-profile-characteristics li i {
+      color: var(--color-primary);
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .skin-routine-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .skin-routine-step {
+      display: flex;
+      gap: 0.85rem;
+      align-items: flex-start;
+      padding: 1rem;
+      background: var(--bg-secondary);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+    }
+
+    .skin-routine-step-num {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+      background: var(--color-primary);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+
+    .skin-routine-step-product {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-heading);
+    }
+
+    .skin-routine-step-note {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* Product recommendation row */
+    .skin-product-recs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .skin-product-chip {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.9rem;
+      background: rgba(96, 121, 107, .1);
+      border: 1px solid rgba(96, 121, 107, .2);
+      border-radius: var(--radius-pill);
+      font-size: 0.78rem;
+      color: var(--color-primary);
+      font-weight: 500;
+      text-decoration: none;
+      transition: all var(--transition-fast);
+    }
+
+    .skin-product-chip:hover {
+      background: var(--color-primary);
+      color: #fff;
+    }
+
+    /* Know Your Skin Image Banner */
+    .kys-banner {
+      position: relative;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      margin-bottom: 2.5rem;
+      min-height: 280px;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .kys-banner img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 600ms ease;
+    }
+
+    .kys-banner:hover img {
+      transform: scale(1.03);
+    }
+
+    .kys-banner-overlay {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: 2.5rem 2rem 2rem;
+      background: linear-gradient(to top, rgba(16, 24, 20, 0.88) 0%, rgba(16, 24, 20, 0.4) 60%, rgba(0, 0, 0, 0) 100%);
+      color: #fff;
+    }
+
+    .kys-banner-label {
+      display: inline-block;
+      padding: 0.3rem 0.9rem;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: var(--radius-pill);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .kys-banner-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+
+    .kys-banner-sub {
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 580px;
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    /* Separate Routine Section Grid */
+    .routine-section-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    @media (max-width: 1366px) {
+      .routine-section-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+      }
+    }
+
+    .routine-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      background: var(--bg-card);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, .06);
+      transition: box-shadow var(--transition-fast);
+    }
+
+    .routine-card:hover {
+      box-shadow: 0 8px 40px rgba(0, 0, 0, .12);
+    }
+
+    .routine-card-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .routine-card-body {
+      padding: 1.75rem;
+    }
+
+    .routine-card-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.9rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    }
+
+    .routine-card-badge.am,
+    .routine-card-badge.pm {
+      background: #3B4E43 !important;
+      color: #ffffff !important;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    [data-theme="dark"] .routine-card-badge.am,
+    [data-theme="dark"] .routine-card-badge.pm {
+      background: #4E6758 !important;
+      color: #ffffff !important;
+    }
+
+    .routine-card-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--text-heading);
+      margin: 0 0 1rem;
+    }
+
+    .routine-panel {
+      display: none;
+    }
+
+    .routine-panel.active {
+      display: block;
+    }
+
+    /* FAQ */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.1rem 1.25rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-heading);
+    }
+
+    [dir="rtl"] .faq-question {
+      text-align: right;
+    }
+
+    .faq-icon {
+      font-size: 1rem;
+      color: var(--color-primary);
+      flex-shrink: 0;
+      transition: transform var(--transition-fast);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 350ms ease;
+      padding: 0 1.25rem;
+    }
+
+    .faq-answer-inner {
+      padding: 0.25rem 0 1.25rem;
+      font-size: 0.88rem;
+      color: var(--text-body);
+      line-height: 1.7;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <nav class="lumera-navbar" id="mainNavbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-brand-wrap">
+        <div class="navbar-logo">
+          <img src="assets/images/logo.png" alt="Luméra Skin Logo">
+        </div>
+        <div class="navbar-brand-text"><span class="navbar-brand-name">Luméra Skin</span><span
+            class="navbar-brand-tagline">Clarity for Your Skin. Care You Can Trust.</span></div>
+      </a>
+      <ul class="navbar-nav-center">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="home2.html" class="nav-link">Routines</a></li>
+        <li><a href="shop.html" class="nav-link">Shop</a></li>
+        <li><a href="ingredients.html" class="nav-link">Ingredients</a></li>
+        <li><a href="skin-type-guide.html" class="nav-link active">Skin Guide</a></li>
+        <li><a href="bundle-deals.html" class="nav-link">Bundles</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="navbar-utils"><button class="navbar-util-btn theme-toggle-btn" aria-label="Toggle dark mode"><i
+            class="bi bi-moon theme-toggle-icon"></i></button><button
+          class="navbar-util-btn navbar-rtl-btn rtl-toggle-btn">RTL</button><a href="login.html"
+          class="btn-login-nav"><i class="bi bi-person"></i> Login</a><button class="navbar-mobile-toggle"
+          id="navMobileToggle" aria-expanded="false"><i class="bi bi-list"></i></button></div>
+    </div>
+    <div class="navbar-mobile-menu" id="navMobileMenu"><a href="index.html" class="nav-link">Home</a><a
+        href="about.html" class="nav-link">About</a><a href="home2.html" class="nav-link">Routines</a><a
+        href="shop.html" class="nav-link">Shop</a><a href="ingredients.html" class="nav-link">Ingredients</a><a
+        href="skin-type-guide.html" class="nav-link active">Skin Guide</a><a href="bundle-deals.html"
+        class="nav-link">Bundles</a><a href="contact.html" class="nav-link">Contact</a>
+      <div class="mobile-utils"><button class="navbar-util-btn theme-toggle-btn"><i
+            class="bi bi-moon theme-toggle-icon"></i></button><button
+          class="navbar-util-btn navbar-rtl-btn rtl-toggle-btn">RTL</button><a href="login.html"
+          class="btn-login-nav ms-auto"><i class="bi bi-person"></i> Login</a></div>
+    </div>
+  </nav>
+
+  <!-- PAGE BANNER -->
+  <div class="page-banner" style="background-image:url('assets/images/skin_guide.png'); min-height:260px;">
+    <div class="banner-overlay"></div>
+    <div class="banner-content container-brand">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb" style="justify-content:center;">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active">Skin Type Guide</li>
+        </ol>
+      </nav>
+      <h1 style="font-size:2.4rem; margin-bottom:0.4rem;">Skin Type Guide</h1>
+      <p style="color:rgba(255,255,255,.85); max-width:520px; margin:0 auto;">Understanding your skin type is the first
+        step to building a routine that works. Explore each skin type, its characteristics, and what we suggest for it.
+      </p>
+    </div>
+  </div>
+
+  <!-- SECTION 1: KNOW YOUR SKIN -->
+  <section class="section-py" id="skin-types" aria-label="Skin type information">
+    <div class="container-brand">
+
+      <!-- Know Your Skin Image Banner -->
+      <div class="kys-banner fade-up">
+        <img src="assets/images/skin_guide_hero.png" alt="A premium skincare flatlay representing understanding your skin type" loading="lazy">
+        <div class="kys-banner-overlay">
+          <span class="kys-banner-label"><i class="bi bi-droplet-half me-1"></i>Know Your Skin</span>
+          <h2 class="kys-banner-title">Understanding Skin Types</h2>
+          <p class="kys-banner-sub">Every skin type is unique. Select yours below to explore its characteristics, key ingredients, and a routine built around it.</p>
+        </div>
+      </div>
+
+      <!-- Tab Navigation -->
+      <nav class="skin-type-tab-nav" aria-label="Skin type selection" role="tablist" id="skinTypeTabs">
+        <button class="skin-type-tab active" data-tab="dry" role="tab" aria-selected="true" id="dry"><i
+            class="bi bi-droplet-half"></i> Dry Skin</button>
+        <button class="skin-type-tab" data-tab="oily" role="tab" aria-selected="false" id="oily"><i
+            class="bi bi-brightness-high"></i> Oily Skin</button>
+        <button class="skin-type-tab" data-tab="combination" role="tab" aria-selected="false" id="combination"><i
+            class="bi bi-layout-split"></i> Combination</button>
+        <button class="skin-type-tab" data-tab="normal" role="tab" aria-selected="false" id="normal"><i
+            class="bi bi-check-circle"></i> Normal Skin</button>
+        <button class="skin-type-tab" data-tab="sensitive" role="tab" aria-selected="false" id="sensitive"><i
+            class="bi bi-heart-pulse"></i> Sensitive Skin</button>
+      </nav>
+
+      <!-- Panel: Dry -->
+      <div class="skin-type-panel active mt-4 fade-up" data-panel="dry" role="tabpanel">
+        <div class="skin-profile-card" data-bg="dry">
+          <div class="skin-profile-icon"><i class="bi bi-droplet-half"></i></div>
+          <h3>Dry Skin Profile</h3>
+          <p style="font-size:0.95rem; color:var(--text-muted); margin-bottom:1.25rem;">Dry skin produces less sebum than other skin types. It may feel tight, rough or flaky — particularly after cleansing or in cold weather.</p>
+          <p class="mb-2" style="font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-muted);">Common Characteristics</p>
+          <ul class="skin-profile-characteristics">
+            <li><i class="bi bi-check-circle-fill"></i> Skin feels tight, especially after cleansing</li>
+            <li><i class="bi bi-check-circle-fill"></i> Visible flaking or rough texture in some areas</li>
+            <li><i class="bi bi-check-circle-fill"></i> Rarely shiny or greasy throughout the day</li>
+            <li><i class="bi bi-check-circle-fill"></i> Fine lines may appear more prominent due to dehydration</li>
+            <li><i class="bi bi-check-circle-fill"></i> May feel uncomfortable in cold or dry climates</li>
+          </ul>
+          <div class="mt-4">
+            <p class="mb-2" style="font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-muted);">Suggested Active Ingredients</p>
+            <div class="skin-product-recs">
+              <span class="skin-product-chip"><i class="bi bi-droplet-fill"></i> Hyaluronic Acid</span>
+              <span class="skin-product-chip"><i class="bi bi-shield"></i> Ceramides</span>
+              <span class="skin-product-chip"><i class="bi bi-leaf"></i> Squalane</span>
+              <span class="skin-product-chip"><i class="bi bi-water"></i> Glycerin</span>
+              <span class="skin-product-chip"><i class="bi bi-moisture"></i> Shea Butter</span>
+            </div>
+          </div>
+          <div class="mt-4">
+            <a href="shop.html?skintype=dry" class="btn-primary-brand">Shop Products for Dry Skin <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel: Oily -->
+      <div class="skin-type-panel mt-4 fade-up" data-panel="oily" role="tabpanel">
+        <div class="skin-profile-card" data-bg="oily">
+          <div class="skin-profile-icon"><i class="bi bi-brightness-high"></i></div>
+          <h3>Oily Skin Profile</h3>
+          <p style="font-size:0.95rem; color:var(--text-muted); margin-bottom:1.25rem;">Oily skin produces more sebum than average. It may appear shiny across most of the face and may be more prone to congested or enlarged pores.</p>
+          <p class="mb-2" style="font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-muted);">Common Characteristics</p>
+          <ul class="skin-profile-characteristics">
+            <li><i class="bi bi-check-circle-fill"></i> Shiny or greasy appearance across much of the face</li>
+            <li><i class="bi bi-check-circle-fill"></i> Pores may appear larger, particularly on the nose and cheeks</li>
+            <li><i class="bi bi-check-circle-fill"></i> Makeup may not wear well without a primer</li>
+            <li><i class="bi bi-check-circle-fill"></i> More prone to blackheads, whiteheads or blemishes</li>
+            <li><i class="bi bi-check-circle-fill"></i> Skin may feel greasy relatively quickly after cleansing</li>
+          </ul>
+          <div class="mt-4">
+            <p class="mb-2" style="font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-muted);">Suggested Active Ingredients</p>
+            <div class="skin-product-recs">
+              <span class="skin-product-chip"><i class="bi bi-droplet-fill"></i> Niacinamide</span>
+              <span class="skin-product-chip"><i class="bi bi-droplet-fill"></i> Salicylic Acid (BHA)</span>
+              <span class="skin-product-chip"><i class="bi bi-droplet-fill"></i> Zinc</span>
+              <span class="skin-product-chip"><i class="bi bi-droplet-fill"></i> Lactic Acid</span>
+              <span class="skin-product-chip"><i class="bi bi-leaf"></i> Green Tea Extract</span>
+            </div>
+          </div>
+          <div class="mt-4">
+            <a href="shop.html?skintype=oily" class="btn-primary-brand">Shop Products for Oily Skin <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel: Combination -->
+      <div class="skin-type-panel mt-4 fade-up" data-panel="combination" role="tabpanel">
+        <div class="skin-profile-card" data-bg="combination">
+          <div class="skin-profile-icon"><i class="bi bi-layout-split"></i></div>
+          <h3>Combination Skin Profile</h3>
+          <p style="font-size:0.95rem; color:var(--text-muted); margin-bottom:1.25rem;">Combination skin shows oily characteristics in the T-zone (forehead, nose, chin) while cheeks and other areas may be normal or dry.</p>
+          <p class="mb-2" style="font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-muted);">Common Characteristics</p>
+          <ul class="skin-profile-characteristics">
+            <li><i class="bi bi-check-circle-fill"></i> Oily forehead, nose and chin — drier cheeks</li>
+            <li><i class="bi bi-check-circle-fill"></i> Enlarged pores in the T-zone; normal or tight elsewhere</li>
+            <li><i class="bi bi-check-circle-fill"></i> May experience both breakouts and dry patches</li>
+            <li><i class="bi bi-check-circle-fill"></i> Products designed for one extreme may exacerbate the other</li>
+          </ul>
+          <div class="mt-4">
+            <p class="mb-2" style="font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-muted);">Suggested Active Ingredients</p>
+            <div class="skin-product-recs">
+              <span class="skin-product-chip"><i class="bi bi-droplet-fill"></i> Niacinamide</span>
+              <span class="skin-product-chip"><i class="bi bi-droplet-fill"></i> Hyaluronic Acid</span>
+              <span class="skin-product-chip"><i class="bi bi-droplet-fill"></i> Glycerin</span>
+              <span class="skin-product-chip"><i class="bi bi-droplet-fill"></i> Light AHAs</span>
+            </div>
+          </div>
+          <div class="mt-4">
+            <a href="shop.html?skintype=combination" class="btn-primary-brand">Shop Products for Combination Skin <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel: Normal -->
+      <div class="skin-type-panel mt-4 fade-up" data-panel="normal" role="tabpanel">
+        <div class="skin-profile-card" data-bg="normal">
+          <div class="skin-profile-icon"><i class="bi bi-check-circle"></i></div>
+          <h3>Normal Skin Profile</h3>
+          <p style="font-size:0.95rem; color:var(--text-muted); margin-bottom:1.25rem;">Normal skin is characterised by a balanced sebum level, minimal sensitivity, and few visible skin concerns. A maintenance-focused routine is most beneficial.</p>
+          <p class="mb-2" style="font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-muted);">Common Characteristics</p>
+          <ul class="skin-profile-characteristics">
+            <li><i class="bi bi-check-circle-fill"></i> Balanced — not too oily or dry across most areas</li>
+            <li><i class="bi bi-check-circle-fill"></i> Pores are small and not particularly visible</li>
+            <li><i class="bi bi-check-circle-fill"></i> Tolerates most ingredients well</li>
+            <li><i class="bi bi-check-circle-fill"></i> Breakouts are infrequent and minor</li>
+            <li><i class="bi bi-check-circle-fill"></i> Focus is on maintaining equilibrium and prevention</li>
+          </ul>
+          <div class="mt-4">
+            <p class="mb-2" style="font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-muted);">Suggested Active Ingredients</p>
+            <div class="skin-product-recs">
+              <span class="skin-product-chip"><i class="bi bi-droplet-fill"></i> Vitamin C</span>
+              <span class="skin-product-chip"><i class="bi bi-droplet-fill"></i> Hyaluronic Acid</span>
+              <span class="skin-product-chip"><i class="bi bi-droplet-fill"></i> Niacinamide</span>
+              <span class="skin-product-chip"><i class="bi bi-droplet-fill"></i> Peptides</span>
+            </div>
+          </div>
+          <div class="mt-4">
+            <a href="shop.html?skintype=normal" class="btn-primary-brand">Shop Products for Normal Skin <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel: Sensitive -->
+      <div class="skin-type-panel mt-4 fade-up" data-panel="sensitive" role="tabpanel">
+        <div class="skin-profile-card" data-bg="sensitive">
+          <div class="skin-profile-icon"><i class="bi bi-heart-pulse"></i></div>
+          <h3>Sensitive Skin Profile</h3>
+          <p style="font-size:0.95rem; color:var(--text-muted); margin-bottom:1.25rem;">Sensitive skin reacts more easily to products, ingredients and environmental triggers. A minimal, fragrance-free routine is generally most suitable.</p>
+          <p class="mb-2" style="font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-muted);">Common Characteristics</p>
+          <ul class="skin-profile-characteristics">
+            <li><i class="bi bi-check-circle-fill"></i> Redness, stinging or itching after applying products</li>
+            <li><i class="bi bi-check-circle-fill"></i> Reacts to fragrances, alcohols or preservatives</li>
+            <li><i class="bi bi-check-circle-fill"></i> May experience flares with seasonal or climate changes</li>
+            <li><i class="bi bi-check-circle-fill"></i> Products with fewer ingredients are typically better tolerated</li>
+            <li><i class="bi bi-check-circle-fill"></i> Patch testing new products is strongly recommended</li>
+          </ul>
+          <div class="mt-4">
+            <p class="mb-2" style="font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-muted);">Suggested Active Ingredients</p>
+            <div class="skin-product-recs">
+              <span class="skin-product-chip"><i class="bi bi-droplet-fill"></i> Centella Asiatica</span>
+              <span class="skin-product-chip"><i class="bi bi-droplet-fill"></i> Ceramides</span>
+              <span class="skin-product-chip"><i class="bi bi-droplet-fill"></i> Beta-Glucan</span>
+              <span class="skin-product-chip"><i class="bi bi-droplet-fill"></i> Panthenol</span>
+              <span class="skin-product-chip"><i class="bi bi-droplet-fill"></i> Allantoin</span>
+            </div>
+          </div>
+          <div class="mt-4">
+            <a href="shop.html?skintype=sensitive" class="btn-primary-brand">Shop Products for Sensitive Skin <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 2: SUGGESTED ROUTINES -->
+  <section class="section-py section-bg" id="routines" aria-label="Suggested skincare routines">
+    <div class="container-brand">
+      <div class="section-header text-center fade-up" style="margin-bottom:2.5rem;">
+        <span class="section-label">Daily Rituals</span>
+        <h2>Suggested Routines</h2>
+        <div class="brand-divider center"></div>
+        <p>Your AM and PM routines, tailored to the skin type selected above.</p>
+      </div>
+
+      <!-- Routine Panel: Dry -->
+      <div class="routine-panel active fade-up" data-routine="dry">
+        <div class="routine-section-grid">
+          <!-- AM -->
+          <div class="routine-card">
+            <img src="assets/images/routine-dry-am.jpg" alt="Morning skincare routine for dry skin" class="routine-card-img" loading="lazy">
+            <div class="routine-card-body">
+              <span class="routine-card-badge am"><i class="bi bi-sunrise"></i> Morning</span>
+              <h3 class="routine-card-title">Suggested AM Routine — Dry Skin</h3>
+              <div class="skin-routine-steps">
+                <div class="skin-routine-step"><div class="skin-routine-step-num">1</div><div><div class="skin-routine-step-product">Gentle Cream Cleanser</div><div class="skin-routine-step-note">Non-foaming, hydrating formula — avoid anything stripping</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">2</div><div><div class="skin-routine-step-product">Hydrating Essence Toner</div><div class="skin-routine-step-note">Pat in while skin is still slightly damp for best absorption</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">3</div><div><div class="skin-routine-step-product">Hyaluronic Acid Serum</div><div class="skin-routine-step-note">Layer two to three drops over damp skin</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">4</div><div><div class="skin-routine-step-product">Ceramide Barrier Cream</div><div class="skin-routine-step-note">Rich moisturiser to seal in all hydration steps</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">5</div><div><div class="skin-routine-step-product">Mineral SPF 50</div><div class="skin-routine-step-note">Broad-spectrum protection every morning without exception</div></div></div>
+              </div>
+            </div>
+          </div>
+          <!-- PM -->
+          <div class="routine-card">
+            <img src="assets/images/routine-dry-pm.jpg" alt="Evening skincare routine for dry skin" class="routine-card-img" loading="lazy">
+            <div class="routine-card-body">
+              <span class="routine-card-badge pm"><i class="bi bi-moon-stars"></i> Evening</span>
+              <h3 class="routine-card-title">Suggested PM Routine — Dry Skin</h3>
+              <div class="skin-routine-steps">
+                <div class="skin-routine-step"><div class="skin-routine-step-num">1</div><div><div class="skin-routine-step-product">Gentle Cleansing Milk / Balm</div><div class="skin-routine-step-note">Remove SPF and residue without disrupting the skin barrier</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">2</div><div><div class="skin-routine-step-product">Hyaluronic Acid Serum</div><div class="skin-routine-step-note">Reapply for overnight hydration replenishment</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">3</div><div><div class="skin-routine-step-product">Peptide Recovery Serum</div><div class="skin-routine-step-note">Support overnight firmness and barrier resilience</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">4</div><div><div class="skin-routine-step-product">Overnight Hydration Mask</div><div class="skin-routine-step-note">Use 2–3 times per week for an extra moisture boost</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">5</div><div><div class="skin-routine-step-product">Ceramide Night Cream</div><div class="skin-routine-step-note">Rich overnight support for barrier recovery</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Routine Panel: Oily -->
+      <div class="routine-panel fade-up" data-routine="oily">
+        <div class="routine-section-grid">
+          <div class="routine-card">
+            <img src="assets/images/routine-oily-am.jpg" alt="Morning skincare routine for oily skin" class="routine-card-img" loading="lazy">
+            <div class="routine-card-body">
+              <span class="routine-card-badge am"><i class="bi bi-sunrise"></i> Morning</span>
+              <h3 class="routine-card-title">Suggested AM Routine — Oily Skin</h3>
+              <div class="skin-routine-steps">
+                <div class="skin-routine-step"><div class="skin-routine-step-num">1</div><div><div class="skin-routine-step-product">Foaming Gel Cleanser</div><div class="skin-routine-step-note">Remove excess oil accumulated overnight without over-stripping</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">2</div><div><div class="skin-routine-step-product">BHA Balancing Toner (optional)</div><div class="skin-routine-step-note">Salicylic acid toner to support pore clarity — use 3–4× per week max</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">3</div><div><div class="skin-routine-step-product">Niacinamide Serum</div><div class="skin-routine-step-note">10% Niacinamide for sebum balance and tone support</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">4</div><div><div class="skin-routine-step-product">Oil-Free Gel Moisturiser</div><div class="skin-routine-step-note">Lightweight hydration — oily skin still needs moisture</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">5</div><div><div class="skin-routine-step-product">Mineral SPF 50 (lightweight)</div><div class="skin-routine-step-note">Choose a non-greasy formula — matte finish options available</div></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="routine-card">
+            <img src="assets/images/routine-oily-pm.jpg" alt="Evening skincare routine for oily skin" class="routine-card-img" loading="lazy">
+            <div class="routine-card-body">
+              <span class="routine-card-badge pm"><i class="bi bi-moon-stars"></i> Evening</span>
+              <h3 class="routine-card-title">Suggested PM Routine — Oily Skin</h3>
+              <div class="skin-routine-steps">
+                <div class="skin-routine-step"><div class="skin-routine-step-num">1</div><div><div class="skin-routine-step-product">Foaming Oil Control Cleanser</div><div class="skin-routine-step-note">Remove SPF and accumulated sebum from the day</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">2</div><div><div class="skin-routine-step-product">BHA Exfoliant 2%</div><div class="skin-routine-step-note">2–3× per week only — not every night</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">3</div><div><div class="skin-routine-step-product">Niacinamide Serum</div><div class="skin-routine-step-note">Continue sebum regulation throughout the night</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">4</div><div><div class="skin-routine-step-product">Targeted Blemish Treatment</div><div class="skin-routine-step-note">Apply only where needed after serum</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">5</div><div><div class="skin-routine-step-product">Oil-Free Gel Moisturiser</div><div class="skin-routine-step-note">Lightweight seal — avoid heavy creams that may clog pores</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Routine Panel: Combination -->
+      <div class="routine-panel fade-up" data-routine="combination">
+        <div class="routine-section-grid">
+          <div class="routine-card">
+            <img src="assets/images/routine-combo-am.jpg" alt="Morning skincare routine for combination skin" class="routine-card-img" loading="lazy">
+            <div class="routine-card-body">
+              <span class="routine-card-badge am"><i class="bi bi-sunrise"></i> Morning</span>
+              <h3 class="routine-card-title">Suggested AM Routine — Combination Skin</h3>
+              <div class="skin-routine-steps">
+                <div class="skin-routine-step"><div class="skin-routine-step-num">1</div><div><div class="skin-routine-step-product">Gentle Foaming Cleanser</div><div class="skin-routine-step-note">Mild enough for cheeks, effective enough for the T-zone</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">2</div><div><div class="skin-routine-step-product">Hydrating Essence Toner</div><div class="skin-routine-step-note">Balances the whole face without adding oil</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">3</div><div><div class="skin-routine-step-product">Niacinamide Serum (T-zone focus)</div><div class="skin-routine-step-note">Apply more product to oily zones; lighter layer on dry areas</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">4</div><div><div class="skin-routine-step-product">Lightweight Moisturiser</div><div class="skin-routine-step-note">Balancing formula that hydrates without adding shine</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">5</div><div><div class="skin-routine-step-product">Mineral SPF 50</div><div class="skin-routine-step-note">Use a mattifying formula if shine is a concern</div></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="routine-card">
+            <img src="assets/images/routine-combo-pm.jpg" alt="Evening skincare routine for combination skin" class="routine-card-img" loading="lazy">
+            <div class="routine-card-body">
+              <span class="routine-card-badge pm"><i class="bi bi-moon-stars"></i> Evening</span>
+              <h3 class="routine-card-title">Suggested PM Routine — Combination Skin</h3>
+              <div class="skin-routine-steps">
+                <div class="skin-routine-step"><div class="skin-routine-step-num">1</div><div><div class="skin-routine-step-product">Gentle Foaming Cleanser</div><div class="skin-routine-step-note">Evening cleanse to remove the day's buildup</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">2</div><div><div class="skin-routine-step-product">AHA Exfoliant (2–3× weekly)</div><div class="skin-routine-step-note">Gently resurface to refine pores and texture</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">3</div><div><div class="skin-routine-step-product">Niacinamide Serum</div><div class="skin-routine-step-note">Balance sebum in oily zones overnight</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">4</div><div><div class="skin-routine-step-product">Hyaluronic Acid Serum</div><div class="skin-routine-step-note">Add lightweight hydration to dry areas</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">5</div><div><div class="skin-routine-step-product">Lightweight Night Moisturiser</div><div class="skin-routine-step-note">Hydrate dry zones without overwhelming oily areas</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Routine Panel: Normal -->
+      <div class="routine-panel fade-up" data-routine="normal">
+        <div class="routine-section-grid">
+          <div class="routine-card">
+            <img src="assets/images/routine-normal-am.jpg" alt="Morning skincare routine for normal skin" class="routine-card-img" loading="lazy">
+            <div class="routine-card-body">
+              <span class="routine-card-badge am"><i class="bi bi-sunrise"></i> Morning</span>
+              <h3 class="routine-card-title">Suggested AM Routine — Normal Skin</h3>
+              <div class="skin-routine-steps">
+                <div class="skin-routine-step"><div class="skin-routine-step-num">1</div><div><div class="skin-routine-step-product">Gentle Gel Cleanser</div><div class="skin-routine-step-note">Light cleanse to refresh skin</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">2</div><div><div class="skin-routine-step-product">Vitamin C Serum</div><div class="skin-routine-step-note">Antioxidant protection and radiance support in the morning</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">3</div><div><div class="skin-routine-step-product">Hyaluronic Acid Serum</div><div class="skin-routine-step-note">Maintain healthy hydration levels</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">4</div><div><div class="skin-routine-step-product">Lightweight Moisturiser</div><div class="skin-routine-step-note">Balanced formula that doesn't disrupt the skin's equilibrium</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">5</div><div><div class="skin-routine-step-product">SPF 50</div><div class="skin-routine-step-note">Essential for long-term prevention of UV-related changes</div></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="routine-card">
+            <img src="assets/images/routine-normal-pm.jpg" alt="Evening skincare routine for normal skin" class="routine-card-img" loading="lazy">
+            <div class="routine-card-body">
+              <span class="routine-card-badge pm"><i class="bi bi-moon-stars"></i> Evening</span>
+              <h3 class="routine-card-title">Suggested PM Routine — Normal Skin</h3>
+              <div class="skin-routine-steps">
+                <div class="skin-routine-step"><div class="skin-routine-step-num">1</div><div><div class="skin-routine-step-product">Gentle Gel Cleanser</div><div class="skin-routine-step-note">Light cleanse to remove the day's impurities</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">2</div><div><div class="skin-routine-step-product">Hyaluronic Acid Serum</div><div class="skin-routine-step-note">Replenish moisture overnight</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">3</div><div><div class="skin-routine-step-product">Retinol Serum (2–3× weekly)</div><div class="skin-routine-step-note">Support cell turnover and long-term skin health</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">4</div><div><div class="skin-routine-step-product">Peptide Eye Cream</div><div class="skin-routine-step-note">Apply gently around the orbital area</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">5</div><div><div class="skin-routine-step-product">Lightweight Night Moisturiser</div><div class="skin-routine-step-note">Lock in overnight moisture without heaviness</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Routine Panel: Sensitive -->
+      <div class="routine-panel fade-up" data-routine="sensitive">
+        <div class="routine-section-grid">
+          <div class="routine-card">
+            <img src="assets/images/routine-sensitive-am.jpg" alt="Morning skincare routine for sensitive skin" class="routine-card-img" loading="lazy">
+            <div class="routine-card-body">
+              <span class="routine-card-badge am"><i class="bi bi-sunrise"></i> Morning</span>
+              <h3 class="routine-card-title">Suggested AM Routine — Sensitive Skin</h3>
+              <div class="skin-routine-steps">
+                <div class="skin-routine-step"><div class="skin-routine-step-num">1</div><div><div class="skin-routine-step-product">Ultra-Gentle Cream Cleanser</div><div class="skin-routine-step-note">Fragrance-free, no SLS — minimal ingredient list</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">2</div><div><div class="skin-routine-step-product">Hydrating Mist / Essence</div><div class="skin-routine-step-note">Simple, calming mist to prep skin without sensitisation</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">3</div><div><div class="skin-routine-step-product">Centella Soothing Serum</div><div class="skin-routine-step-note">Calming actives to support reactive skin's resilience</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">4</div><div><div class="skin-routine-step-product">Ceramide Barrier Cream</div><div class="skin-routine-step-note">Reinforce the barrier — critical for sensitive skin management</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">5</div><div><div class="skin-routine-step-product">Mineral SPF (Zinc Oxide)</div><div class="skin-routine-step-note">Physical SPF is typically better tolerated than chemical SPF</div></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="routine-card">
+            <img src="assets/images/routine-sensitive-pm.jpg" alt="Evening skincare routine for sensitive skin" class="routine-card-img" loading="lazy">
+            <div class="routine-card-body">
+              <span class="routine-card-badge pm"><i class="bi bi-moon-stars"></i> Evening</span>
+              <h3 class="routine-card-title">Suggested PM Routine — Sensitive Skin</h3>
+              <div class="skin-routine-steps">
+                <div class="skin-routine-step"><div class="skin-routine-step-num">1</div><div><div class="skin-routine-step-product">Ultra-Gentle Cleansing Milk</div><div class="skin-routine-step-note">Avoid any harsh cleansers or exfoliants in PM</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">2</div><div><div class="skin-routine-step-product">Panthenol Calming Serum</div><div class="skin-routine-step-note">Soothe any daytime reactivity and support overnight repair</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">3</div><div><div class="skin-routine-step-product">Centella Recovery Serum</div><div class="skin-routine-step-note">Layer calming support over reactive areas</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">4</div><div><div class="skin-routine-step-product">Beta-Glucan Barrier Cream</div><div class="skin-routine-step-note">Deeply nourish and rebuild the skin barrier overnight</div></div></div>
+                <div class="skin-routine-step"><div class="skin-routine-step-num">5</div><div><div class="skin-routine-step-product">Calming Sleeping Balm</div><div class="skin-routine-step-note">Seal in moisture on especially dry or reactive nights</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 3: FAQ -->
+  <section class="section-py section-bg" id="faq">
+    <div class="container-brand">
+      <div class="section-header text-center fade-up">
+        <span class="section-label">Skin Questions Answered</span>
+        <h2>Frequently Asked Questions</h2>
+        <div class="brand-divider center"></div>
+      </div>
+      <div class="faq-list" style="max-width:800px; margin:0 auto;">
+        <div class="faq-item fade-up">
+          <button class="faq-question" aria-expanded="false">Can my skin type change over time?<i
+              class="bi bi-plus faq-icon"></i></button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Yes. Skin type can shift due to age, hormonal changes, climate, medication,
+              and lifestyle factors. Many people find their skin becomes drier as they age, or oilier during hormonal
+              fluctuations. Regular assessment is useful — the skin quiz on our home page is designed to reflect your
+              skin's current behaviour rather than a fixed category.</div>
+          </div>
+        </div>
+        <div class="faq-item fade-up" style="transition-delay:60ms">
+          <button class="faq-question" aria-expanded="false">Is 'dehydrated skin' different from 'dry skin'?<i
+              class="bi bi-plus faq-icon"></i></button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Yes, these are distinct. Dry skin is a skin type — it refers to low sebum
+              production. Dehydrated skin is a temporary condition that can affect any skin type, including oily skin.
+              Dehydrated skin lacks water rather than oil. Signs include tightness, dullness, and a 'scrunchy' texture
+              when pinched gently. Hydrating serums and adequate water intake may help.</div>
+          </div>
+        </div>
+        <div class="faq-item fade-up" style="transition-delay:120ms">
+          <button class="faq-question" aria-expanded="false">Should I use different products morning and night?<i
+              class="bi bi-plus faq-icon"></i></button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Yes, in many cases. Morning routines are typically lighter and focused on
+              protection — including antioxidants like Vitamin C and SPF. Evening routines allow for richer textures and
+              certain actives (like AHAs or retinoids) that are better used at night, as they can increase sun
+              sensitivity or are simply more effective when the skin is in repair mode during sleep.</div>
+          </div>
+        </div>
+        <div class="faq-item fade-up" style="transition-delay:180ms">
+          <button class="faq-question" aria-expanded="false">Do I need a separate eye cream?<i
+              class="bi bi-plus faq-icon"></i></button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">The skin around the eye area is thinner, more delicate and often more reactive
+              than the rest of the face. Eye creams are formulated specifically for this zone — typically with smaller
+              molecule sizes, gentler preservatives, and targeted actives like caffeine or peptides. Whether you 'need'
+              one depends on your concerns and skin tolerance, but they can be beneficial if you experience sensitivity
+              or specific eye-area concerns.</div>
+          </div>
+        </div>
+        <div class="faq-item fade-up" style="transition-delay:240ms">
+          <button class="faq-question" aria-expanded="false">I have oily skin. Do I still need to moisturise?<i
+              class="bi bi-plus faq-icon"></i></button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Yes. Oily skin can still be dehydrated. Skipping moisturiser can signal the
+              skin to produce even more oil to compensate. The key is choosing a lightweight, oil-free gel moisturiser
+              that provides hydration without adding greasiness or potentially clogging pores. Niacinamide-based or
+              gel-textured formulas are often well-suited to oily skin types.</div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-4 fade-up">
+        <a href="index.html#skin-quiz" class="btn-primary-brand">Take the Full Skin Quiz <i
+            class="bi bi-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" style="background-image:url('assets/images/skin-guide-cta.png');">
+    <div class="overlay-dark"></div>
+    <div class="cta-inner fade-up">
+      <h2 style="font-size:clamp(1.8rem,4vw,3rem); margin-bottom:1rem;">Ready to Build Your Routine?</h2>
+      <p style="max-width:480px; margin:0 auto 2rem; opacity:.9;">Take the skin quiz to receive personalised product
+        suggestions — or explore all Luméra products and filter by your skin type.</p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a href="index.html#skin-quiz" class="btn-primary-brand">Take Skin Quiz <i class="bi bi-arrow-right"></i></a>
+        <a href="shop.html" class="btn-outline-brand"
+          style="border-color:rgba(255,255,255,.7); color:#fff !important;">Browse Shop</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="lumera-footer" aria-label="Site footer">
+    <div class="container-brand">
+      <div class="footer-grid">
+        <!-- Brand -->
+        <div class="footer-brand-col">
+          <a href="index.html" class="footer-logo-wrap" aria-label="Luméra Skin Home">
+            <div class="footer-logo" aria-hidden="true">
+              <img src="assets/images/logo.png" alt="Luméra Skin Logo">
+            </div>
+            <span class="footer-brand-name">Luméra Skin</span>
+          </a>
+          <p class="footer-tagline">Clarity for Your Skin. Care You Can Trust.<br>Science-backed formulations for your daily rituals.</p>
+          <div class="footer-social" aria-label="Social media links">
+            <a href="#" class="social-icon-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+        <!-- Shop -->
+        <div>
+          <span class="footer-col-title">Shop</span>
+          <ul class="footer-nav-list">
+            <li><a href="shop.html">All Products</a></li>
+            <li><a href="bundle-deals.html">Routine Bundles</a></li>
+            <li><a href="shop.html?category=serums">Best Sellers</a></li>
+            <li><a href="shop.html?sort=newest">New Releases</a></li>
+          </ul>
+        </div>
+        <!-- Learn -->
+        <div>
+          <span class="footer-col-title">Learn</span>
+          <ul class="footer-nav-list">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="ingredients.html">Ingredient Library</a></li>
+            <li><a href="skin-type-guide.html">Skin Type Guide</a></li>
+            <li><a href="home2.html">Daily Routines</a></li>
+          </ul>
+        </div>
+        <!-- Support -->
+        <div>
+          <span class="footer-col-title">Support</span>
+          <ul class="footer-nav-list">
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="contact.html#faq">Help & FAQ</a></li>
+            <li><a href="contact.html#shipping">Shipping Policy</a></li>
+            <li><a href="contact.html#returns">Returns & Guarantee</a></li>
+          </ul>
+        </div>
+        <!-- Newsletter -->
+        <div>
+          <span class="footer-col-title">Newsletter</span>
+          <form data-lumera-form aria-label="Newsletter signup">
+            <div class="newsletter-input-wrap">
+              <input type="email" class="input-brand" placeholder="Your email address" required>
+              <button type="submit" class="newsletter-submit-btn">Subscribe</button>
+            </div>
+            <div class="form-success-msg mt-2" style="display:none;">Thank you for subscribing!</div>
+          </form>
+        </div>
+      </div>
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2026 Luméra Skin. All rights reserved. Skincare recommendations are for general guidance only.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Skin type tab logic — syncs both profile panels & routine panels
+    document.addEventListener('DOMContentLoaded', () => {
+      function activateTab(skinType) {
+        // Tab buttons
+        document.querySelectorAll('.skin-type-tab').forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        const tab = document.querySelector(`.skin-type-tab[data-tab="${skinType}"]`);
+        if (tab) {
+          tab.classList.add('active');
+          tab.setAttribute('aria-selected', 'true');
+        }
+
+        // Profile panels
+        document.querySelectorAll('.skin-type-panel').forEach(p => p.classList.remove('active'));
+        const panel = document.querySelector(`.skin-type-panel[data-panel="${skinType}"]`);
+        if (panel) panel.classList.add('active');
+
+        // Routine panels
+        document.querySelectorAll('.routine-panel').forEach(p => p.classList.remove('active'));
+        const routinePanel = document.querySelector(`.routine-panel[data-routine="${skinType}"]`);
+        if (routinePanel) routinePanel.classList.add('active');
+      }
+
+      document.querySelectorAll('.skin-type-tab').forEach(tab => {
+        tab.addEventListener('click', () => activateTab(tab.dataset.tab));
+      });
+
+      // Hash deep link support
+      const hash = window.location.hash.slice(1);
+      if (hash && document.querySelector(`.skin-type-tab[data-tab="${hash}"]`)) {
+        activateTab(hash);
+      }
+    });
+  </script>
+  <!-- Back to Top Button -->
+  <button type="button" class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top" title="Scroll to top"><i class="bi bi-arrow-up"></i></button>
+</body>
+
+</html>

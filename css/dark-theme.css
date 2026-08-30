@@ -1,0 +1,211 @@
+/* =========================================
+   Luméra Skin — Dark Theme CSS
+   All dark mode overrides by component
+   ========================================= */
+
+[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+/* ---- Body / Page ---- */
+[data-theme="dark"] body {
+  background-color: var(--bg-main);
+  color: var(--text-body);
+}
+
+/* ---- Typography ---- */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6 { color: var(--text-heading); }
+[data-theme="dark"] p { color: var(--text-body); }
+
+/* ---- Navbar ---- */
+[data-theme="dark"] .lumera-navbar {
+  background-color: rgba(23,27,24,.96);
+  border-color: var(--border-color);
+}
+[data-theme="dark"] .navbar-brand-name { color: var(--text-heading); }
+[data-theme="dark"] .navbar-nav-center .nav-link { color: var(--text-body); }
+[data-theme="dark"] .navbar-nav-center .nav-link:hover { color: var(--accent); }
+[data-theme="dark"] .navbar-nav-center .nav-link.active { color: var(--accent); background: rgba(143,167,154,.12); }
+[data-theme="dark"] .navbar-util-btn { border-color: var(--border-color); color: var(--text-body); }
+[data-theme="dark"] .navbar-util-btn:hover { border-color: var(--accent); color: var(--accent); }
+[data-theme="dark"] .navbar-mobile-menu { background: var(--bg-secondary); border-color: var(--border-color); }
+[data-theme="dark"] .navbar-mobile-menu .nav-link { border-color: var(--border-color); color: var(--text-body); }
+[data-theme="dark"] .navbar-mobile-menu .nav-link.active { color: var(--accent); }
+[data-theme="dark"] .navbar-mobile-toggle { border-color: var(--border-color); color: var(--text-heading); }
+
+/* ---- Cards / Sections ---- */
+[data-theme="dark"] .lumera-card,
+[data-theme="dark"] .product-card,
+[data-theme="dark"] .form-card,
+[data-theme="dark"] .filter-sidebar,
+[data-theme="dark"] .ingredient-card,
+[data-theme="dark"] .bundle-card,
+[data-theme="dark"] .skin-type-card,
+[data-theme="dark"] .testimonial-card,
+[data-theme="dark"] .trust-card,
+[data-theme="dark"] .faq-item,
+[data-theme="dark"] .routine-step-card {
+  background: var(--bg-card);
+  border-color: var(--border-color);
+}
+[data-theme="dark"] .lumera-card:hover,
+[data-theme="dark"] .product-card:hover {
+  border-color: rgba(143,167,154,.3);
+  box-shadow: 0 16px 48px rgba(0,0,0,.3);
+}
+
+/* ---- Product Cards ---- */
+[data-theme="dark"] .product-img-wrap { background: var(--bg-secondary); }
+[data-theme="dark"] .product-name { color: var(--text-heading); }
+[data-theme="dark"] .product-price .price-current { color: var(--text-heading); }
+[data-theme="dark"] .product-category { color: var(--accent); }
+[data-theme="dark"] .product-ingredient { color: var(--accent); }
+[data-theme="dark"] .product-meta-item { background: var(--bg-secondary); border-color: var(--border-color); color: var(--text-body); }
+
+/* ---- Bento Category Grid ---- */
+[data-theme="dark"] .category-bento .bento-item { background: var(--bg-card); }
+
+/* ---- Filters ---- */
+[data-theme="dark"] .filter-tag { border-color: var(--border-color); color: var(--text-body); }
+[data-theme="dark"] .filter-tag:hover { border-color: var(--accent); color: var(--accent); }
+[data-theme="dark"] .filter-tag.active { background: var(--accent); border-color: var(--accent); }
+[data-theme="dark"] .filter-checkbox { background: var(--bg-secondary); border-color: var(--border-color); }
+[data-theme="dark"] .filter-checkbox:checked { background: var(--accent); border-color: var(--accent); }
+[data-theme="dark"] .active-filter-chip { background: rgba(143,167,154,.15); color: var(--accent); border-color: rgba(143,167,154,.25); }
+[data-theme="dark"] .active-filter-chip button { color: var(--accent); }
+
+/* ---- Badges ---- */
+[data-theme="dark"] .badge-bestseller { background: #3B4E43 !important; color: #ffffff !important; border-color: rgba(255, 255, 255, 0.35) !important; }
+[data-theme="dark"] .badge-new { background: #C48B47 !important; color: #ffffff !important; border-color: rgba(255, 255, 255, 0.35) !important; }
+
+/* ---- Buttons ---- */
+[data-theme="dark"] .btn-primary-brand {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+[data-theme="dark"] .btn-primary-brand:hover {
+  background: #7d9589;
+  border-color: #7d9589;
+}
+[data-theme="dark"] .btn-outline-brand {
+  border-color: var(--accent);
+  color: var(--accent) !important;
+}
+[data-theme="dark"] .btn-outline-brand:hover {
+  background: var(--accent);
+  color: var(--bg-main) !important;
+}
+[data-theme="dark"] .btn-product-cta { background: var(--accent); }
+[data-theme="dark"] .btn-product-cta:hover { background: #7d9589; }
+
+/* ---- Ingredient Cards ---- */
+[data-theme="dark"] .ingredient-card { background: var(--bg-card); border-color: var(--border-color); }
+[data-theme="dark"] .ingredient-card:hover { border-color: rgba(143,167,154,.3); }
+
+/* ---- Skin Type Guide ---- */
+[data-theme="dark"] .skin-type-tab.active { background: var(--accent); border-color: var(--accent); }
+[data-theme="dark"] .skin-type-tab { border-color: var(--border-color); color: var(--text-body); }
+
+/* ---- Bundle Cards ---- */
+[data-theme="dark"] .bundle-card { background: var(--bg-card); border-color: var(--border-color); }
+[data-theme="dark"] .bundle-product-tag { background: var(--bg-secondary); border-color: var(--border-color); color: var(--text-body); }
+
+/* ---- Forms ---- */
+[data-theme="dark"] .input-brand,
+[data-theme="dark"] .select-brand,
+[data-theme="dark"] .textarea-brand {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+  color: var(--text-heading);
+}
+[data-theme="dark"] .select-brand {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23E7EEE9' d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 12px;
+  color-scheme: dark;
+}
+[data-theme="dark"] .select-brand option {
+  background-color: #1f2823;
+  color: #f7f5ef;
+}
+[data-theme="dark"] .select-brand option:disabled {
+  color: #aebbb4;
+}
+[data-theme="dark"] .input-brand::placeholder,
+[data-theme="dark"] .textarea-brand::placeholder { color: var(--text-muted); }
+[data-theme="dark"] .input-brand:focus,
+[data-theme="dark"] .select-brand:focus,
+[data-theme="dark"] .textarea-brand:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(143,167,154,.15);
+}
+[data-theme="dark"] .radio-option,
+[data-theme="dark"] .check-option { border-color: var(--border-color); color: var(--text-body); background: var(--bg-card); }
+[data-theme="dark"] .radio-option.selected,
+[data-theme="dark"] .check-option.selected { background: var(--accent); border-color: var(--accent); }
+[data-theme="dark"] .newsletter-input-wrap { background: var(--bg-secondary); border-color: var(--border-color); }
+[data-theme="dark"] .newsletter-submit-btn { background: var(--accent); }
+[data-theme="dark"] .newsletter-submit-btn:hover { background: #7d9589; }
+[data-theme="dark"] .btn-form-submit { background: var(--accent); }
+[data-theme="dark"] .btn-form-submit:hover { background: #7d9589; }
+
+/* ---- Auth Pages ---- */
+[data-theme="dark"] .auth-form-panel { background: var(--bg-main); }
+[data-theme="dark"] .auth-brand-name { color: var(--text-heading); }
+[data-theme="dark"] .auth-brand-tagline { color: var(--accent); }
+[data-theme="dark"] .btn-social { background: var(--bg-card); border-color: var(--border-color); color: var(--text-heading); }
+[data-theme="dark"] .btn-social:hover { border-color: var(--accent); }
+[data-theme="dark"] .auth-remember { color: var(--text-body); }
+[data-theme="dark"] .auth-forgot-link { color: var(--accent); }
+
+/* ---- Footer ---- */
+[data-theme="dark"] .lumera-footer { background: var(--bg-secondary); border-color: var(--border-color); }
+[data-theme="dark"] .footer-brand-name { color: var(--text-heading); }
+[data-theme="dark"] .footer-col-title { color: var(--text-heading); }
+[data-theme="dark"] .footer-nav-list li a { color: var(--text-body); }
+[data-theme="dark"] .footer-nav-list li a:hover { color: var(--accent); }
+[data-theme="dark"] .social-icon-btn { border-color: var(--border-color); color: var(--text-muted); }
+[data-theme="dark"] .social-icon-btn:hover { border-color: var(--accent); color: var(--accent); }
+[data-theme="dark"] .footer-bottom { border-color: var(--border-color); }
+[data-theme="dark"] .footer-copyright { color: var(--text-muted); }
+[data-theme="dark"] .footer-bottom-links a { color: var(--text-muted); }
+[data-theme="dark"] .footer-bottom-links a:hover { color: var(--accent); }
+
+/* ---- Section Backgrounds ---- */
+[data-theme="dark"] .section-bg { background-color: var(--bg-secondary) !important; }
+[data-theme="dark"] .section-alt { background-color: var(--bg-main) !important; }
+[data-theme="dark"] .bg-main { background-color: var(--bg-main) !important; }
+[data-theme="dark"] .bg-card { background-color: var(--bg-card) !important; }
+[data-theme="dark"] .bg-secondary-brand { background-color: var(--bg-secondary) !important; }
+
+/* ---- Section Labels & Dividers ---- */
+[data-theme="dark"] .section-label { color: var(--accent); }
+[data-theme="dark"] .brand-divider { background: var(--accent); }
+[data-theme="dark"] .step-num { background: rgba(143,167,154,.15); color: var(--accent); }
+
+/* ---- Page Banner ---- */
+[data-theme="dark"] .page-banner .banner-content h1,
+[data-theme="dark"] .page-banner .banner-content p { color: #fff; }
+
+/* ---- FAQ ---- */
+[data-theme="dark"] .faq-item { background: var(--bg-card); border-color: var(--border-color); }
+[data-theme="dark"] .faq-question { color: var(--text-heading); }
+[data-theme="dark"] .faq-answer { color: var(--text-body); }
+
+/* ---- Skin quiz ---- */
+[data-theme="dark"] .quiz-option { background: #ffffff; border-color: rgba(255, 255, 255, 0.4); color: #1e2923; font-weight: 600; }
+[data-theme="dark"] .quiz-option.selected { background: #60796b; border-color: #ffffff; color: #ffffff; }
+[data-theme="dark"] .quiz-progress-bar { background: rgba(255, 255, 255, 0.2); }
+[data-theme="dark"] .quiz-progress-fill { background: #ffffff; }
+[data-theme="dark"] .quiz-card { background: linear-gradient(135deg, rgba(22, 32, 27, 0.85) 0%, rgba(14, 20, 17, 0.90) 100%), url('../assets/images/personalised_for_you.png') center/cover no-repeat; border-color: rgba(255, 255, 255, 0.25); color: #ffffff; }
+
+/* ---- Scrollbar ---- */
+[data-theme="dark"] ::-webkit-scrollbar-track { background: var(--bg-secondary); }
+[data-theme="dark"] ::-webkit-scrollbar-thumb { background: var(--border-color); }
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover { background: var(--accent); }

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skincare Bundle Deals — Luméra Skin</title>
+  <meta name="description" content="Explore Luméra Skin's curated bundle deals — save on complete morning and evening routines. Designed for specific skin types and concerns.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/products.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/dark-theme.css">
+  <link rel="stylesheet" href="css/rtl.css">
+  <link rel="stylesheet" href="css/desktop.css">
+  <link rel="stylesheet" href="css/tablet.css">
+  <link rel="stylesheet" href="css/mobile.css">
+  <style>
+    .bundles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+    @media(max-width:991px) { .bundles-grid { grid-template-columns: repeat(2,1fr); } }
+    @media(max-width:576px) { .bundles-grid { grid-template-columns: 1fr; } }
+
+    .bundle-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      transition: all var(--transition-base);
+      display: flex; flex-direction: column;
+    }
+    .bundle-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-card-hover); border-color: rgba(96,121,107,.3); }
+    .bundle-card.featured { border-color: var(--color-primary); box-shadow: 0 4px 32px rgba(96,121,107,.15); }
+
+    .bundle-img { position:relative; aspect-ratio:3/2; overflow:hidden; background:var(--bg-secondary); }
+    .bundle-img img { width:100%; height:100%; object-fit:cover; transition: transform 400ms ease; }
+    .bundle-card:hover .bundle-img img { transform: scale(1.05); }
+    .bundle-savings-badge {
+      position: absolute; top: 1rem; right: 1rem;
+      background: #3B4E43 !important; color: #ffffff !important;
+      padding: 0.38rem 0.9rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.75rem; font-weight: 700;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+      z-index: 5;
+    }
+    .bundle-featured-badge {
+      position: absolute; top: 1rem; left: 1rem;
+      background: #3B4E43 !important; color: #ffffff !important;
+      padding: 0.38rem 0.9rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.75rem; font-weight: 700;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+      z-index: 5;
+    }
+    [dir="rtl"] .bundle-savings-badge { right:auto; left:1rem; }
+    [dir="rtl"] .bundle-featured-badge { left:auto; right:1rem; }
+
+    .bundle-body { padding: 1.75rem; flex: 1; display:flex; flex-direction:column; }
+    .bundle-skin-badge { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.3em 0.85em; background: #3B4E43 !important; color: #ffffff !important; border-radius: var(--radius-pill); margin-bottom: 0.6rem; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+    .bundle-name { font-family: var(--font-display); font-size: 1.3rem; font-weight: 500; color: var(--text-heading); margin-bottom: 0.4rem; }
+    .bundle-desc { font-size: 0.85rem; color: var(--text-body); margin-bottom: 1.1rem; line-height: 1.65; }
+    .bundle-products { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.25rem; }
+    .bundle-product-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; color: var(--text-body); }
+    .bundle-product-item i { color: var(--color-primary); font-size: 0.7rem; }
+    .bundle-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
+    .bundle-price-wrap { display: flex; flex-direction: column; }
+    .bundle-original-price { font-size: 0.78rem; color: var(--text-muted); text-decoration: line-through; }
+    .bundle-current-price { font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; color: var(--text-heading); }
+
+    @media (max-width: 1366px) {
+      .bundle-name {
+        min-height: 1.4em;
+        line-height: 1.4;
+      }
+      .bundle-desc {
+        min-height: calc(1.65em * 3);
+        line-height: 1.65;
+        overflow-wrap: break-word;
+      }
+    }
+
+    /* Value bar */
+    .value-bar {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.5rem;
+      background: rgba(96,121,107,.06);
+      border-radius: var(--radius-md);
+      margin: 0.75rem 0;
+    }
+    .value-bar i { color: var(--color-primary); font-size: 1.1rem; flex-shrink: 0; }
+    .value-bar p { margin: 0; font-size: 0.82rem; color: var(--text-body); }
+    .value-prop-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+    @media(max-width:768px) {
+      .value-prop-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media(max-width:480px) {
+      .value-prop-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Build own bundle */
+    .build-own-card {
+      background: var(--bg-secondary);
+      border: 2px dashed var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<!-- NAVBAR -->
+<nav class="lumera-navbar" id="mainNavbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-brand-wrap"><div class="navbar-logo"><img src="assets/images/logo.png" alt="Luméra Skin Logo"></div><div class="navbar-brand-text"><span class="navbar-brand-name">Luméra Skin</span><span class="navbar-brand-tagline">Clarity for Your Skin. Care You Can Trust.</span></div></a>
+    <ul class="navbar-nav-center"><li><a href="index.html" class="nav-link">Home</a></li><li><a href="about.html" class="nav-link">About</a></li><li><a href="home2.html" class="nav-link">Routines</a></li><li><a href="shop.html" class="nav-link">Shop</a></li><li><a href="ingredients.html" class="nav-link">Ingredients</a></li><li><a href="skin-type-guide.html" class="nav-link">Skin Guide</a></li><li><a href="bundle-deals.html" class="nav-link active">Bundles</a></li><li><a href="contact.html" class="nav-link">Contact</a></li></ul>
+    <div class="navbar-utils"><button class="navbar-util-btn theme-toggle-btn" aria-label="Toggle dark mode"><i class="bi bi-moon theme-toggle-icon"></i></button><button class="navbar-util-btn navbar-rtl-btn rtl-toggle-btn">RTL</button><a href="login.html" class="btn-login-nav"><i class="bi bi-person"></i> Login</a><button class="navbar-mobile-toggle" id="navMobileToggle" aria-expanded="false"><i class="bi bi-list"></i></button></div>
+  </div>
+  <div class="navbar-mobile-menu" id="navMobileMenu"><a href="index.html" class="nav-link">Home</a><a href="about.html" class="nav-link">About</a><a href="home2.html" class="nav-link">Routines</a><a href="shop.html" class="nav-link">Shop</a><a href="ingredients.html" class="nav-link">Ingredients</a><a href="skin-type-guide.html" class="nav-link">Skin Guide</a><a href="bundle-deals.html" class="nav-link active">Bundles</a><a href="contact.html" class="nav-link">Contact</a><div class="mobile-utils"><button class="navbar-util-btn theme-toggle-btn"><i class="bi bi-moon theme-toggle-icon"></i></button><button class="navbar-util-btn navbar-rtl-btn rtl-toggle-btn">RTL</button><a href="login.html" class="btn-login-nav ms-auto"><i class="bi bi-person"></i> Login</a></div></div>
+</nav>
+
+<!-- PAGE BANNER -->
+<div class="page-banner" style="background-image:url('assets/images/bundle-banner.png'); min-height:260px;">
+  <div class="banner-overlay"></div>
+  <div class="banner-content container-brand">
+    <nav aria-label="breadcrumb"><ol class="breadcrumb" style="justify-content:center;"><li class="breadcrumb-item"><a href="index.html">Home</a></li><li class="breadcrumb-item active">Bundle Deals</li></ol></nav>
+    <h1 style="font-size:2.4rem; margin-bottom:0.4rem;">Skincare Bundle Deals</h1>
+    <p style="color:rgba(255,255,255,.85); max-width:520px; margin:0 auto;">Curated sets for every skin type — complete routines at a combined saving. Each bundle is assembled based on our skin type recommendations.</p>
+  </div>
+</div>
+
+<!-- SECTION 1: VALUE PROPOSITION -->
+<section class="section-py section-bg" aria-label="Bundle value">
+  <div class="container-brand">
+    <div class="value-prop-grid">
+      <div class="value-bar fade-up" style="transition-delay:0ms; flex-direction:column; padding:1.5rem; text-align:center; border-radius:var(--radius-lg); background:var(--bg-card); border:1px solid var(--border-color);">
+        <i class="bi bi-bag-heart-fill" style="font-size:1.6rem; color:var(--color-primary); margin-bottom:0.5rem;"></i>
+        <strong style="display:block; font-size:1rem; color:var(--text-heading); margin-bottom:0.25rem;">Save Up to 20%</strong>
+        <span style="font-size:0.78rem; color:var(--text-muted);">Vs. buying products individually</span>
+      </div>
+      <div class="value-bar fade-up" style="transition-delay:80ms; flex-direction:column; padding:1.5rem; text-align:center; border-radius:var(--radius-lg); background:var(--bg-card); border:1px solid var(--border-color);">
+        <i class="bi bi-person-check-fill" style="font-size:1.6rem; color:var(--color-primary); margin-bottom:0.5rem;"></i>
+        <strong style="display:block; font-size:1rem; color:var(--text-heading); margin-bottom:0.25rem;">Skin-Type Matched</strong>
+        <span style="font-size:0.78rem; color:var(--text-muted);">Bundles built around your skin profile</span>
+      </div>
+      <div class="value-bar fade-up" style="transition-delay:160ms; flex-direction:column; padding:1.5rem; text-align:center; border-radius:var(--radius-lg); background:var(--bg-card); border:1px solid var(--border-color);">
+        <i class="bi bi-gift-fill" style="font-size:1.6rem; color:var(--color-primary); margin-bottom:0.5rem;"></i>
+        <strong style="display:block; font-size:1rem; color:var(--text-heading); margin-bottom:0.25rem;">Perfect for Gifting</strong>
+        <span style="font-size:0.78rem; color:var(--text-muted);">Thoughtful skincare gift for any occasion</span>
+      </div>
+      <div class="value-bar fade-up" style="transition-delay:240ms; flex-direction:column; padding:1.5rem; text-align:center; border-radius:var(--radius-lg); background:var(--bg-card); border:1px solid var(--border-color);">
+        <i class="bi bi-truck" style="font-size:1.6rem; color:var(--color-primary); margin-bottom:0.5rem;"></i>
+        <strong style="display:block; font-size:1rem; color:var(--text-heading); margin-bottom:0.25rem;">Free Shipping</strong>
+        <span style="font-size:0.78rem; color:var(--text-muted);">Complimentary on all bundle orders</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: ALL BUNDLES -->
+<section class="section-py" id="all-bundles" aria-label="All bundle deals">
+  <div class="container-brand">
+    <div class="section-header text-center fade-up">
+      <span class="section-label">Curated Sets</span>
+      <h2>All Bundle Deals</h2>
+      <div class="brand-divider center"></div>
+      <p>Select the bundle that matches your skin type and concern. All bundles are based on the Luméra routine recommendations.</p>
+    </div>
+    <div class="bundles-grid">
+      <!-- Bundle 1 -->
+      <div class="bundle-card featured fade-up" style="transition-delay:0ms">
+        <div class="bundle-img">
+          <img src="assets/images/bundle-cta.jpg" alt="Essential Starter Routine Bundle" loading="lazy">
+          <span class="bundle-savings-badge">Save 18%</span>
+          <span class="bundle-featured-badge">Most Popular</span>
+        </div>
+        <div class="bundle-body">
+          <span class="bundle-skin-badge">All Skin Types</span>
+          <div class="bundle-name">Essential Starter Routine</div>
+          <div class="bundle-desc">A complete three-product morning and evening routine for anyone starting a science-backed skincare regimen. Covers all the fundamentals.</div>
+          <div class="bundle-products">
+            <div class="bundle-product-item"><i class="bi bi-check-circle-fill"></i> Gentle Gel Cleanser 150ml</div>
+            <div class="bundle-product-item"><i class="bi bi-check-circle-fill"></i> Hydrating Essence Toner 200ml</div>
+            <div class="bundle-product-item"><i class="bi bi-check-circle-fill"></i> Hyaluronic Acid Serum 30ml</div>
+          </div>
+          <div class="bundle-footer">
+            <div class="bundle-price-wrap">
+              <span class="bundle-original-price">$156</span>
+              <span class="bundle-current-price">$128</span>
+            </div>
+            <button class="btn-primary-brand" data-add-cart type="button">Add to Cart <i class="bi bi-bag-plus"></i></button>
+          </div>
+        </div>
+      </div>
+      <!-- Bundle 2 -->
+      <div class="bundle-card fade-up" style="transition-delay:80ms">
+        <div class="bundle-img">
+          <img src="assets/images/hydration-routine-bundle.jpg" alt="Deep Hydration Routine Bundle" loading="lazy">
+          <span class="bundle-savings-badge">Save 15%</span>
+        </div>
+        <div class="bundle-body">
+          <span class="bundle-skin-badge">Dry + Sensitive Skin</span>
+          <div class="bundle-name">Deep Hydration Routine</div>
+          <div class="bundle-desc">Three products that work together to intensely hydrate and support the moisture barrier — ideal for dry and sensitive skin types.</div>
+          <div class="bundle-products">
+            <div class="bundle-product-item"><i class="bi bi-check-circle-fill"></i> Hyaluronic Acid Serum 30ml</div>
+            <div class="bundle-product-item"><i class="bi bi-check-circle-fill"></i> Ceramide Barrier Repair Cream 50ml</div>
+            <div class="bundle-product-item"><i class="bi bi-check-circle-fill"></i> Overnight Hydration Mask 60ml</div>
+          </div>
+          <div class="bundle-footer">
+            <div class="bundle-price-wrap">
+              <span class="bundle-original-price">$142</span>
+              <span class="bundle-current-price">$120</span>
+            </div>
+            <button class="btn-primary-brand" data-add-cart type="button">Add to Cart <i class="bi bi-bag-plus"></i></button>
+          </div>
+        </div>
+      </div>
+      <!-- Bundle 3 -->
+      <div class="bundle-card fade-up" style="transition-delay:160ms">
+        <div class="bundle-img">
+          <img src="assets/images/evening-routine.jpg" alt="Evening Routine Bundle" loading="lazy">
+          <span class="bundle-savings-badge">Save 20%</span>
+        </div>
+        <div class="bundle-body">
+          <span class="bundle-skin-badge">All Skin Types</span>
+          <div class="bundle-name">Complete Evening Routine</div>
+          <div class="bundle-desc">A full evening routine — from cleanse through to overnight repair. Three products designed to work in sequence for maximum overnight benefit.</div>
+          <div class="bundle-products">
+            <div class="bundle-product-item"><i class="bi bi-check-circle-fill"></i> Gentle Cleansing Milk 150ml</div>
+            <div class="bundle-product-item"><i class="bi bi-check-circle-fill"></i> Niacinamide Clarity Serum 30ml</div>
+            <div class="bundle-product-item"><i class="bi bi-check-circle-fill"></i> Peptide Eye Recovery Cream 15ml</div>
+          </div>
+          <div class="bundle-footer">
+            <div class="bundle-price-wrap">
+              <span class="bundle-original-price">$178</span>
+              <span class="bundle-current-price">$142</span>
+            </div>
+            <button class="btn-primary-brand" data-add-cart type="button">Add to Cart <i class="bi bi-bag-plus"></i></button>
+          </div>
+        </div>
+      </div>
+      <!-- Bundle 4 -->
+      <div class="bundle-card fade-up" style="transition-delay:0ms">
+        <div class="bundle-img">
+          <img src="assets/images/home2-hero.jpg" alt="Oily and Combination Skin Bundle" loading="lazy">
+          <span class="bundle-savings-badge">Save 17%</span>
+        </div>
+        <div class="bundle-body">
+          <span class="bundle-skin-badge">Oily + Combination Skin</span>
+          <div class="bundle-name">Oil Balance Routine</div>
+          <div class="bundle-desc">Three targeted formulas selected to support balanced sebum levels, clear pores and an even skin tone — without over-stripping.</div>
+          <div class="bundle-products">
+            <div class="bundle-product-item"><i class="bi bi-check-circle-fill"></i> Foaming Oil Control Cleanser 150ml</div>
+            <div class="bundle-product-item"><i class="bi bi-check-circle-fill"></i> BHA Balancing Toner 150ml</div>
+            <div class="bundle-product-item"><i class="bi bi-check-circle-fill"></i> Niacinamide Clarity Serum 30ml</div>
+          </div>
+          <div class="bundle-footer">
+            <div class="bundle-price-wrap">
+              <span class="bundle-original-price">$152</span>
+              <span class="bundle-current-price">$126</span>
+            </div>
+            <button class="btn-primary-brand" data-add-cart type="button">Add to Cart <i class="bi bi-bag-plus"></i></button>
+          </div>
+        </div>
+      </div>
+      <!-- Bundle 5 -->
+      <div class="bundle-card fade-up" style="transition-delay:80ms">
+        <div class="bundle-img">
+          <img src="assets/images/home1-hero.jpg" alt="Sensitive Skin Bundle" loading="lazy">
+          <span class="bundle-savings-badge">Save 16%</span>
+        </div>
+        <div class="bundle-body">
+          <span class="bundle-skin-badge">Sensitive Skin</span>
+          <div class="bundle-name">Sensitive Skin Care Kit</div>
+          <div class="bundle-desc">All fragrance-free. All minimal. Formulated to provide hydration and barrier support without sensitising ingredients — curated for reactive skin.</div>
+          <div class="bundle-products">
+            <div class="bundle-product-item"><i class="bi bi-check-circle-fill"></i> Ultra-Gentle Cream Cleanser 150ml</div>
+            <div class="bundle-product-item"><i class="bi bi-check-circle-fill"></i> Centella Soothing Serum 30ml</div>
+            <div class="bundle-product-item"><i class="bi bi-check-circle-fill"></i> Ceramide Barrier Repair Cream 50ml</div>
+          </div>
+          <div class="bundle-footer">
+            <div class="bundle-price-wrap">
+              <span class="bundle-original-price">$136</span>
+              <span class="bundle-current-price">$114</span>
+            </div>
+            <button class="btn-primary-brand" data-add-cart type="button">Add to Cart <i class="bi bi-bag-plus"></i></button>
+          </div>
+        </div>
+      </div>
+      <!-- Bundle 6 -->
+      <div class="bundle-card fade-up" style="transition-delay:160ms">
+        <div class="bundle-img">
+          <img src="assets/images/radiance-routine-bundle.jpg" alt="Radiance Routine Bundle" loading="lazy">
+          <span class="bundle-savings-badge">Save 15%</span>
+        </div>
+        <div class="bundle-body">
+          <span class="bundle-skin-badge">Normal + Combination</span>
+          <div class="bundle-name">Radiance Routine Bundle</div>
+          <div class="bundle-desc">A three-step brightening routine built around Vitamin C — designed to support collagen synthesis, fade dark spots, and reveal a clear, radiant skin tone over time.</div>
+          <div class="bundle-products">
+            <div class="bundle-product-item"><i class="bi bi-check-circle-fill"></i> Gentle Gel Cleanser 150ml</div>
+            <div class="bundle-product-item"><i class="bi bi-check-circle-fill"></i> Vitamin C 15% Brightening Serum 30ml</div>
+            <div class="bundle-product-item"><i class="bi bi-check-circle-fill"></i> Daily Mineral SPF 50 50ml</div>
+          </div>
+          <div class="bundle-footer">
+            <div class="bundle-price-wrap">
+              <span class="bundle-original-price">$128</span>
+              <span class="bundle-current-price">$108</span>
+            </div>
+            <button class="btn-primary-brand" data-add-cart type="button">Add to Cart <i class="bi bi-bag-plus"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: BUILD YOUR OWN / CONSULTATION -->
+<section class="section-py section-bg" aria-label="Build your own bundle">
+  <div class="container-brand">
+    <div class="build-own-card fade-up">
+      <i class="bi bi-puzzle" style="font-size:2.5rem; color:var(--color-primary); margin-bottom:1rem; display:block;"></i>
+      <h2 style="margin-bottom:0.75rem;">Not Sure Which Bundle Is Right for You?</h2>
+      <p style="max-width:480px; margin:0 auto 1.75rem; color:var(--text-muted);">Take the 2-minute skin quiz to see personalised product recommendations — or speak with our skincare consultants for tailored guidance on building your ideal routine.</p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a href="index.html#skin-quiz" class="btn-primary-brand">Take the Skin Quiz <i class="bi bi-arrow-right"></i></a>
+        <a href="contact.html" class="btn-outline-brand">Book Free Consultation</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" style="background-image:url('assets/images/bundles-cta.png');">
+  <div class="overlay-dark"></div>
+  <div class="cta-inner fade-up">
+    <h2 style="font-size:clamp(1.8rem,4vw,3rem); margin-bottom:1rem;">Give the Gift of Considered Skincare</h2>
+    <p style="max-width:480px; margin:0 auto 2rem; opacity:.9;">Luméra bundles make thoughtful gifts — each one assembled with intention and delivered in minimal, recyclable packaging.</p>
+    <a href="shop.html" class="btn-primary-brand">Shop All Products <i class="bi bi-arrow-right"></i></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="lumera-footer" aria-label="Site footer">
+  <div class="container-brand">
+    <div class="footer-grid">
+      <!-- Brand -->
+      <div class="footer-brand-col">
+        <a href="index.html" class="footer-logo-wrap" aria-label="Luméra Skin Home">
+          <div class="footer-logo" aria-hidden="true">
+            <img src="assets/images/logo.png" alt="Luméra Skin Logo">
+          </div>
+          <span class="footer-brand-name">Luméra Skin</span>
+        </a>
+        <p class="footer-tagline">Clarity for Your Skin. Care You Can Trust.<br>Science-backed formulations for your daily rituals.</p>
+        <div class="footer-social" aria-label="Social media links">
+          <a href="#" class="social-icon-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-icon-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="social-icon-btn" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+          <a href="#" class="social-icon-btn" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+      <!-- Shop -->
+      <div>
+        <span class="footer-col-title">Shop</span>
+        <ul class="footer-nav-list">
+          <li><a href="shop.html">All Products</a></li>
+          <li><a href="bundle-deals.html">Routine Bundles</a></li>
+          <li><a href="shop.html?category=serums">Best Sellers</a></li>
+          <li><a href="shop.html?sort=newest">New Releases</a></li>
+        </ul>
+      </div>
+      <!-- Learn -->
+      <div>
+        <span class="footer-col-title">Learn</span>
+        <ul class="footer-nav-list">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="ingredients.html">Ingredient Library</a></li>
+          <li><a href="skin-type-guide.html">Skin Type Guide</a></li>
+          <li><a href="home2.html">Daily Routines</a></li>
+        </ul>
+      </div>
+      <!-- Support -->
+      <div>
+        <span class="footer-col-title">Support</span>
+        <ul class="footer-nav-list">
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="contact.html#faq">Help & FAQ</a></li>
+          <li><a href="contact.html#shipping">Shipping Policy</a></li>
+          <li><a href="contact.html#returns">Returns & Guarantee</a></li>
+        </ul>
+      </div>
+      <!-- Newsletter -->
+      <div>
+        <span class="footer-col-title">Newsletter</span>
+        <form data-lumera-form aria-label="Newsletter signup">
+          <div class="newsletter-input-wrap">
+            <input type="email" class="input-brand" placeholder="Your email address" required>
+            <button type="submit" class="newsletter-submit-btn">Subscribe</button>
+          </div>
+          <div class="form-success-msg mt-2" style="display:none;">Thank you for subscribing!</div>
+        </form>
+      </div>
+    </div>
+    <!-- Bottom Bar -->
+    <div class="footer-bottom">
+      <p class="footer-copyright">© 2026 Luméra Skin. All rights reserved. Skincare recommendations are for general guidance only.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<!-- Back to Top Button -->
+<button type="button" class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top" title="Scroll to top"><i class="bi bi-arrow-up"></i></button>
+</body>
+</html>

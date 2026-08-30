@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop Skincare Products — Luméra Skin</title>
+  <meta name="description" content="Browse the full Luméra Skin collection. Filter by category, skin type or concern — cleansers, serums, moisturisers, sunscreens, face masks and more.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/products.css">
+  <link rel="stylesheet" href="css/filters.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/dark-theme.css">
+  <link rel="stylesheet" href="css/rtl.css">
+  <link rel="stylesheet" href="css/desktop.css">
+  <link rel="stylesheet" href="css/tablet.css">
+  <link rel="stylesheet" href="css/mobile.css">
+  <style>
+    .shop-page-banner {
+      background: var(--bg-secondary);
+      padding: 3rem 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .shop-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      width: 100%;
+      max-width: 1320px;
+      margin-inline: auto;
+      align-items: start;
+    }
+    .shop-layout > div { min-width: 0; }
+    #productsGrid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      width: 100%;
+    }
+    #productsGrid .product-card { min-width: 0; }
+    #productsGrid .product-img-wrap {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      min-height: 0;
+    }
+    #productsGrid .product-img-wrap img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    @media(max-width:1199px) { #productsGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+    @media(max-width:991px) { .shop-layout { grid-template-columns: 1fr; } }
+    @media(max-width:768px) { #productsGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media(max-width:480px) { #productsGrid { grid-template-columns: 1fr; } }
+    .shop-toolbar {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: nowrap; gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    @media (min-width: 577px) and (max-width: 1024px) {
+      .shop-toolbar {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+      }
+      .shop-toolbar > div {
+        width: auto !important;
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        gap: 0.75rem !important;
+      }
+      .shop-toolbar .sort-select {
+        margin-left: auto !important;
+        margin-inline: 0 !important;
+      }
+    }
+    @media (max-width: 576px) {
+      .shop-toolbar {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        gap: 0.85rem !important;
+        margin-bottom: 1.25rem !important;
+        width: 100% !important;
+      }
+      .shop-toolbar > div {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        width: 100% !important;
+        gap: 0.6rem !important;
+      }
+      .shop-toolbar .filter-trigger-btn {
+        width: min(280px, 90%) !important;
+        justify-content: center !important;
+        margin-inline: auto !important;
+        text-align: center !important;
+        padding: 0.6rem 1rem !important;
+        font-size: 0.85rem !important;
+      }
+      .shop-toolbar .results-count {
+        width: 100% !important;
+        text-align: center !important;
+        margin-inline: auto !important;
+        font-size: 0.78rem !important;
+      }
+      .shop-toolbar .sort-select {
+        width: min(240px, 85%) !important;
+        margin-inline: auto !important;
+        text-align: center !important;
+        padding: 0.55rem 0.85rem !important;
+        font-size: 0.82rem !important;
+      }
+    }
+    /* Quick-filter tabs */
+    .shop-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      padding-inline: 1rem;
+    }
+    /* Pagination */
+    .shop-pagination { display: flex; gap: 0.4rem; justify-content: center; margin-top: 3rem; }
+    .page-btn {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border-color);
+      background: var(--bg-card);
+      font-size: 0.82rem;
+      color: var(--text-body);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all var(--transition-fast);
+    }
+    .page-btn:hover, .page-btn.active { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
+  </style>
+</head>
+<body>
+<!-- NAVBAR -->
+<nav class="lumera-navbar" id="mainNavbar" aria-label="Main navigation">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-brand-wrap">
+      <div class="navbar-logo">
+        <img src="assets/images/logo.png" alt="Luméra Skin Logo">
+      </div>
+      <div class="navbar-brand-text"><span class="navbar-brand-name">Luméra Skin</span><span class="navbar-brand-tagline">Clarity for Your Skin. Care You Can Trust.</span></div>
+    </a>
+    <ul class="navbar-nav-center">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="home2.html" class="nav-link">Routines</a></li>
+      <li><a href="shop.html" class="nav-link active">Shop</a></li>
+      <li><a href="ingredients.html" class="nav-link">Ingredients</a></li>
+      <li><a href="skin-type-guide.html" class="nav-link">Skin Guide</a></li>
+      <li><a href="bundle-deals.html" class="nav-link">Bundles</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="navbar-utils">
+      <button class="navbar-util-btn theme-toggle-btn" aria-label="Toggle dark mode"><i class="bi bi-moon theme-toggle-icon"></i></button>
+      <button class="navbar-util-btn navbar-rtl-btn rtl-toggle-btn" aria-label="Toggle RTL">RTL</button>
+      <a href="login.html" class="btn-login-nav"><i class="bi bi-person"></i> Login</a>
+      <button class="navbar-mobile-toggle" id="navMobileToggle" aria-label="Open menu" aria-expanded="false"><i class="bi bi-list"></i></button>
+    </div>
+  </div>
+  <div class="navbar-mobile-menu" id="navMobileMenu">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="home2.html" class="nav-link">Routines</a>
+    <a href="shop.html" class="nav-link active">Shop</a>
+    <a href="ingredients.html" class="nav-link">Ingredients</a>
+    <a href="skin-type-guide.html" class="nav-link">Skin Guide</a>
+    <a href="bundle-deals.html" class="nav-link">Bundles</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+    <div class="mobile-utils">
+      <button class="navbar-util-btn theme-toggle-btn" aria-label="Toggle dark mode"><i class="bi bi-moon theme-toggle-icon"></i></button>
+      <button class="navbar-util-btn navbar-rtl-btn rtl-toggle-btn">RTL</button>
+      <a href="login.html" class="btn-login-nav ms-auto"><i class="bi bi-person"></i> Login</a>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE BANNER -->
+<div class="page-banner" style="background-image:url('assets/images/shop-banner.png'); min-height:260px;">
+  <div class="banner-overlay"></div>
+  <div class="banner-content container-brand">
+    <nav aria-label="breadcrumb"><ol class="breadcrumb" style="justify-content:center;"><li class="breadcrumb-item"><a href="index.html">Home</a></li><li class="breadcrumb-item active">Shop</li></ol></nav>
+    <h1 style="font-size:2.4rem; margin-bottom:0.4rem;">Shop All Products</h1>
+    <p style="color:rgba(255,255,255,.85); max-width:500px; margin:0 auto;">Clinically formulated skincare for every skin type. Filter by category, skin type or concern to find your perfect match.</p>
+  </div>
+</div>
+    <!-- Quick Filter Tags -->
+    <div class="shop-tags mt-3" role="group" aria-label="Quick category filters">
+      <button class="filter-tag active" data-filter="category" data-value="all" type="button">All Products</button>
+      <button class="filter-tag" data-filter="category" data-value="cleanser" type="button">Cleansers</button>
+      <button class="filter-tag" data-filter="category" data-value="toner" type="button">Toners</button>
+      <button class="filter-tag" data-filter="category" data-value="serum" type="button">Serums</button>
+      <button class="filter-tag" data-filter="category" data-value="moisturizer" type="button">Moisturisers</button>
+      <button class="filter-tag" data-filter="category" data-value="sunscreen" type="button">Sunscreens</button>
+      <button class="filter-tag" data-filter="category" data-value="mask" type="button">Face Masks</button>
+      <button class="filter-tag" data-filter="category" data-value="eye" type="button">Eye Care</button>
+      <button class="filter-tag" data-filter="category" data-value="treatment" type="button">Treatments</button>
+    </div>
+  </div>
+</section>
+
+<!-- FILTER SIDE POPUP DRAWER BACKDROP -->
+<div id="filterDrawerBackdrop" class="filter-drawer-backdrop"></div>
+
+<!-- SHOP MAIN CONTENT -->
+<section class="section-py" aria-label="Product listing">
+  <div class="container-brand">
+    <!-- Filter Side Popup Drawer -->
+    <div id="filterSidebarCol" class="filter-sidebar-col" role="dialog" aria-modal="true" aria-label="Product Filters">
+      <div class="filter-drawer-header">
+        <h2 class="filter-drawer-title"><i class="bi bi-sliders text-primary"></i> Filter Products</h2>
+        <button class="btn-drawer-close" id="closeFilterDrawerBtn" type="button" aria-label="Close filters"><i class="bi bi-x-lg"></i></button>
+      </div>
+
+      <div class="filter-sidebar" aria-label="Product filters">
+        <!-- Category -->
+        <div class="filter-group">
+          <div class="filter-group-title">Category</div>
+          <div class="filter-options">
+            <label class="filter-option"><input type="checkbox" class="filter-checkbox" data-filter="category" data-value="cleanser"> <span class="filter-option-label">Cleansers</span><span class="filter-option-count">6</span></label>
+            <label class="filter-option"><input type="checkbox" class="filter-checkbox" data-filter="category" data-value="toner"> <span class="filter-option-label">Toners</span><span class="filter-option-count">4</span></label>
+            <label class="filter-option"><input type="checkbox" class="filter-checkbox" data-filter="category" data-value="serum"> <span class="filter-option-label">Serums</span><span class="filter-option-count">8</span></label>
+            <label class="filter-option"><input type="checkbox" class="filter-checkbox" data-filter="category" data-value="moisturizer"> <span class="filter-option-label">Moisturisers</span><span class="filter-option-count">5</span></label>
+            <label class="filter-option"><input type="checkbox" class="filter-checkbox" data-filter="category" data-value="sunscreen"> <span class="filter-option-label">Sunscreens</span><span class="filter-option-count">3</span></label>
+            <label class="filter-option"><input type="checkbox" class="filter-checkbox" data-filter="category" data-value="mask"> <span class="filter-option-label">Face Masks</span><span class="filter-option-count">4</span></label>
+            <label class="filter-option"><input type="checkbox" class="filter-checkbox" data-filter="category" data-value="eye"> <span class="filter-option-label">Eye Care</span><span class="filter-option-count">3</span></label>
+            <label class="filter-option"><input type="checkbox" class="filter-checkbox" data-filter="category" data-value="treatment"> <span class="filter-option-label">Treatments</span><span class="filter-option-count">3</span></label>
+          </div>
+        </div>
+
+        <!-- Skin Type -->
+        <div class="filter-group">
+          <div class="filter-group-title">Skin Type</div>
+          <div class="filter-options">
+            <label class="filter-option"><input type="checkbox" class="filter-checkbox" data-filter="skintype" data-value="dry"> <span class="filter-option-label">Dry Skin</span></label>
+            <label class="filter-option"><input type="checkbox" class="filter-checkbox" data-filter="skintype" data-value="oily"> <span class="filter-option-label">Oily Skin</span></label>
+            <label class="filter-option"><input type="checkbox" class="filter-checkbox" data-filter="skintype" data-value="combination"> <span class="filter-option-label">Combination</span></label>
+            <label class="filter-option"><input type="checkbox" class="filter-checkbox" data-filter="skintype" data-value="normal"> <span class="filter-option-label">Normal Skin</span></label>
+            <label class="filter-option"><input type="checkbox" class="filter-checkbox" data-filter="skintype" data-value="sensitive"> <span class="filter-option-label">Sensitive Skin</span></label>
+          </div>
+        </div>
+
+        <!-- Skin Concern -->
+        <div class="filter-group">
+          <div class="filter-group-title">Skin Concern</div>
+          <div class="filter-options">
+            <label class="filter-option"><input type="checkbox" class="filter-checkbox" data-filter="concern" data-value="hydration"> <span class="filter-option-label">Hydration</span></label>
+            <label class="filter-option"><input type="checkbox" class="filter-checkbox" data-filter="concern" data-value="dullness"> <span class="filter-option-label">Dullness</span></label>
+            <label class="filter-option"><input type="checkbox" class="filter-checkbox" data-filter="concern" data-value="texture"> <span class="filter-option-label">Uneven Texture</span></label>
+            <label class="filter-option"><input type="checkbox" class="filter-checkbox" data-filter="concern" data-value="blemishes"> <span class="filter-option-label">Blemishes</span></label>
+            <label class="filter-option"><input type="checkbox" class="filter-checkbox" data-filter="concern" data-value="oil-control"> <span class="filter-option-label">Oil Control</span></label>
+            <label class="filter-option"><input type="checkbox" class="filter-checkbox" data-filter="concern" data-value="barrier"> <span class="filter-option-label">Barrier Support</span></label>
+            <label class="filter-option"><input type="checkbox" class="filter-checkbox" data-filter="concern" data-value="fine-lines"> <span class="filter-option-label">Fine Lines</span></label>
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-drawer-footer">
+        <button class="btn-primary-brand w-100" id="applyFiltersBtn" type="button">Apply Filters</button>
+        <button class="btn-outline-brand clear-all-filters" type="button" style="white-space:nowrap;">Clear All</button>
+      </div>
+    </div>
+
+    <div class="shop-layout">
+      <!-- Products Panel -->
+      <div>
+        <!-- Toolbar -->
+        <div class="shop-toolbar">
+          <div style="display:flex; align-items:center; gap:0.75rem; flex-wrap:wrap;">
+            <button class="filter-trigger-btn" id="openFilterDrawerBtn" type="button">
+              <i class="bi bi-sliders"></i> Filter & Refine
+              <span class="filter-badge-count" id="activeFilterBadge" style="display:none;">0</span>
+            </button>
+            <span id="resultsCount" class="results-count">Showing <strong>16</strong> of <strong>36</strong> products</span>
+          </div>
+          <select class="sort-select" id="sortSelect" aria-label="Sort products">
+            <option value="default">Sort: Featured</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="rating">Highest Rated</option>
+          </select>
+        </div>
+
+        <!-- Active Filters -->
+        <div class="active-filters-bar" id="activeFiltersBar" aria-live="polite"></div>
+
+        <!-- Products Grid -->
+        <div class="products-grid mt-3" id="productsGrid">
+          <!-- 16 Products -->
+          <!-- 1 -->
+          <div class="product-card fade-up" data-category="serum" data-skintype="all dry oily combination normal sensitive" data-concern="hydration" data-price="48" data-rating="4.9">
+            <div class="product-img-wrap"><img src="assets/images/shop1_1.png" alt="Hydra-Boost Hyaluronic Serum" loading="lazy"><div class="product-badges"><span class="badge-brand badge-bestseller">BESTSELLER</span></div><div class="product-quick-overlay"><button class="btn-product-cta" data-add-cart type="button"><i class="bi bi-bag-plus"></i> Quick Add</button></div></div>
+            <div class="product-body"><div class="product-category">Serum</div><h3 class="product-name">Hydra-Boost Hyaluronic Serum</h3><p class="product-function">Deep hydration serum that draws moisture to all skin layers</p><div class="product-meta"><span class="product-meta-item">All Skin Types</span><span class="product-meta-item">AM + PM</span></div><div class="product-ingredient"><i class="bi bi-droplet-fill"></i> Hyaluronic Acid</div></div>
+            <div class="product-footer"><div class="product-price"><span class="price-current">$48</span><span class="price-size">30ml</span></div><div style="text-align:right"><div class="product-rating"><span class="star-rating">★★★★★</span> (312)</div><a href="#" class="btn-product-cta mt-1">Shop Now</a></div></div>
+          </div>
+          <!-- 2 -->
+          <div class="product-card fade-up" style="transition-delay:60ms" data-category="serum" data-skintype="oily combination" data-concern="oil-control blemishes texture" data-price="42" data-rating="4.8">
+            <div class="product-img-wrap"><img src="assets/images/shop1_2.png" alt="Niacinamide Clarity Serum" loading="lazy"><div class="product-badges"><span class="badge-brand badge-new">NEW</span></div><div class="product-quick-overlay"><button class="btn-product-cta" data-add-cart type="button"><i class="bi bi-bag-plus"></i> Quick Add</button></div></div>
+            <div class="product-body"><div class="product-category">Serum</div><h3 class="product-name">Niacinamide 10% Clarity Serum</h3><p class="product-function">Supports even skin tone and minimises pore appearance</p><div class="product-meta"><span class="product-meta-item">Oily Skin</span><span class="product-meta-item">Combination</span></div><div class="product-ingredient"><i class="bi bi-droplet-fill"></i> Niacinamide 10%</div></div>
+            <div class="product-footer"><div class="product-price"><span class="price-current">$42</span><span class="price-size">30ml</span></div><div style="text-align:right"><div class="product-rating"><span class="star-rating">★★★★★</span> (208)</div><a href="#" class="btn-product-cta mt-1">Shop Now</a></div></div>
+          </div>
+          <!-- 3 -->
+          <div class="product-card fade-up" style="transition-delay:120ms" data-category="moisturizer" data-skintype="dry sensitive" data-concern="hydration barrier" data-price="56" data-rating="4.9">
+            <div class="product-img-wrap"><img src="assets/images/shop1_3.png" alt="Ceramide Barrier Cream" loading="lazy"><div class="product-badges"><span class="badge-brand badge-bestseller">BESTSELLER</span></div><div class="product-quick-overlay"><button class="btn-product-cta" data-add-cart type="button"><i class="bi bi-bag-plus"></i> Quick Add</button></div></div>
+            <div class="product-body"><div class="product-category">Moisturiser</div><h3 class="product-name">Ceramide Barrier Repair Cream</h3><p class="product-function">Restores and supports the skin's natural protective barrier</p><div class="product-meta"><span class="product-meta-item">Dry Skin</span><span class="product-meta-item">Sensitive</span></div><div class="product-ingredient"><i class="bi bi-droplet-fill"></i> Ceramides NP</div></div>
+            <div class="product-footer"><div class="product-price"><span class="price-current">$56</span><span class="price-size">50ml</span></div><div style="text-align:right"><div class="product-rating"><span class="star-rating">★★★★★</span> (445)</div><a href="#" class="btn-product-cta mt-1">Shop Now</a></div></div>
+          </div>
+          <!-- 4 -->
+          <div class="product-card fade-up" style="transition-delay:180ms" data-category="serum" data-skintype="normal combination" data-concern="dullness" data-price="52" data-rating="4.7">
+            <div class="product-img-wrap"><img src="assets/images/shop1_4.png" alt="Vitamin C Serum" loading="lazy"><div class="product-badges"><span class="badge-brand badge-skin">FRAGRANCE FREE</span></div><div class="product-quick-overlay"><button class="btn-product-cta" data-add-cart type="button"><i class="bi bi-bag-plus"></i> Quick Add</button></div></div>
+            <div class="product-body"><div class="product-category">Serum</div><h3 class="product-name">Vitamin C 15% Brightening Serum</h3><p class="product-function">Visibly supports skin radiance and antioxidant protection</p><div class="product-meta"><span class="product-meta-item">Normal Skin</span><span class="product-meta-item">AM Use</span></div><div class="product-ingredient"><i class="bi bi-droplet-fill"></i> L-Ascorbic Acid 15%</div></div>
+            <div class="product-footer"><div class="product-price"><span class="price-current">$52</span><span class="price-size">30ml</span></div><div style="text-align:right"><div class="product-rating"><span class="star-rating">★★★★☆</span> (189)</div><a href="#" class="btn-product-cta mt-1">Shop Now</a></div></div>
+          </div>
+          <!-- 5 -->
+          <div class="product-card fade-up" data-category="cleanser" data-skintype="all dry normal sensitive" data-concern="hydration barrier" data-price="32" data-rating="4.8">
+            <div class="product-img-wrap"><img src="assets/images/shop_by_keep_1.png" alt="Gentle Gel Cleanser" loading="lazy"><div class="product-badges"><span class="badge-brand badge-skin">FRAGRANCE FREE</span></div></div>
+            <div class="product-body"><div class="product-category">Cleanser</div><h3 class="product-name">Gentle Gel Cleanser</h3><p class="product-function">pH-balanced, low-foam cleanser that removes impurities without stripping moisture</p><div class="product-meta"><span class="product-meta-item">All Skin Types</span><span class="product-meta-item">AM + PM</span></div><div class="product-ingredient"><i class="bi bi-droplet-fill"></i> Glycerin · Panthenol</div></div>
+            <div class="product-footer"><div class="product-price"><span class="price-current">$32</span><span class="price-size">150ml</span></div><div style="text-align:right"><div class="product-rating"><span class="star-rating">★★★★★</span> (267)</div><a href="#" class="btn-product-cta mt-1">Shop Now</a></div></div>
+          </div>
+          <!-- 6 -->
+          <div class="product-card fade-up" style="transition-delay:60ms" data-category="toner" data-skintype="all dry normal" data-concern="hydration" data-price="36" data-rating="4.7">
+            <div class="product-img-wrap"><img src="assets/images/shop_by_keep_2.png" alt="Hydrating Essence Toner" loading="lazy"><div class="product-badges"><span class="badge-brand badge-new">NEW</span></div></div>
+            <div class="product-body"><div class="product-category">Toner</div><h3 class="product-name">Hydrating Essence Toner</h3><p class="product-function">Lightweight prep toner that supports hydration and skin absorption</p><div class="product-meta"><span class="product-meta-item">Dry Skin</span><span class="product-meta-item">Normal</span></div><div class="product-ingredient"><i class="bi bi-droplet-fill"></i> Hyaluronic Acid · Aloe</div></div>
+            <div class="product-footer"><div class="product-price"><span class="price-current">$36</span><span class="price-size">200ml</span></div><div style="text-align:right"><div class="product-rating"><span class="star-rating">★★★★☆</span> (143)</div><a href="#" class="btn-product-cta mt-1">Shop Now</a></div></div>
+          </div>
+          <!-- 7 -->
+          <div class="product-card fade-up" style="transition-delay:120ms" data-category="sunscreen" data-skintype="all" data-concern="barrier" data-price="44" data-rating="4.9">
+            <div class="product-img-wrap"><img src="assets/images/shop_by_keep_3.png" alt="Daily Mineral SPF 50" loading="lazy"><div class="product-badges"><span class="badge-brand badge-bestseller">BESTSELLER</span></div></div>
+            <div class="product-body"><div class="product-category">Sunscreen</div><h3 class="product-name">Daily Mineral SPF 50</h3><p class="product-function">Broad-spectrum mineral sunscreen — lightweight, no white cast</p><div class="product-meta"><span class="product-meta-item">All Skin Types</span><span class="product-meta-item">AM Only</span></div><div class="product-ingredient"><i class="bi bi-droplet-fill"></i> Zinc Oxide · Titanium Dioxide</div></div>
+            <div class="product-footer"><div class="product-price"><span class="price-current">$44</span><span class="price-size">50ml</span></div><div style="text-align:right"><div class="product-rating"><span class="star-rating">★★★★★</span> (389)</div><a href="#" class="btn-product-cta mt-1">Shop Now</a></div></div>
+          </div>
+          <!-- 8 -->
+          <div class="product-card fade-up" style="transition-delay:180ms" data-category="eye" data-skintype="all" data-concern="fine-lines" data-price="58" data-rating="4.6">
+            <div class="product-img-wrap"><img src="assets/images/shop_by_keep_4.png" alt="Peptide Eye Recovery Cream" loading="lazy"><div class="product-badges"><span class="badge-brand badge-skin">AM + PM</span></div></div>
+            <div class="product-body"><div class="product-category">Eye Care</div><h3 class="product-name">Peptide Eye Recovery Cream</h3><p class="product-function">Supports the delicate periorbital area with peptide-rich formula</p><div class="product-meta"><span class="product-meta-item">All Skin Types</span><span class="product-meta-item">AM + PM</span></div><div class="product-ingredient"><i class="bi bi-droplet-fill"></i> Matrixyl 3000 · Caffeine</div></div>
+            <div class="product-footer"><div class="product-price"><span class="price-current">$58</span><span class="price-size">15ml</span></div><div style="text-align:right"><div class="product-rating"><span class="star-rating">★★★★☆</span> (112)</div><a href="#" class="btn-product-cta mt-1">Shop Now</a></div></div>
+          </div>
+          <!-- 9 -->
+          <div class="product-card fade-up" data-category="mask" data-skintype="dry sensitive" data-concern="hydration barrier" data-price="38" data-rating="4.8">
+            <div class="product-img-wrap"><img src="assets/images/shop_by_keep_5.png" alt="Overnight Hydration Mask" loading="lazy"><div class="product-badges"><span class="badge-brand badge-skin">FRAGRANCE FREE</span></div></div>
+            <div class="product-body"><div class="product-category">Face Mask</div><h3 class="product-name">Overnight Hydration Mask</h3><p class="product-function">Sleep mask that supports intensive overnight moisture replenishment</p><div class="product-meta"><span class="product-meta-item">Dry Skin</span><span class="product-meta-item">Sensitive</span></div><div class="product-ingredient"><i class="bi bi-droplet-fill"></i> Squalane · Ceramides</div></div>
+            <div class="product-footer"><div class="product-price"><span class="price-current">$38</span><span class="price-size">60ml</span></div><div style="text-align:right"><div class="product-rating"><span class="star-rating">★★★★★</span> (176)</div><a href="#" class="btn-product-cta mt-1">Shop Now</a></div></div>
+          </div>
+          <!-- 10 -->
+          <div class="product-card fade-up" style="transition-delay:60ms" data-category="treatment" data-skintype="oily combination sensitive" data-concern="blemishes" data-price="28" data-rating="4.7">
+            <div class="product-img-wrap"><img src="assets/images/shop_by_keep_6.png" alt="BHA Exfoliant 2%" loading="lazy"><div class="product-badges"><span class="badge-brand badge-new">NEW</span></div></div>
+            <div class="product-body"><div class="product-category">Treatment</div><h3 class="product-name">BHA Exfoliant 2%</h3><p class="product-function">Salicylic acid exfoliant designed to unclog pores and refine skin texture</p><div class="product-meta"><span class="product-meta-item">Oily Skin</span><span class="product-meta-item">PM Use</span></div><div class="product-ingredient"><i class="bi bi-droplet-fill"></i> Salicylic Acid 2%</div></div>
+            <div class="product-footer"><div class="product-price"><span class="price-current">$28</span><span class="price-size">30ml</span></div><div style="text-align:right"><div class="product-rating"><span class="star-rating">★★★★☆</span> (231)</div><a href="#" class="btn-product-cta mt-1">Shop Now</a></div></div>
+          </div>
+          <!-- 11 -->
+          <div class="product-card fade-up" style="transition-delay:120ms" data-category="moisturizer" data-skintype="oily combination" data-concern="oil-control hydration" data-price="46" data-rating="4.6">
+            <div class="product-img-wrap"><img src="assets/images/shop_by_keep_7.png" alt="Oil-Free Gel Moisturiser" loading="lazy"><div class="product-badges"><span class="badge-brand badge-skin">FRAGRANCE FREE</span></div></div>
+            <div class="product-body"><div class="product-category">Moisturiser</div><h3 class="product-name">Oil-Free Gel Moisturiser</h3><p class="product-function">Lightweight gel that provides hydration without heaviness or shine</p><div class="product-meta"><span class="product-meta-item">Oily Skin</span><span class="product-meta-item">Combination</span></div><div class="product-ingredient"><i class="bi bi-droplet-fill"></i> Niacinamide · Glycerin</div></div>
+            <div class="product-footer"><div class="product-price"><span class="price-current">$46</span><span class="price-size">50ml</span></div><div style="text-align:right"><div class="product-rating"><span class="star-rating">★★★★☆</span> (198)</div><a href="#" class="btn-product-cta mt-1">Shop Now</a></div></div>
+          </div>
+          <!-- 12 -->
+          <div class="product-card fade-up" style="transition-delay:180ms" data-category="serum" data-skintype="dry sensitive normal" data-concern="barrier hydration" data-price="64" data-rating="4.9">
+            <div class="product-img-wrap"><img src="assets/images/skin_oil.png" alt="Squalane Nourishing Oil" loading="lazy"><div class="product-badges"><span class="badge-brand badge-bestseller">BESTSELLER</span></div></div>
+            <div class="product-body"><div class="product-category">Serum / Oil</div><h3 class="product-name">Squalane Nourishing Facial Oil</h3><p class="product-function">100% plant-derived squalane that supports skin softness and barrier function</p><div class="product-meta"><span class="product-meta-item">Dry Skin</span><span class="product-meta-item">Normal</span></div><div class="product-ingredient"><i class="bi bi-droplet-fill"></i> 100% Squalane</div></div>
+            <div class="product-footer"><div class="product-price"><span class="price-current">$64</span><span class="price-size">30ml</span></div><div style="text-align:right"><div class="product-rating"><span class="star-rating">★★★★★</span> (284)</div><a href="#" class="btn-product-cta mt-1">Shop Now</a></div></div>
+          </div>
+          <!-- 13 -->
+          <div class="product-card fade-up" data-category="toner" data-skintype="oily combination" data-concern="oil-control texture" data-price="34" data-rating="4.6">
+            <div class="product-img-wrap"><img src="assets/images/shop_3_1.png" alt="BHA Balancing Toner" loading="lazy"><div class="product-badges"><span class="badge-brand badge-skin">PM USE</span></div></div>
+            <div class="product-body"><div class="product-category">Toner</div><h3 class="product-name">BHA Balancing Toner</h3><p class="product-function">Salicylic acid toner that balances oiliness and refines pore appearance</p><div class="product-meta"><span class="product-meta-item">Oily Skin</span><span class="product-meta-item">PM Use</span></div><div class="product-ingredient"><i class="bi bi-droplet-fill"></i> Salicylic Acid · Zinc</div></div>
+            <div class="product-footer"><div class="product-price"><span class="price-current">$34</span><span class="price-size">150ml</span></div><div style="text-align:right"><div class="product-rating"><span class="star-rating">★★★★☆</span> (156)</div><a href="#" class="btn-product-cta mt-1">Shop Now</a></div></div>
+          </div>
+          <!-- 14 -->
+          <div class="product-card fade-up" style="transition-delay:60ms" data-category="cleanser" data-skintype="oily combination" data-concern="oil-control blemishes" data-price="30" data-rating="4.7">
+            <div class="product-img-wrap"><img src="assets/images/shop3_2.png" alt="Foaming Oil Control Cleanser" loading="lazy"><div class="product-badges"><span class="badge-brand badge-skin">FRAGRANCE FREE</span></div></div>
+            <div class="product-body"><div class="product-category">Cleanser</div><h3 class="product-name">Foaming Oil Control Cleanser</h3><p class="product-function">Gentle foaming cleanser designed to support balanced sebum levels</p><div class="product-meta"><span class="product-meta-item">Oily Skin</span><span class="product-meta-item">AM + PM</span></div><div class="product-ingredient"><i class="bi bi-droplet-fill"></i> Niacinamide · Tea Tree</div></div>
+            <div class="product-footer"><div class="product-price"><span class="price-current">$30</span><span class="price-size">150ml</span></div><div style="text-align:right"><div class="product-rating"><span class="star-rating">★★★★☆</span> (203)</div><a href="#" class="btn-product-cta mt-1">Shop Now</a></div></div>
+          </div>
+          <!-- 15 -->
+          <div class="product-card fade-up" style="transition-delay:120ms" data-category="mask" data-skintype="oily combination" data-concern="oil-control blemishes texture" data-price="32" data-rating="4.5">
+            <div class="product-img-wrap"><img src="assets/images/shop3_3.png" alt="Kaolin Clay Detox Mask" loading="lazy"></div>
+            <div class="product-body"><div class="product-category">Face Mask</div><h3 class="product-name">Kaolin Clay Detox Mask</h3><p class="product-function">Clay-based mask that may help absorb excess oil and support clear-looking skin</p><div class="product-meta"><span class="product-meta-item">Oily Skin</span><span class="product-meta-item">Weekly</span></div><div class="product-ingredient"><i class="bi bi-droplet-fill"></i> Kaolin Clay · Charcoal</div></div>
+            <div class="product-footer"><div class="product-price"><span class="price-current">$32</span><span class="price-size">75ml</span></div><div style="text-align:right"><div class="product-rating"><span class="star-rating">★★★★☆</span> (167)</div><a href="#" class="btn-product-cta mt-1">Shop Now</a></div></div>
+          </div>
+          <!-- 16 -->
+          <div class="product-card fade-up" style="transition-delay:180ms" data-category="treatment" data-skintype="sensitive dry normal" data-concern="barrier hydration" data-price="48" data-rating="4.8">
+            <div class="product-img-wrap"><img src="assets/images/shop3_4.png" alt="Centella Soothing Serum" loading="lazy"><div class="product-badges"><span class="badge-brand badge-skin">SENSITIVE</span></div></div>
+            <div class="product-body"><div class="product-category">Treatment Serum</div><h3 class="product-name">Centella Soothing Serum</h3><p class="product-function">Calming treatment serum formulated for reactive and sensitive skin types</p><div class="product-meta"><span class="product-meta-item">Sensitive Skin</span><span class="product-meta-item">AM + PM</span></div><div class="product-ingredient"><i class="bi bi-droplet-fill"></i> Centella Asiatica · Allantoin</div></div>
+            <div class="product-footer"><div class="product-price"><span class="price-current">$48</span><span class="price-size">30ml</span></div><div style="text-align:right"><div class="product-rating"><span class="star-rating">★★★★★</span> (234)</div><a href="#" class="btn-product-cta mt-1">Shop Now</a></div></div>
+          </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="shop-pagination" aria-label="Pagination">
+          <button class="page-btn active" type="button" aria-current="page">1</button>
+          <button class="page-btn" type="button">2</button>
+          <button class="page-btn" type="button">3</button>
+          <button class="page-btn" type="button"><i class="bi bi-chevron-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" style="background-image:url('assets/images/shop-cta.png');" aria-label="Skin quiz CTA">
+  <div class="overlay-dark"></div>
+  <div class="cta-inner fade-up">
+    <h2 style="font-size:clamp(1.8rem,4vw,3rem); margin-bottom:1rem;">Not Sure Where to Start?</h2>
+    <p style="max-width:480px; margin:0 auto 2rem; opacity:.9;">Take the 2-minute skin quiz and receive personalised product recommendations matched to your skin type and concerns.</p>
+    <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+      <a href="index.html#skin-quiz" class="btn-primary-brand">Take Skin Quiz <i class="bi bi-clipboard-check"></i></a>
+      <a href="contact.html" class="btn-outline-brand" style="border-color:rgba(255,255,255,.7); color:#fff !important;">Book Consultation</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="lumera-footer" aria-label="Site footer">
+  <div class="container-brand">
+    <div class="footer-grid">
+      <!-- Brand -->
+      <div class="footer-brand-col">
+        <a href="index.html" class="footer-logo-wrap" aria-label="Luméra Skin Home">
+          <div class="footer-logo" aria-hidden="true">
+            <img src="assets/images/logo.png" alt="Luméra Skin Logo">
+          </div>
+          <span class="footer-brand-name">Luméra Skin</span>
+        </a>
+        <p class="footer-tagline">Clarity for Your Skin. Care You Can Trust.<br>Science-backed formulations for your daily rituals.</p>
+        <div class="footer-social" aria-label="Social media links">
+          <a href="#" class="social-icon-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-icon-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="social-icon-btn" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+          <a href="#" class="social-icon-btn" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+      <!-- Shop -->
+      <div>
+        <span class="footer-col-title">Shop</span>
+        <ul class="footer-nav-list">
+          <li><a href="shop.html">All Products</a></li>
+          <li><a href="bundle-deals.html">Routine Bundles</a></li>
+          <li><a href="shop.html?category=serums">Best Sellers</a></li>
+          <li><a href="shop.html?sort=newest">New Releases</a></li>
+        </ul>
+      </div>
+      <!-- Learn -->
+      <div>
+        <span class="footer-col-title">Learn</span>
+        <ul class="footer-nav-list">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="ingredients.html">Ingredient Library</a></li>
+          <li><a href="skin-type-guide.html">Skin Type Guide</a></li>
+          <li><a href="home2.html">Daily Routines</a></li>
+        </ul>
+      </div>
+      <!-- Support -->
+      <div>
+        <span class="footer-col-title">Support</span>
+        <ul class="footer-nav-list">
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="contact.html#faq">Help & FAQ</a></li>
+          <li><a href="contact.html#shipping">Shipping Policy</a></li>
+          <li><a href="contact.html#returns">Returns & Guarantee</a></li>
+        </ul>
+      </div>
+      <!-- Newsletter -->
+      <div>
+        <span class="footer-col-title">Newsletter</span>
+        <form data-lumera-form aria-label="Newsletter signup">
+          <div class="newsletter-input-wrap">
+            <input type="email" class="input-brand" placeholder="Your email address" required>
+            <button type="submit" class="newsletter-submit-btn">Subscribe</button>
+          </div>
+          <div class="form-success-msg mt-2" style="display:none;">Thank you for subscribing!</div>
+        </form>
+      </div>
+    </div>
+    <!-- Bottom Bar -->
+    <div class="footer-bottom">
+      <p class="footer-copyright">© 2026 Luméra Skin. All rights reserved. Skincare recommendations are for general guidance only.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/shop.js"></script>
+<!-- Back to Top Button -->
+<button type="button" class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top" title="Scroll to top"><i class="bi bi-arrow-up"></i></button>
+</body>
+</html>
