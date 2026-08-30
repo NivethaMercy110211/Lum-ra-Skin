@@ -1267,6 +1267,50 @@
       }
     }
 
+    @media (min-width: 577px) and (max-width: 1366px) {
+      .testimonials-grid > .testimonial-card {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .testimonials-grid > .testimonial-card:last-child:nth-child(odd) {
+        width: calc(50% - 0.75rem) !important;
+        max-width: none !important;
+      }
+
+      .testimonial-text {
+        min-height: calc(1.7em * 6);
+      }
+
+      .testimonial-author {
+        margin-top: auto;
+      }
+
+      .testimonial-wide-tablet-extra {
+        display: inline;
+      }
+    }
+
+    .testimonial-wide-tablet-extra {
+      display: none;
+    }
+
+    @media (min-width: 577px) and (max-width: 800px) {
+      .why-grid > .trust-card:nth-child(4) .trust-desc {
+        max-width: 270px;
+      }
+
+      .testimonial-wide-tablet-extra {
+        display: none;
+      }
+    }
+
+    @media (min-width: 801px) and (max-width: 1366px) {
+      .testimonial-wide-tablet-extra {
+        display: inline;
+      }
+    }
+
     @media (max-width: 576px) {
       .testimonials-grid {
         grid-template-columns: 1fr;
@@ -2174,7 +2218,7 @@
           <div class="testimonial-stars">★★★★★</div>
           <p class="testimonial-text">"The Niacinamide serum genuinely worked for my oily skin. I was sceptical but the
             formulation is really clean and the ingredient transparency page gave me full confidence before purchasing.
-            Skin quiz was spot-on too."</p>
+            Skin quiz was spot-on too.<span class="testimonial-wide-tablet-extra"> The results have remained consistently reliable.</span>"</p>
           <div class="testimonial-author">
             <img src="assets/images/james.png" alt="James K. customer review avatar" class="testimonial-avatar-img"
               loading="lazy">
@@ -2188,7 +2232,7 @@
           <div class="testimonial-stars">★★★★☆</div>
           <p class="testimonial-text">"The Ceramide Barrier Cream is incredible for my sensitive skin. No reaction, no
             fragrance, and it actually keeps my skin hydrated all day. The consultation team was also really helpful
-            when I wasn't sure which products to combine."</p>
+            when I wasn't sure which products to combine.<span class="testimonial-wide-tablet-extra"> The guidance made my routine much easier to follow.</span>"</p>
           <div class="testimonial-author">
             <img src="assets/images/amara.png" alt="Amara P. customer review avatar" class="testimonial-avatar-img"
               loading="lazy">
