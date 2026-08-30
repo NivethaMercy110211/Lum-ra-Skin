@@ -450,7 +450,7 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 1.25rem;
     }
-    @media (max-width: 1366px) {
+    @media (min-width: 577px) and (max-width: 1366px) {
       .ingredient-preview-grid {
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 1.5rem !important;
@@ -537,7 +537,7 @@
     .skin-type-preview-icon { font-size: 1.6rem; color: var(--color-primary); margin-bottom: 0.75rem; display: block; }
     .skin-type-preview-name { font-size: 0.88rem; font-weight: 600; color: var(--text-heading); margin-bottom: 0.25rem; }
     .skin-type-preview-desc { font-size: 0.72rem; color: var(--text-muted); line-height: 1.5; }
-    @media (max-width: 1366px) {
+    @media (min-width: 577px) and (max-width: 1366px) {
       .skin-type-preview-grid {
         grid-template-columns: repeat(2, 1fr) !important;
         gap: 1.5rem !important;
@@ -552,7 +552,7 @@
         width: 100% !important;
       }
     }
-    @media (max-width: 576px) { .skin-type-preview-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; } }
+    @media (max-width: 576px) { .skin-type-preview-grid { grid-template-columns: 1fr !important; gap: 1rem !important; } }
 
     /* Curated Bundles */
     .bundles-preview-grid {
@@ -607,10 +607,10 @@
     .community-votes { font-size: 0.75rem; color: var(--text-muted); }
     .community-bar { height: 4px; background: var(--border-color); border-radius: 2px; margin: 0.75rem 0; overflow: hidden; }
     .community-bar-fill { height: 100%; background: var(--color-primary); border-radius: 2px; }
-    @media (max-width: 1366px) {
+    @media (min-width: 577px) and (max-width: 1366px) {
       .community-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 1.5rem !important; }
     }
-    @media (max-width:480px) { .community-grid { grid-template-columns: 1fr 1fr; gap:0.75rem; } }
+    @media (max-width: 576px) { .community-grid { grid-template-columns: 1fr !important; gap: 1rem !important; } }
   </style>
 </head>
 <body>

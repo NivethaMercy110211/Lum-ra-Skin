@@ -41,6 +41,28 @@
     .contact-info-card .ci-detail { font-size:0.82rem; color:var(--text-muted); }
     .contact-info-card .ci-note { font-size:0.72rem; color:var(--text-muted); margin-top:0.2rem; }
 
+    /* Give longer support notes enough room to remain readable on one line. */
+    @media (min-width: 1367px) {
+      .contact-info-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .contact-info-card,
+      .contact-info-card:nth-child(4) {
+        grid-column: auto;
+      }
+
+      .contact-info-card:nth-child(5) {
+        grid-column: 1 / -1;
+        width: calc(50% - 0.5rem);
+        justify-self: center;
+      }
+
+      .contact-info-card .ci-note {
+        white-space: nowrap;
+      }
+    }
+
     /* Contact form */
     .contact-form-card {
       width: 100%;
@@ -56,6 +78,12 @@
         grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
         gap: 1.5rem !important;
       }
+
+      .contact-info-card .ci-note {
+        font-size: 0.68rem;
+        white-space: nowrap;
+      }
+
       .contact-info-card,
       .contact-info-card:nth-child(4) { grid-column: auto !important; }
       .contact-info-card:nth-child(5) {
@@ -67,6 +95,7 @@
     }
     @media (max-width: 576px) {
       .contact-info-cards { grid-template-columns: 1fr !important; gap: 0.85rem !important; }
+      .contact-info-card .ci-note { font-size: 0.72rem; white-space: normal; }
       .contact-info-card,
       .contact-info-card:nth-child(4),
       .contact-info-card:nth-child(5) {
@@ -80,7 +109,9 @@
     .faq-list { display:flex; flex-direction:column; gap:0.75rem; }
     .faq-item { background:var(--bg-card); border:1px solid var(--border-color); border-radius:var(--radius-md); overflow:hidden; }
     .faq-question { display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:1.1rem 1.25rem; cursor:pointer; background:none; border:none; width:100%; text-align:left; font-family:var(--font-body); font-size:0.9rem; font-weight:600; color:var(--text-heading); }
-    [dir="rtl"] .faq-question { text-align:right; }
+    [dir="rtl"] .faq-question { text-align:right; flex-direction:row; justify-content:space-between; }
+    [dir="rtl"] .faq-icon { margin-left:0; margin-right:auto; }
+    [dir="rtl"] .faq-answer, [dir="rtl"] .faq-answer-inner { text-align:right; }
     .faq-icon { font-size:1rem; color:var(--color-primary); flex-shrink:0; transition:transform var(--transition-fast); }
     .faq-answer { max-height:0; overflow:hidden; transition:max-height 350ms ease; padding:0 1.25rem; }
     .faq-answer-inner { padding:0.25rem 0 1.25rem; font-size:0.88rem; color:var(--text-body); line-height:1.7; }
@@ -140,7 +171,7 @@
             <div>
               <div class="ci-title">Free Skin Consultation</div>
               <div class="ci-detail">consultations@lumeraskin.com</div>
-              <div class="ci-note">Book a 1-on-1 video or email consultation with our skincare team</div>
+              <div class="ci-note">Book a 1-on-1 video or email consultation</div>
             </div>
           </div>
           <div class="contact-info-card">

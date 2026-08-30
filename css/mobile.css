@@ -63,8 +63,28 @@
   .category-bento .bento-item.bento-large { grid-column: span 2; aspect-ratio: 2 / 1; }
 
   /* Section headers */
-  .section-header { margin-bottom: 1.75rem; }
-  .section-header p { font-size: 0.88rem; }
+  .section-header {
+    text-align: center !important;
+    margin-bottom: 1.75rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .section-header h1,
+  .section-header h2,
+  .section-header h3,
+  .section-header p,
+  .section-label {
+    text-align: center !important;
+    margin-inline: auto !important;
+  }
+  .section-header p {
+    font-size: 0.88rem;
+    max-width: 520px;
+  }
+  .brand-divider {
+    margin-inline: auto !important;
+  }
   
   /* Quiz */
   .quiz-card { padding: 1.5rem 1rem; }
@@ -111,7 +131,15 @@
   .bundle-card { padding: 1.25rem; }
   
   /* Ingredients */
-  .ingredients-grid { grid-template-columns: 1fr; }
+  .ingredients-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+  .ingredients-grid > * {
+    grid-column: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
   .ingredient-card { padding: 1.25rem; }
   
   /* Skin type */
@@ -132,6 +160,26 @@
   /* Trust cards */
   .trust-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
   .trust-card { padding: 1.25rem 1rem; }
+  
+  /* Routines Page Grids */
+  .routine-steps-grid,
+  .trendy-essentials-grid,
+  .ingredient-preview-grid,
+  .skin-type-preview-grid,
+  .bundles-preview-grid,
+  .community-grid,
+  .routine-section-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+  .routine-steps-grid > *,
+  .ingredient-preview-grid > *,
+  .skin-type-preview-grid > *,
+  .community-grid > * {
+    grid-column: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
   
   /* Ingredient hero grid */
   .ingredient-hero-grid { grid-template-columns: 1fr; }

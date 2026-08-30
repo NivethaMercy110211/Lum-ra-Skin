@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" data-theme="light">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Luméra Skin — Clarity for Your Skin. Care You Can Trust.</title>
-  <meta name="description" content="Luméra Skin — Premium skincare products formulated with science-backed ingredients. Discover cleansers, serums, moisturizers, sunscreens and curated bundles for every skin type.">
-  <meta name="keywords" content="skincare, serum, moisturizer, sunscreen, cleanser, hyaluronic acid, niacinamide, skin type, skin quiz">
+  <meta name="description"
+    content="Luméra Skin — Premium skincare products formulated with science-backed ingredients. Discover cleansers, serums, moisturizers, sunscreens and curated bundles for every skin type.">
+  <meta name="keywords"
+    content="skincare, serum, moisturizer, sunscreen, cleanser, hyaluronic acid, niacinamide, skin type, skin quiz">
   <link rel="canonical" href="https://lumeraskin.com/">
 
   <!-- Bootstrap 5 -->
@@ -15,7 +18,9 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/header.css">
@@ -53,29 +58,44 @@
       animation: heroOrbFloat 8s ease-in-out infinite alternate;
       will-change: transform;
     }
+
     .hero-orb-1 {
-      width: 520px; height: 520px;
-      background: radial-gradient(circle, rgba(96,121,107,.18) 0%, transparent 70%);
-      top: -120px; left: -120px;
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle, rgba(96, 121, 107, .18) 0%, transparent 70%);
+      top: -120px;
+      left: -120px;
       animation-delay: 0s;
     }
+
     .hero-orb-2 {
-      width: 380px; height: 380px;
-      background: radial-gradient(circle, rgba(201,168,124,.14) 0%, transparent 70%);
-      bottom: -80px; right: 40%;
+      width: 380px;
+      height: 380px;
+      background: radial-gradient(circle, rgba(201, 168, 124, .14) 0%, transparent 70%);
+      bottom: -80px;
+      right: 40%;
       animation-delay: -3s;
       animation-duration: 11s;
     }
+
     .hero-orb-3 {
-      width: 280px; height: 280px;
-      background: radial-gradient(circle, rgba(96,121,107,.12) 0%, transparent 70%);
-      top: 40%; right: -60px;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, rgba(96, 121, 107, .12) 0%, transparent 70%);
+      top: 40%;
+      right: -60px;
       animation-delay: -5s;
       animation-duration: 9s;
     }
+
     @keyframes heroOrbFloat {
-      from { transform: translate(0, 0) scale(1); }
-      to   { transform: translate(30px, 20px) scale(1.08); }
+      from {
+        transform: translate(0, 0) scale(1);
+      }
+
+      to {
+        transform: translate(30px, 20px) scale(1.08);
+      }
     }
 
     /* Hero inner grid */
@@ -93,11 +113,19 @@
     /* Content side */
     .hero-content {
       padding-right: 2rem;
-      animation: heroSlideIn 0.9s cubic-bezier(0.22,1,0.36,1) both;
+      animation: heroSlideIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
     }
+
     @keyframes heroSlideIn {
-      from { opacity: 0; transform: translateX(-40px); }
-      to   { opacity: 1; transform: translateX(0); }
+      from {
+        opacity: 0;
+        transform: translateX(-40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
 
     /* Animated label pill */
@@ -105,8 +133,8 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      background: linear-gradient(135deg, rgba(96,121,107,.12), rgba(96,121,107,.06));
-      border: 1px solid rgba(96,121,107,.25);
+      background: linear-gradient(135deg, rgba(96, 121, 107, .12), rgba(96, 121, 107, .06));
+      border: 1px solid rgba(96, 121, 107, .25);
       color: var(--color-primary);
       padding: 0.4rem 1rem;
       border-radius: var(--radius-pill);
@@ -118,24 +146,46 @@
       position: relative;
       overflow: hidden;
     }
+
     .hero-label::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,.4) 50%, transparent 100%);
+      background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, .4) 50%, transparent 100%);
       transform: translateX(-100%);
       animation: labelShimmer 3s ease-in-out infinite;
     }
+
     @keyframes labelShimmer {
-      0%   { transform: translateX(-100%); }
-      60%  { transform: translateX(100%); }
-      100% { transform: translateX(100%); }
+      0% {
+        transform: translateX(-100%);
+      }
+
+      60% {
+        transform: translateX(100%);
+      }
+
+      100% {
+        transform: translateX(100%);
+      }
     }
-    .hero-label i { animation: starSpin 4s linear infinite; }
+
+    .hero-label i {
+      animation: starSpin 4s linear infinite;
+    }
+
     @keyframes starSpin {
-      0%   { transform: rotate(0deg) scale(1); }
-      50%  { transform: rotate(180deg) scale(1.2); }
-      100% { transform: rotate(360deg) scale(1); }
+      0% {
+        transform: rotate(0deg) scale(1);
+      }
+
+      50% {
+        transform: rotate(180deg) scale(1.2);
+      }
+
+      100% {
+        transform: rotate(360deg) scale(1);
+      }
     }
 
     /* Hero title */
@@ -147,12 +197,14 @@
       margin-bottom: 1.25rem;
       letter-spacing: -0.02em;
     }
+
     .hero-title em {
       font-style: italic;
       color: var(--color-primary);
       position: relative;
       display: inline-block;
     }
+
     /* Underline decoration on em */
     .hero-title em::after {
       content: '';
@@ -163,12 +215,18 @@
       height: 2px;
       background: linear-gradient(90deg, var(--color-primary), transparent);
       border-radius: 1px;
-      animation: underlineGrow 1.2s 0.6s cubic-bezier(0.22,1,0.36,1) both;
+      animation: underlineGrow 1.2s 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
       transform-origin: left;
     }
+
     @keyframes underlineGrow {
-      from { transform: scaleX(0); }
-      to   { transform: scaleX(1); }
+      from {
+        transform: scaleX(0);
+      }
+
+      to {
+        transform: scaleX(1);
+      }
     }
 
     /* Description */
@@ -197,6 +255,7 @@
       padding-top: 1.75rem;
       border-top: 1px solid var(--border-color);
     }
+
     .hero-trust-item {
       display: flex;
       align-items: center;
@@ -205,8 +264,15 @@
       color: var(--text-muted);
       transition: color var(--transition-fast);
     }
-    .hero-trust-item:hover { color: var(--color-primary); }
-    .hero-trust-item i { color: var(--color-primary); font-size: 0.85rem; }
+
+    .hero-trust-item:hover {
+      color: var(--color-primary);
+    }
+
+    .hero-trust-item i {
+      color: var(--color-primary);
+      font-size: 0.85rem;
+    }
 
     /* ---- Image Side ---- */
     .hero-image-col {
@@ -214,11 +280,19 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      animation: heroImageIn 1s 0.2s cubic-bezier(0.22,1,0.36,1) both;
+      animation: heroImageIn 1s 0.2s cubic-bezier(0.22, 1, 0.36, 1) both;
     }
+
     @keyframes heroImageIn {
-      from { opacity: 0; transform: translateX(40px) scale(0.97); }
-      to   { opacity: 1; transform: translateX(0) scale(1); }
+      from {
+        opacity: 0;
+        transform: translateX(40px) scale(0.97);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+      }
     }
 
     /* Glow ring behind image */
@@ -226,22 +300,26 @@
       position: absolute;
       inset: -24px;
       border-radius: calc(var(--radius-xl) + 24px);
-      background: conic-gradient(
-        from 0deg,
-        rgba(96,121,107,.22) 0%,
-        rgba(201,168,124,.15) 25%,
-        rgba(96,121,107,.08) 50%,
-        rgba(201,168,124,.18) 75%,
-        rgba(96,121,107,.22) 100%
-      );
+      background: conic-gradient(from 0deg,
+          rgba(96, 121, 107, .22) 0%,
+          rgba(201, 168, 124, .15) 25%,
+          rgba(96, 121, 107, .08) 50%,
+          rgba(201, 168, 124, .18) 75%,
+          rgba(96, 121, 107, .22) 100%);
       filter: blur(16px);
       animation: ringRotate 12s linear infinite;
       pointer-events: none;
       z-index: 0;
     }
+
     @keyframes ringRotate {
-      from { transform: rotate(0deg); }
-      to   { transform: rotate(360deg); }
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
     }
 
     /* Image container */
@@ -251,12 +329,13 @@
       height: 580px;
       overflow: hidden;
       border-radius: var(--radius-xl);
-      box-shadow: 0 32px 80px rgba(96,121,107,.22), 0 8px 24px rgba(0,0,0,.08);
+      box-shadow: 0 32px 80px rgba(96, 121, 107, .22), 0 8px 24px rgba(0, 0, 0, .08);
       z-index: 1;
       cursor: pointer;
       transform-style: preserve-3d;
       transition: transform 0.1s ease;
     }
+
     .hero-image-wrap img {
       width: 100%;
       height: 100%;
@@ -264,23 +343,25 @@
       object-position: center top;
       transition: transform 0.6s ease;
     }
-    .hero-image-wrap:hover img { transform: scale(1.04); }
+
+    .hero-image-wrap:hover img {
+      transform: scale(1.04);
+    }
 
     /* Shimmer sweep overlay on image */
     .hero-image-wrap::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        105deg,
-        transparent 30%,
-        rgba(255,255,255,.12) 50%,
-        transparent 70%
-      );
+      background: linear-gradient(105deg,
+          transparent 30%,
+          rgba(255, 255, 255, .12) 50%,
+          transparent 70%);
       z-index: 2;
       transform: translateX(-100%);
       transition: transform 0s;
     }
+
     .hero-image-wrap:hover::before {
       transform: translateX(100%);
       transition: transform 0.7s ease;
@@ -290,9 +371,11 @@
     .hero-image-wrap::after {
       content: '';
       position: absolute;
-      bottom: 0; left: 0; right: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
       height: 45%;
-      background: linear-gradient(to top, rgba(37,40,37,.3) 0%, transparent 100%);
+      background: linear-gradient(to top, rgba(37, 40, 37, .3) 0%, transparent 100%);
       z-index: 2;
       border-radius: 0 0 var(--radius-xl) var(--radius-xl);
       pointer-events: none;
@@ -303,7 +386,7 @@
       position: absolute;
       bottom: 1.75rem;
       left: 1.75rem;
-      background: rgba(250,248,244,.96);
+      background: rgba(250, 248, 244, .96);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border-radius: var(--radius-md);
@@ -311,46 +394,79 @@
       display: flex;
       align-items: center;
       gap: 0.85rem;
-      box-shadow: 0 8px 32px rgba(0,0,0,.12), 0 2px 8px rgba(0,0,0,.06);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, .12), 0 2px 8px rgba(0, 0, 0, .06);
       z-index: 3;
-      animation: badgePop 0.6s 1s cubic-bezier(0.34,1.56,0.64,1) both;
-      border: 1px solid rgba(255,255,255,.8);
+      animation: badgePop 0.6s 1s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+      border: 1px solid rgba(255, 255, 255, .8);
     }
+
     @keyframes badgePop {
-      from { opacity: 0; transform: translateY(12px) scale(0.9); }
-      to   { opacity: 1; transform: translateY(0) scale(1); }
+      from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.9);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
     }
+
     [data-theme="dark"] .hero-image-badge {
-      background: rgba(41,47,42,.96);
-      border-color: rgba(96,121,107,.3);
+      background: rgba(41, 47, 42, .96);
+      border-color: rgba(96, 121, 107, .3);
     }
+
     .hero-image-badge .badge-icon {
-      width: 44px; height: 44px;
-      background: linear-gradient(135deg, rgba(96,121,107,.15), rgba(96,121,107,.08));
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, rgba(96, 121, 107, .15), rgba(96, 121, 107, .08));
       border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: var(--color-primary);
       font-size: 1.2rem;
       flex-shrink: 0;
       animation: badgeIconPulse 3s ease-in-out infinite;
     }
+
     @keyframes badgeIconPulse {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(96,121,107,.3); }
-      50%       { box-shadow: 0 0 0 8px rgba(96,121,107,0); }
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 rgba(96, 121, 107, .3);
+      }
+
+      50% {
+        box-shadow: 0 0 0 8px rgba(96, 121, 107, 0);
+      }
     }
-    .hero-image-badge .badge-text { line-height: 1.3; }
-    .hero-image-badge .badge-text strong { display: block; font-size: 0.88rem; color: var(--text-heading); }
-    .hero-image-badge .badge-text span { font-size: 0.72rem; color: var(--text-muted); }
+
+    .hero-image-badge .badge-text {
+      line-height: 1.3;
+    }
+
+    .hero-image-badge .badge-text strong {
+      display: block;
+      font-size: 0.88rem;
+      color: var(--text-heading);
+    }
+
+    .hero-image-badge .badge-text span {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
 
     /* Floating stats chip — top right of image */
     .hero-image-chip {
       position: absolute;
       top: 1.75rem;
       right: 1.75rem;
-      background: rgba(250,248,244,.92);
+      background: rgba(250, 248, 244, .92);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255,255,255,.8);
+      border: 1px solid rgba(255, 255, 255, .8);
       border-radius: var(--radius-pill);
       padding: 0.5rem 1rem;
       font-size: 0.75rem;
@@ -360,26 +476,43 @@
       align-items: center;
       gap: 0.4rem;
       z-index: 3;
-      box-shadow: 0 4px 16px rgba(0,0,0,.08);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, .08);
       animation: chipFloat 4s ease-in-out infinite alternate;
     }
+
     @keyframes chipFloat {
-      from { transform: translateY(0); }
-      to   { transform: translateY(-6px); }
+      from {
+        transform: translateY(0);
+      }
+
+      to {
+        transform: translateY(-6px);
+      }
     }
+
     .hero-image-chip .chip-dot {
-      width: 7px; height: 7px;
+      width: 7px;
+      height: 7px;
       background: #4CAF50;
       border-radius: 50%;
       animation: dotBlink 1.5s ease-in-out infinite;
     }
+
     @keyframes dotBlink {
-      0%, 100% { opacity: 1; }
-      50%       { opacity: 0.3; }
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.3;
+      }
     }
+
     [data-theme="dark"] .hero-image-chip {
-      background: rgba(41,47,42,.92);
-      border-color: rgba(96,121,107,.3);
+      background: rgba(41, 47, 42, .92);
+      border-color: rgba(96, 121, 107, .3);
     }
 
     /* ---- Trust Marquee Strip ---- */
@@ -389,17 +522,28 @@
       overflow: hidden;
       position: relative;
     }
+
     .hero-marquee-track {
       display: flex;
       width: max-content;
       animation: marqueeScroll 28s linear infinite;
       gap: 0;
     }
-    .hero-marquee-strip:hover .hero-marquee-track { animation-play-state: paused; }
-    @keyframes marqueeScroll {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
+
+    .hero-marquee-strip:hover .hero-marquee-track {
+      animation-play-state: paused;
     }
+
+    @keyframes marqueeScroll {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
     .hero-marquee-item {
       display: inline-flex;
       align-items: center;
@@ -409,13 +553,19 @@
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: rgba(255,255,255,.9);
+      color: rgba(255, 255, 255, .9);
       white-space: nowrap;
     }
-    .hero-marquee-item i { font-size: 0.85rem; opacity: 0.8; }
+
+    .hero-marquee-item i {
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+
     .hero-marquee-sep {
-      width: 4px; height: 4px;
-      background: rgba(255,255,255,.4);
+      width: 4px;
+      height: 4px;
+      background: rgba(255, 255, 255, .4);
       border-radius: 50%;
       flex-shrink: 0;
       align-self: center;
@@ -429,22 +579,66 @@
         gap: 3rem;
         min-height: auto;
       }
-      .hero-content { padding-right: 0; }
-      .hero-image-col { order: -1; }
-      .hero-image-wrap { height: 400px; border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
-      .hero-glow-ring { display: none; }
-      .hero-trust { margin-bottom: 3rem; }
+
+      .hero-content {
+        padding-right: 0;
+      }
+
+      .hero-image-col {
+        order: -1;
+      }
+
+      .hero-image-wrap {
+        height: 400px;
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      }
+
+      .hero-glow-ring {
+        display: none;
+      }
+
+      .hero-trust {
+        margin-bottom: 3rem;
+      }
     }
+
     @media (max-width: 576px) {
-      .home-hero { gap: 2rem; padding-top: 48px; }
-      .hero-image-wrap { height: 300px; }
-      .hero-image-chip { display: none; }
-      .hero-trust { margin-bottom: 2rem; }
+      .home-hero {
+        gap: 2rem;
+        padding-top: 48px;
+      }
+
+      .hero-image-wrap {
+        height: 300px;
+      }
+
+      .hero-image-chip {
+        display: none;
+      }
+
+      .hero-trust {
+        margin-bottom: 2rem;
+      }
     }
-    [dir="rtl"] .hero-content { padding-right: 0; padding-left: 2rem; }
-    [dir="rtl"] .hero-image-badge { left: auto; right: 1.75rem; }
-    [dir="rtl"] .hero-image-chip { right: auto; left: 1.75rem; }
-    [dir="rtl"] .hero-marquee-track { animation-direction: reverse; }
+
+    [dir="rtl"] .hero-content {
+      padding-right: 0;
+      padding-left: 2rem;
+    }
+
+    [dir="rtl"] .hero-image-badge {
+      left: auto;
+      right: 1.75rem;
+    }
+
+    [dir="rtl"] .hero-image-chip {
+      right: auto;
+      left: 1.75rem;
+    }
+
+    [dir="rtl"] .hero-marquee-track {
+      animation-direction: reverse;
+    }
 
     @media (max-width: 991px) {
       [dir="rtl"] .hero-content {
@@ -462,12 +656,23 @@
     }
 
     /* Bestsellers horizontal */
-    .bestsellers-wrap { position: relative; }
-    .products-scroll-hint {
-      font-size: 0.72rem; color: var(--text-muted);
-      display: flex; align-items: center; gap: 0.3rem;
+    .bestsellers-wrap {
+      position: relative;
     }
-    @media (min-width: 992px) { .products-scroll-hint { display: none; } }
+
+    .products-scroll-hint {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    @media (min-width: 992px) {
+      .products-scroll-hint {
+        display: none;
+      }
+    }
 
     /* Skin Concern Bento */
     .concern-bento {
@@ -475,6 +680,7 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 1rem;
     }
+
     .concern-card {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
@@ -486,11 +692,13 @@
       text-decoration: none;
       display: block;
     }
+
     .concern-card:hover {
       transform: translateY(-4px);
       border-color: var(--color-primary);
       box-shadow: var(--shadow-md);
     }
+
     .concern-img-wrap {
       width: 100%;
       height: 125px;
@@ -498,31 +706,66 @@
       overflow: hidden;
       margin-bottom: 0.85rem;
     }
+
     .concern-img-wrap img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 400ms ease;
     }
+
     .concern-card:hover .concern-img-wrap img {
       transform: scale(1.08);
     }
+
     .concern-icon {
-      width: 52px; height: 52px;
-      background: rgba(96,121,107,.1);
+      width: 52px;
+      height: 52px;
+      background: rgba(96, 121, 107, .1);
       border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 1.3rem;
       color: var(--color-primary);
       margin: 1.5rem auto 0.85rem;
       transition: background var(--transition-base);
     }
-    .concern-card:hover .concern-icon { background: rgba(96,121,107,.2); }
-    .concern-name { font-size: 0.9rem; font-weight: 600; color: var(--text-heading); margin-bottom: 0.25rem; }
-    .concern-desc { font-size: 0.75rem; color: var(--text-muted); }
-    @media (max-width: 991px) { .concern-bento { grid-template-columns: repeat(4, 1fr); } }
-    @media (max-width: 768px) { .concern-bento { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 480px) { .concern-bento { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; } }
+
+    .concern-card:hover .concern-icon {
+      background: rgba(96, 121, 107, .2);
+    }
+
+    .concern-name {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-heading);
+      margin-bottom: 0.25rem;
+    }
+
+    .concern-desc {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 991px) {
+      .concern-bento {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .concern-bento {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .concern-bento {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.6rem;
+      }
+    }
 
     /* Trendy Daily Essentials Section */
     .routine-tabs-nav {
@@ -532,6 +775,7 @@
       margin-bottom: 2.5rem;
       flex-wrap: wrap;
     }
+
     .routine-tab-btn {
       padding: 0.55rem 1.4rem;
       border-radius: var(--radius-pill);
@@ -543,6 +787,7 @@
       cursor: pointer;
       transition: all var(--transition-base);
     }
+
     .routine-tab-btn.active,
     .routine-tab-btn:hover {
       background: var(--color-primary);
@@ -550,11 +795,13 @@
       border-color: var(--color-primary);
       box-shadow: 0 4px 16px rgba(96, 121, 107, 0.25);
     }
+
     .trendy-essentials-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 1.5rem;
     }
+
     .trendy-routine-card {
       position: relative;
       border-radius: var(--radius-xl);
@@ -565,15 +812,17 @@
       justify-content: space-between;
       padding: 1.5rem;
       text-decoration: none;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      border: 1px solid rgba(255,255,255,0.15);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
       transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 400ms ease;
     }
+
     .trendy-routine-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.22);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.22);
       border-color: rgba(160, 185, 170, 0.4);
     }
+
     .trendy-routine-bg {
       position: absolute;
       inset: 0;
@@ -583,16 +832,19 @@
       transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
       z-index: 1;
     }
+
     .trendy-routine-card:hover .trendy-routine-bg {
       transform: scale(1.08);
     }
+
     .trendy-routine-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(14,20,17,0.45) 45%, rgba(14,20,17,0.92) 100%);
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(14, 20, 17, 0.45) 45%, rgba(14, 20, 17, 0.92) 100%);
       z-index: 2;
       transition: opacity 300ms ease;
     }
+
     .trendy-routine-badge {
       position: relative;
       z-index: 3;
@@ -609,11 +861,13 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
+
     .trendy-routine-content {
       position: relative;
       z-index: 3;
       color: #ffffff;
     }
+
     .trendy-routine-name {
       font-family: var(--font-display);
       font-size: 1.35rem;
@@ -624,12 +878,14 @@
       align-items: center;
       justify-content: space-between;
     }
+
     .trendy-routine-desc {
       font-size: 0.82rem;
       color: rgba(255, 255, 255, 0.85);
       line-height: 1.5;
       margin: 0;
     }
+
     .trendy-routine-arrow {
       width: 34px;
       height: 34px;
@@ -643,20 +899,51 @@
       font-size: 0.9rem;
       transition: all 300ms ease;
     }
+
     .trendy-routine-card:hover .trendy-routine-arrow {
       background: var(--color-primary);
       transform: rotate(45deg);
     }
+
     @media (max-width: 1366px) {
-      .trendy-essentials-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+      .trendy-essentials-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
     }
+
     @media (max-width: 576px) {
-      .trendy-essentials-grid { grid-template-columns: 1fr; }
+      .trendy-essentials-grid {
+        grid-template-columns: 1fr;
+      }
     }
-    .essential-name { font-family: var(--font-display); font-size: 1.15rem; font-weight: 500; color: var(--text-heading); margin-bottom: 0.5rem; }
-    .essential-desc { font-size: 0.8rem; color: var(--text-muted); line-height: 1.55; }
-    @media (max-width: 991px) { .essentials-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 480px) { .essentials-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; } }
+
+    .essential-name {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--text-heading);
+      margin-bottom: 0.5rem;
+    }
+
+    .essential-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    @media (max-width: 991px) {
+      .essentials-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .essentials-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+      }
+    }
 
     /* Ingredient Spotlight */
     .ingredient-spotlight {
@@ -665,27 +952,50 @@
       gap: 4rem;
       align-items: center;
     }
+
     .ingredient-spotlight-img {
       border-radius: var(--radius-xl);
       overflow: hidden;
       aspect-ratio: 4 / 3;
     }
-    .ingredient-spotlight-img img { width: 100%; height: 100%; object-fit: cover; }
-    .ingredient-tag-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.25rem 0; }
+
+    .ingredient-spotlight-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .ingredient-tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1.25rem 0;
+    }
+
     .ingredient-tag {
       padding: 0.3rem 0.85rem;
-      background: rgba(96,121,107,.1);
+      background: rgba(96, 121, 107, .1);
       color: var(--color-primary);
       border-radius: var(--radius-pill);
       font-size: 0.72rem;
       font-weight: 600;
-      border: 1px solid rgba(96,121,107,.2);
+      border: 1px solid rgba(96, 121, 107, .2);
     }
+
     @media (max-width: 768px) {
-      .ingredient-spotlight { grid-template-columns: 1fr; gap: 2rem; }
-      .ingredient-spotlight-img { aspect-ratio: 16/9; }
+      .ingredient-spotlight {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .ingredient-spotlight-img {
+        aspect-ratio: 16/9;
+      }
     }
-    [dir="rtl"] .ingredient-spotlight { direction: rtl; }
+
+    [dir="rtl"] .ingredient-spotlight {
+      direction: rtl;
+    }
 
     /* Our Commitment Hero Image & 2x2 Grid */
     .commitment-hero-img-wrap {
@@ -697,6 +1007,7 @@
       height: 380px;
       width: 100%;
     }
+
     .commitment-hero-img-wrap img {
       width: 100%;
       height: 100%;
@@ -704,9 +1015,11 @@
       object-position: center;
       transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
     }
+
     .commitment-hero-img-wrap:hover img {
       transform: scale(1.05);
     }
+
     .commitment-badge {
       position: absolute;
       bottom: 1.5rem;
@@ -722,26 +1035,60 @@
       letter-spacing: 0.05em;
       border: 1px solid rgba(255, 255, 255, 0.25);
     }
+
     .why-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       grid-auto-rows: 1fr;
       gap: 1.5rem;
     }
+
+    /* Desktop commitment layout: cards on the left, image on the right. */
+    @media (min-width: 1200px) {
+      #why-lumera > .container-brand {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+        grid-template-areas:
+          "heading heading"
+          "cards image";
+        gap: 0 2.5rem;
+        align-items: stretch;
+      }
+
+      #why-lumera .section-header {
+        grid-area: heading;
+      }
+
+      #why-lumera .why-grid {
+        grid-area: cards;
+        align-self: stretch;
+      }
+
+      #why-lumera .commitment-hero-img-wrap {
+        grid-area: image;
+        height: 100%;
+        min-height: 100%;
+        margin-bottom: 0 !important;
+      }
+    }
+
     @media (max-width: 991px) {
       .commitment-split {
         grid-template-columns: 1fr;
         gap: 2.5rem;
       }
+
       .commitment-img-wrap {
         min-height: 320px;
       }
     }
+
     @media (max-width: 576px) {
       .why-grid {
         grid-template-columns: 1fr;
       }
     }
+
     .trust-card {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
@@ -752,27 +1099,34 @@
       align-content: start;
       transition: all var(--transition-base);
     }
+
     .trust-card:hover {
       transform: translateY(-4px);
       box-shadow: var(--shadow-card-hover);
-      border-color: rgba(96,121,107,.3);
+      border-color: rgba(96, 121, 107, .3);
     }
+
     .trust-icon {
-      width: 50px; height: 50px;
-      background: rgba(96,121,107,.12);
-      border: 1px solid rgba(96,121,107,.2);
+      width: 50px;
+      height: 50px;
+      background: rgba(96, 121, 107, .12);
+      border: 1px solid rgba(96, 121, 107, .2);
       border-radius: var(--radius-md);
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 1.35rem;
       color: var(--color-primary);
       margin-bottom: 1rem;
       transition: all var(--transition-base);
     }
+
     .trust-card:hover .trust-icon {
       background: var(--color-primary);
       color: #ffffff;
       transform: scale(1.06);
     }
+
     .trust-title {
       min-width: 0;
       font-family: var(--font-display);
@@ -784,6 +1138,7 @@
       text-wrap: normal;
       overflow-wrap: break-word;
     }
+
     .trust-desc {
       min-height: calc(1.6em * 4);
       font-size: 0.82rem;
@@ -792,12 +1147,31 @@
       text-wrap: pretty;
       overflow-wrap: break-word;
     }
-    @media (max-width: 991px) { .why-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    @media (max-width: 991px) {
+      .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     @media (max-width: 576px) {
-      .why-grid { grid-template-columns: 1fr; grid-auto-rows: auto; gap: 0.75rem; }
-      .trust-card { grid-template-rows: 66px auto auto; }
-      .trust-title { min-height: 0; }
-      .trust-desc { min-height: 0; }
+      .why-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+        gap: 0.75rem;
+      }
+
+      .trust-card {
+        grid-template-rows: 66px auto auto;
+      }
+
+      .trust-title {
+        min-height: 0;
+      }
+
+      .trust-desc {
+        min-height: 0;
+      }
     }
 
     /* Testimonials */
@@ -806,6 +1180,7 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
     }
+
     .testimonial-card {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
@@ -813,20 +1188,46 @@
       padding: 1.75rem;
       transition: all var(--transition-base);
     }
-    .testimonial-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
-    .testimonial-stars { color: #c9a87c; font-size: 0.85rem; margin-bottom: 0.75rem; }
-    .testimonial-text { font-size: 0.9rem; color: var(--text-body); line-height: 1.7; margin-bottom: 1.25rem; font-style: italic; }
-    .testimonial-author { display: flex; align-items: center; gap: 0.75rem; }
+
+    .testimonial-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .testimonial-stars {
+      color: #c9a87c;
+      font-size: 0.85rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .testimonial-text {
+      font-size: 0.9rem;
+      color: var(--text-body);
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
     .testimonial-avatar {
-      width: 40px; height: 40px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
-      background: rgba(96,121,107,.15);
+      background: rgba(96, 121, 107, .15);
       color: var(--color-primary);
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-weight: 700;
       font-size: 0.9rem;
       flex-shrink: 0;
     }
+
     .testimonial-avatar-img {
       width: 46px;
       height: 46px;
@@ -836,24 +1237,47 @@
       flex-shrink: 0;
       transition: border-color var(--transition-base);
     }
+
     .testimonial-card:hover .testimonial-avatar-img {
       border-color: var(--color-primary);
     }
-    .testimonial-name { font-weight: 600; font-size: 0.85rem; color: var(--text-heading); }
-    .testimonial-skin-type { font-size: 0.72rem; color: var(--text-muted); }
+
+    .testimonial-name {
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--text-heading);
+    }
+
+    .testimonial-skin-type {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
     @media (max-width: 1366px) {
-      .testimonials-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-      .testimonials-grid > *:last-child:nth-child(odd) {
+      .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+
+      .testimonials-grid>*:last-child:nth-child(odd) {
         grid-column: 1 / -1;
         justify-self: center;
         max-width: 540px;
         width: 100%;
       }
     }
-    @media (max-width: 576px) { .testimonials-grid { grid-template-columns: 1fr; } }
+
+    @media (max-width: 576px) {
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+    }
 
     /* Quiz Teaser Section */
-    .quiz-section { background: var(--bg-secondary); }
+    .quiz-section {
+      background: var(--bg-secondary);
+    }
+
     .quiz-card {
       position: relative;
       background: linear-gradient(135deg, rgba(22, 32, 27, 0.82) 0%, rgba(14, 20, 17, 0.88) 100%), url('assets/images/personalised_for_you.png') center/cover no-repeat;
@@ -866,25 +1290,53 @@
       color: #ffffff;
       overflow: hidden;
     }
-    .quiz-progress { margin-bottom: 1.5rem; }
-    .quiz-progress-steps {
-      display: flex; gap: 0.35rem; margin-bottom: 0.5rem;
+
+    .quiz-progress {
+      margin-bottom: 1.5rem;
     }
+
+    .quiz-progress-steps {
+      display: flex;
+      gap: 0.35rem;
+      margin-bottom: 0.5rem;
+    }
+
     .quiz-step {
-      flex: 1; height: 4px;
+      flex: 1;
+      height: 4px;
       background: rgba(255, 255, 255, 0.25);
       border-radius: 2px;
       transition: background var(--transition-base);
     }
-    .quiz-step.done, .quiz-step.active { background: #ffffff; }
+
+    .quiz-step.done,
+    .quiz-step.active {
+      background: #ffffff;
+    }
+
     .quiz-progress-bar {
       height: 4px;
       background: rgba(255, 255, 255, 0.25);
       border-radius: 2px;
-      display: none; /* hidden since we use steps */
+      display: none;
+      /* hidden since we use steps */
     }
-    .quiz-progress-fill { height: 100%; background: #ffffff; border-radius: 2px; transition: width 300ms ease; }
-    .quiz-count { font-size: 0.78rem; color: rgba(255, 255, 255, 0.85); margin: 0.35rem 0 0; text-align: right; font-weight: 500; }
+
+    .quiz-progress-fill {
+      height: 100%;
+      background: #ffffff;
+      border-radius: 2px;
+      transition: width 300ms ease;
+    }
+
+    .quiz-count {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.85);
+      margin: 0.35rem 0 0;
+      text-align: right;
+      font-weight: 500;
+    }
+
     .quiz-question {
       font-family: var(--font-display);
       font-size: 1.35rem;
@@ -894,14 +1346,18 @@
       line-height: 1.3;
       text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     }
+
     .quiz-options {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 0.75rem;
       margin-bottom: 1.5rem;
     }
+
     .quiz-option {
-      display: flex; align-items: center; gap: 0.65rem;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
       padding: 0.9rem 1rem;
       border: 1.5px solid rgba(255, 255, 255, 0.4);
       border-radius: var(--radius-md);
@@ -915,833 +1371,957 @@
       font-family: var(--font-body);
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
     }
+
     .quiz-option:hover {
       border-color: #ffffff;
       background: rgba(255, 255, 255, 0.9);
       color: #121a16;
       transform: translateY(-2px);
     }
+
     .quiz-option.selected {
       background: #60796b;
       border-color: #ffffff;
       color: #ffffff;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
     }
-    .quiz-option-icon { font-size: 1rem; flex-shrink: 0; }
-    .quiz-navigation { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
-    .quiz-result { text-align: center; }
+
+    .quiz-option-icon {
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .quiz-navigation {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .quiz-result {
+      text-align: center;
+    }
+
     .quiz-result-badge {
       font-size: 2.5rem;
       color: var(--color-primary);
       margin-bottom: 0.75rem;
     }
-    .quiz-result-products { margin: 1.5rem 0; text-align: left; }
-    .quiz-result-subtitle { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
-    .quiz-result-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; }
-    .quiz-result-list li { display: flex; align-items: center; gap: 0.5rem; font-size: 0.88rem; color: var(--text-body); }
-    .quiz-result-actions { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }
-    .quiz-restart {
-      background: none; border: none; color: var(--text-muted);
-      font-size: 0.78rem; cursor: pointer; text-decoration: underline;
-      margin-top: 1rem; font-family: var(--font-body);
+
+    .quiz-result-products {
+      margin: 1.5rem 0;
+      text-align: left;
     }
-    .quiz-restart:hover { color: var(--color-primary); }
-    @media (max-width: 576px) { .quiz-options { grid-template-columns: 1fr; } .quiz-card { padding: 1.5rem 1.1rem; } }
+
+    .quiz-result-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .quiz-result-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .quiz-result-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.88rem;
+      color: var(--text-body);
+    }
+
+    .quiz-result-actions {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .quiz-restart {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      cursor: pointer;
+      text-decoration: underline;
+      margin-top: 1rem;
+      font-family: var(--font-body);
+    }
+
+    .quiz-restart:hover {
+      color: var(--color-primary);
+    }
+
+    @media (max-width: 576px) {
+      .quiz-options {
+        grid-template-columns: 1fr;
+      }
+
+      .quiz-card {
+        padding: 1.5rem 1.1rem;
+      }
+    }
   </style>
 </head>
+
 <body>
 
-<!-- ============================================================
+  <!-- ============================================================
      NAVBAR
      ============================================================ -->
-<nav class="lumera-navbar" id="mainNavbar" aria-label="Main navigation">
-  <div class="navbar-inner">
-    <!-- Brand -->
-    <a href="index.html" class="navbar-brand-wrap" aria-label="Luméra Skin — Home">
-      <div class="navbar-logo" aria-hidden="true">
-        <img src="assets/images/logo.png" alt="Luméra Skin Logo">
+  <nav class="lumera-navbar" id="mainNavbar" aria-label="Main navigation">
+    <div class="navbar-inner">
+      <!-- Brand -->
+      <a href="index.html" class="navbar-brand-wrap" aria-label="Luméra Skin — Home">
+        <div class="navbar-logo" aria-hidden="true">
+          <img src="assets/images/logo.png" alt="Luméra Skin Logo">
+        </div>
+        <div class="navbar-brand-text">
+          <span class="navbar-brand-name">Luméra Skin</span>
+          <span class="navbar-brand-tagline">Clarity for Your Skin. Care You Can Trust.</span>
+        </div>
+      </a>
+
+      <!-- Center Nav -->
+      <ul class="navbar-nav-center" role="list">
+        <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="home2.html" class="nav-link">Routines</a></li>
+        <li class="nav-item"><a href="shop.html" class="nav-link">Shop</a></li>
+        <li class="nav-item"><a href="ingredients.html" class="nav-link">Ingredients</a></li>
+        <li class="nav-item"><a href="skin-type-guide.html" class="nav-link">Skin Guide</a></li>
+        <li class="nav-item"><a href="bundle-deals.html" class="nav-link">Bundles</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+
+      <!-- Utilities -->
+      <div class="navbar-utils">
+        <button class="navbar-util-btn theme-toggle-btn" id="themeToggle" aria-label="Toggle dark mode"
+          title="Toggle theme">
+          <i class="bi bi-moon theme-toggle-icon"></i>
+        </button>
+        <button class="navbar-util-btn navbar-rtl-btn rtl-toggle-btn" id="rtlToggle"
+          aria-label="Toggle RTL/LTR layout">RTL</button>
+        <a href="login.html" class="btn-login-nav" id="loginNavBtn"><i class="bi bi-person"></i> Login</a>
+        <button class="navbar-mobile-toggle" id="navMobileToggle" aria-label="Open menu" aria-expanded="false"
+          aria-controls="navMobileMenu">
+          <i class="bi bi-list"></i>
+        </button>
       </div>
-      <div class="navbar-brand-text">
-        <span class="navbar-brand-name">Luméra Skin</span>
-        <span class="navbar-brand-tagline">Clarity for Your Skin. Care You Can Trust.</span>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="navbar-mobile-menu" id="navMobileMenu" role="navigation" aria-label="Mobile navigation">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="home2.html" class="nav-link">Routines</a>
+      <a href="shop.html" class="nav-link">Shop</a>
+      <a href="ingredients.html" class="nav-link">Ingredients</a>
+      <a href="skin-type-guide.html" class="nav-link">Skin Guide</a>
+      <a href="bundle-deals.html" class="nav-link">Bundles</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <div class="mobile-utils">
+        <button class="navbar-util-btn theme-toggle-btn" aria-label="Toggle dark mode">
+          <i class="bi bi-moon theme-toggle-icon"></i>
+        </button>
+        <button class="navbar-util-btn navbar-rtl-btn rtl-toggle-btn" aria-label="Toggle RTL">RTL</button>
+        <a href="login.html" class="btn-login-nav ms-auto"><i class="bi bi-person"></i> Login</a>
       </div>
-    </a>
-
-    <!-- Center Nav -->
-    <ul class="navbar-nav-center" role="list">
-      <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
-      <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-      <li class="nav-item"><a href="home2.html" class="nav-link">Routines</a></li>
-      <li class="nav-item"><a href="shop.html" class="nav-link">Shop</a></li>
-      <li class="nav-item"><a href="ingredients.html" class="nav-link">Ingredients</a></li>
-      <li class="nav-item"><a href="skin-type-guide.html" class="nav-link">Skin Guide</a></li>
-      <li class="nav-item"><a href="bundle-deals.html" class="nav-link">Bundles</a></li>
-      <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-    </ul>
-
-    <!-- Utilities -->
-    <div class="navbar-utils">
-      <button class="navbar-util-btn theme-toggle-btn" id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme">
-        <i class="bi bi-moon theme-toggle-icon"></i>
-      </button>
-      <button class="navbar-util-btn navbar-rtl-btn rtl-toggle-btn" id="rtlToggle" aria-label="Toggle RTL/LTR layout">RTL</button>
-      <a href="login.html" class="btn-login-nav" id="loginNavBtn"><i class="bi bi-person"></i> Login</a>
-      <button class="navbar-mobile-toggle" id="navMobileToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMobileMenu">
-        <i class="bi bi-list"></i>
-      </button>
     </div>
-  </div>
+  </nav>
 
-  <!-- Mobile Menu -->
-  <div class="navbar-mobile-menu" id="navMobileMenu" role="navigation" aria-label="Mobile navigation">
-    <a href="index.html" class="nav-link active">Home</a>
-    <a href="about.html" class="nav-link">About</a>
-    <a href="home2.html" class="nav-link">Routines</a>
-    <a href="shop.html" class="nav-link">Shop</a>
-    <a href="ingredients.html" class="nav-link">Ingredients</a>
-    <a href="skin-type-guide.html" class="nav-link">Skin Guide</a>
-    <a href="bundle-deals.html" class="nav-link">Bundles</a>
-    <a href="contact.html" class="nav-link">Contact</a>
-    <div class="mobile-utils">
-      <button class="navbar-util-btn theme-toggle-btn" aria-label="Toggle dark mode">
-        <i class="bi bi-moon theme-toggle-icon"></i>
-      </button>
-      <button class="navbar-util-btn navbar-rtl-btn rtl-toggle-btn" aria-label="Toggle RTL">RTL</button>
-      <a href="login.html" class="btn-login-nav ms-auto"><i class="bi bi-person"></i> Login</a>
-    </div>
-  </div>
-</nav>
-
-<!-- ============================================================
+  <!-- ============================================================
      HERO
      ============================================================ -->
-<section class="home-hero-section" aria-label="Hero">
-  <!-- Animated background orbs -->
-  <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
-  <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
-  <div class="hero-orb hero-orb-3" aria-hidden="true"></div>
+  <section class="home-hero-section" aria-label="Hero">
+    <!-- Animated background orbs -->
+    <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
+    <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
+    <div class="hero-orb hero-orb-3" aria-hidden="true"></div>
 
-  <div class="container-brand">
-    <div class="home-hero">
+    <div class="container-brand">
+      <div class="home-hero">
 
-      <!-- LEFT: Content -->
-      <div class="hero-content">
-        <div class="hero-label">
-          <i class="bi bi-stars"></i> Science-Backed Skincare
+        <!-- LEFT: Content -->
+        <div class="hero-content">
+          <div class="hero-label">
+            <i class="bi bi-stars"></i> Science-Backed Skincare
+          </div>
+          <h1 class="hero-title">
+            Skincare That<br><em>Understands</em><br>Your Skin
+          </h1>
+          <p class="hero-desc">
+            Formulated with clinically studied ingredients. Designed around your skin type. Every product in the Luméra
+            range supports your skin's natural balance — clearly and transparently.
+          </p>
+          <div class="hero-cta-group">
+            <a href="shop.html" class="btn-primary-brand" id="heroCTAShop">Shop Bestsellers <i
+                class="bi bi-arrow-right"></i></a>
+            <a href="#skin-quiz" class="btn-outline-brand" id="heroCTAQuiz"><i class="bi bi-clipboard-check"></i> Take
+              the Skin Quiz</a>
+          </div>
+          <div class="hero-trust">
+            <div class="hero-trust-item"><i class="bi bi-check-circle-fill"></i> No parabens</div>
+            <div class="hero-trust-item"><i class="bi bi-check-circle-fill"></i> Fragrance-free options</div>
+            <div class="hero-trust-item"><i class="bi bi-check-circle-fill"></i> Dermatologist reviewed</div>
+          </div>
         </div>
-        <h1 class="hero-title">
-          Skincare That<br><em>Understands</em><br>Your Skin
-        </h1>
-        <p class="hero-desc">
-          Formulated with clinically studied ingredients. Designed around your skin type. Every product in the Luméra range supports your skin's natural balance — clearly and transparently.
-        </p>
-        <div class="hero-cta-group">
-          <a href="shop.html" class="btn-primary-brand" id="heroCTAShop">Shop Bestsellers <i class="bi bi-arrow-right"></i></a>
-          <a href="#skin-quiz" class="btn-outline-brand" id="heroCTAQuiz"><i class="bi bi-clipboard-check"></i> Take the Skin Quiz</a>
+
+        <!-- RIGHT: Image -->
+        <div class="hero-image-col" id="heroImageCol">
+          <div class="hero-glow-ring" aria-hidden="true"></div>
+          <div class="hero-image-wrap" id="heroImageWrap">
+            <img src="assets/images/home1-hero.jpg"
+              alt="Premium Luméra Skin skincare products — serum dropper and moisturizer on clean surface"
+              loading="eager" width="640" height="580">
+            <!-- Floating live badge -->
+            <div class="hero-image-chip" aria-hidden="true">
+              <span class="chip-dot"></span> 2,400+ Happy Customers
+            </div>
+            <!-- Rating badge -->
+            <div class="hero-image-badge">
+              <div class="badge-icon"><i class="bi bi-award-fill"></i></div>
+              <div class="badge-text">
+                <strong>4.9 / 5 Rating</strong>
+                <span>From verified reviews</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="hero-trust">
-          <div class="hero-trust-item"><i class="bi bi-check-circle-fill"></i> No parabens</div>
-          <div class="hero-trust-item"><i class="bi bi-check-circle-fill"></i> Fragrance-free options</div>
-          <div class="hero-trust-item"><i class="bi bi-check-circle-fill"></i> Dermatologist reviewed</div>
+
+      </div>
+    </div>
+
+    <!-- Scrolling Trust Marquee -->
+    <div class="hero-marquee-strip" aria-hidden="true">
+      <div class="hero-marquee-track">
+        <!-- Set 1 -->
+        <span class="hero-marquee-item"><i class="bi bi-shield-check"></i> Dermatologist Tested</span>
+        <span class="hero-marquee-sep"></span>
+        <span class="hero-marquee-item"><i class="bi bi-droplet"></i> Fragrance-Free Options</span>
+        <span class="hero-marquee-sep"></span>
+        <span class="hero-marquee-item"><i class="bi bi-patch-check"></i> No Parabens</span>
+        <span class="hero-marquee-sep"></span>
+        <span class="hero-marquee-item"><i class="bi bi-award"></i> 4.9★ Average Rating</span>
+        <span class="hero-marquee-sep"></span>
+        <span class="hero-marquee-item"><i class="bi bi-recycle"></i> Sustainable Packaging</span>
+        <span class="hero-marquee-sep"></span>
+        <span class="hero-marquee-item"><i class="bi bi-heart"></i> Cruelty-Free</span>
+        <span class="hero-marquee-sep"></span>
+        <span class="hero-marquee-item"><i class="bi bi-flask"></i> Clinically Studied Formulas</span>
+        <span class="hero-marquee-sep"></span>
+        <span class="hero-marquee-item"><i class="bi bi-people"></i> 2,400+ Verified Reviews</span>
+        <span class="hero-marquee-sep"></span>
+        <!-- Set 2 (duplicate for seamless loop) -->
+        <span class="hero-marquee-item"><i class="bi bi-shield-check"></i> Dermatologist Tested</span>
+        <span class="hero-marquee-sep"></span>
+        <span class="hero-marquee-item"><i class="bi bi-droplet"></i> Fragrance-Free Options</span>
+        <span class="hero-marquee-sep"></span>
+        <span class="hero-marquee-item"><i class="bi bi-patch-check"></i> No Parabens</span>
+        <span class="hero-marquee-sep"></span>
+        <span class="hero-marquee-item"><i class="bi bi-award"></i> 4.9★ Average Rating</span>
+        <span class="hero-marquee-sep"></span>
+        <span class="hero-marquee-item"><i class="bi bi-recycle"></i> Sustainable Packaging</span>
+        <span class="hero-marquee-sep"></span>
+        <span class="hero-marquee-item"><i class="bi bi-heart"></i> Cruelty-Free</span>
+        <span class="hero-marquee-sep"></span>
+        <span class="hero-marquee-item"><i class="bi bi-flask"></i> Clinically Studied Formulas</span>
+        <span class="hero-marquee-sep"></span>
+        <span class="hero-marquee-item"><i class="bi bi-people"></i> 2,400+ Verified Reviews</span>
+        <span class="hero-marquee-sep"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     SECTION 1 — SKIN QUIZ TEASER
+     ============================================================ -->
+  <section class="section-py quiz-section" id="skin-quiz" aria-label="Skin Quiz">
+    <div class="container-brand">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-5 fade-up">
+          <span class="section-label">Personalised For You</span>
+          <h2>Find Your Perfect Skincare Routine</h2>
+          <div class="brand-divider"></div>
+          <p>Answer five simple questions and discover which Luméra products may be best suited to your skin's unique
+            needs. This is a guide — not a diagnosis.</p>
+          <ul class="list-unstyled mt-3" style="display:flex; flex-direction:column; gap:0.6rem;">
+            <li style="display:flex; align-items:center; gap:0.5rem; font-size:0.88rem; color:var(--text-body);">
+              <i class="bi bi-check-circle-fill" style="color:var(--color-primary)"></i> Tailored to your skin's feel
+              and behaviour
+            </li>
+            <li style="display:flex; align-items:center; gap:0.5rem; font-size:0.88rem; color:var(--text-body);">
+              <i class="bi bi-check-circle-fill" style="color:var(--color-primary)"></i> Takes under 2 minutes
+            </li>
+            <li style="display:flex; align-items:center; gap:0.5rem; font-size:0.88rem; color:var(--text-body);">
+              <i class="bi bi-check-circle-fill" style="color:var(--color-primary)"></i> Results in personalised product
+              suggestions
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-7 fade-up" style="transition-delay:120ms">
+          <div id="skinQuizTeaser"></div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- RIGHT: Image -->
-      <div class="hero-image-col" id="heroImageCol">
-        <div class="hero-glow-ring" aria-hidden="true"></div>
-        <div class="hero-image-wrap" id="heroImageWrap">
-          <img src="assets/images/home1-hero.jpg"
-               alt="Premium Luméra Skin skincare products — serum dropper and moisturizer on clean surface"
-               loading="eager" width="640" height="580">
-          <!-- Floating live badge -->
-          <div class="hero-image-chip" aria-hidden="true">
-            <span class="chip-dot"></span> 2,400+ Happy Customers
+  <!-- ============================================================
+     SECTION 2 — BESTSELLING PRODUCTS
+     ============================================================ -->
+  <section class="section-py" id="bestsellers" aria-label="Bestselling Products">
+    <div class="container-brand">
+      <div class="section-header d-flex justify-content-between align-items-end flex-wrap gap-2">
+        <div class="fade-up">
+          <span class="section-label">Customer Favourites</span>
+          <h2>Bestselling Products</h2>
+          <div class="brand-divider"></div>
+        </div>
+        <a href="shop.html" class="btn-outline-brand fade-up" style="transition-delay:80ms">View All Products <i
+            class="bi bi-arrow-right"></i></a>
+      </div>
+      <div class="products-grid">
+        <!-- Product 1 -->
+        <div class="product-card fade-up" style="transition-delay:0ms">
+          <div class="product-img-wrap">
+            <img src="assets/images/shop1_1.png" alt="Hydra-Boost Hyaluronic Serum" loading="lazy">
+            <div class="product-badges">
+              <span class="badge-brand badge-bestseller">BESTSELLER</span>
+            </div>
+            <div class="product-quick-overlay">
+              <button class="btn-product-cta" data-add-cart type="button"><i class="bi bi-bag-plus"></i> Quick
+                Add</button>
+            </div>
           </div>
-          <!-- Rating badge -->
-          <div class="hero-image-badge">
-            <div class="badge-icon"><i class="bi bi-award-fill"></i></div>
-            <div class="badge-text">
-              <strong>4.9 / 5 Rating</strong>
-              <span>From verified reviews</span>
+          <div class="product-body">
+            <div class="product-category">Serum</div>
+            <h3 class="product-name">Hydra-Boost Hyaluronic Serum</h3>
+            <p class="product-function">Deep hydration serum that draws moisture to all skin layers</p>
+            <div class="product-meta">
+              <span class="product-meta-item">All Skin Types</span>
+              <span class="product-meta-item">AM + PM</span>
+            </div>
+            <div class="product-ingredient"><i class="bi bi-droplet-fill"></i> Hyaluronic Acid · 30ml</div>
+          </div>
+          <div class="product-footer">
+            <div class="product-price">
+              <span class="price-current">$48</span>
+              <span class="price-size">30ml</span>
+            </div>
+            <div style="text-align:right">
+              <div class="product-rating"><span class="star-rating">★★★★★</span> <span>(312)</span></div>
+              <a href="shop.html" class="btn-product-cta mt-1">Shop Now</a>
+            </div>
+          </div>
+        </div>
+        <!-- Product 2 -->
+        <div class="product-card fade-up" style="transition-delay:80ms">
+          <div class="product-img-wrap">
+            <img src="assets/images/shop1_2.png" alt="Niacinamide Clarity Serum" loading="lazy">
+            <div class="product-badges">
+              <span class="badge-brand badge-new">NEW</span>
+            </div>
+            <div class="product-quick-overlay">
+              <button class="btn-product-cta" data-add-cart type="button"><i class="bi bi-bag-plus"></i> Quick
+                Add</button>
+            </div>
+          </div>
+          <div class="product-body">
+            <div class="product-category">Serum</div>
+            <h3 class="product-name">Niacinamide 10% Clarity Serum</h3>
+            <p class="product-function">Supports even skin tone and minimises the appearance of pores</p>
+            <div class="product-meta">
+              <span class="product-meta-item">Oily Skin</span>
+              <span class="product-meta-item">Combination</span>
+            </div>
+            <div class="product-ingredient"><i class="bi bi-droplet-fill"></i> Niacinamide · 30ml</div>
+          </div>
+          <div class="product-footer">
+            <div class="product-price">
+              <span class="price-current">$42</span>
+              <span class="price-size">30ml</span>
+            </div>
+            <div style="text-align:right">
+              <div class="product-rating"><span class="star-rating">★★★★★</span> <span>(208)</span></div>
+              <a href="shop.html" class="btn-product-cta mt-1">Shop Now</a>
+            </div>
+          </div>
+        </div>
+        <!-- Product 3 -->
+        <div class="product-card fade-up" style="transition-delay:160ms">
+          <div class="product-img-wrap">
+            <img src="assets/images/shop1_3.png" alt="Ceramide Barrier Cream" loading="lazy">
+            <div class="product-badges">
+              <span class="badge-brand badge-bestseller">BESTSELLER</span>
+            </div>
+            <div class="product-quick-overlay">
+              <button class="btn-product-cta" data-add-cart type="button"><i class="bi bi-bag-plus"></i> Quick
+                Add</button>
+            </div>
+          </div>
+          <div class="product-body">
+            <div class="product-category">Moisturiser</div>
+            <h3 class="product-name">Ceramide Barrier Repair Cream</h3>
+            <p class="product-function">Restores and supports the skin's natural protective barrier</p>
+            <div class="product-meta">
+              <span class="product-meta-item">Dry Skin</span>
+              <span class="product-meta-item">Sensitive</span>
+            </div>
+            <div class="product-ingredient"><i class="bi bi-droplet-fill"></i> Ceramides NP · 50ml</div>
+          </div>
+          <div class="product-footer">
+            <div class="product-price">
+              <span class="price-current">$56</span>
+              <span class="price-size">50ml</span>
+            </div>
+            <div style="text-align:right">
+              <div class="product-rating"><span class="star-rating">★★★★★</span> <span>(445)</span></div>
+              <a href="shop.html" class="btn-product-cta mt-1">Shop Now</a>
+            </div>
+          </div>
+        </div>
+        <!-- Product 4 -->
+        <div class="product-card fade-up" style="transition-delay:240ms">
+          <div class="product-img-wrap">
+            <img src="assets/images/shop1_4.png" alt="Vitamin C Brightening Serum" loading="lazy">
+            <div class="product-badges">
+              <span class="badge-brand badge-skin">FRAGRANCE FREE</span>
+            </div>
+            <div class="product-quick-overlay">
+              <button class="btn-product-cta" data-add-cart type="button"><i class="bi bi-bag-plus"></i> Quick
+                Add</button>
+            </div>
+          </div>
+          <div class="product-body">
+            <div class="product-category">Serum</div>
+            <h3 class="product-name">Vitamin C 15% Brightening Serum</h3>
+            <p class="product-function">Visibly supports skin radiance and antioxidant protection</p>
+            <div class="product-meta">
+              <span class="product-meta-item">Normal Skin</span>
+              <span class="product-meta-item">Dull Skin</span>
+            </div>
+            <div class="product-ingredient"><i class="bi bi-droplet-fill"></i> L-Ascorbic Acid · 30ml</div>
+          </div>
+          <div class="product-footer">
+            <div class="product-price">
+              <span class="price-current">$52</span>
+              <span class="price-size">30ml</span>
+            </div>
+            <div style="text-align:right">
+              <div class="product-rating"><span class="star-rating">★★★★☆</span> <span>(189)</span></div>
+              <a href="shop.html" class="btn-product-cta mt-1">Shop Now</a>
             </div>
           </div>
         </div>
       </div>
-
     </div>
-  </div>
+  </section>
 
-  <!-- Scrolling Trust Marquee -->
-  <div class="hero-marquee-strip" aria-hidden="true">
-    <div class="hero-marquee-track">
-      <!-- Set 1 -->
-      <span class="hero-marquee-item"><i class="bi bi-shield-check"></i> Dermatologist Tested</span>
-      <span class="hero-marquee-sep"></span>
-      <span class="hero-marquee-item"><i class="bi bi-droplet"></i> Fragrance-Free Options</span>
-      <span class="hero-marquee-sep"></span>
-      <span class="hero-marquee-item"><i class="bi bi-patch-check"></i> No Parabens</span>
-      <span class="hero-marquee-sep"></span>
-      <span class="hero-marquee-item"><i class="bi bi-award"></i> 4.9★ Average Rating</span>
-      <span class="hero-marquee-sep"></span>
-      <span class="hero-marquee-item"><i class="bi bi-recycle"></i> Sustainable Packaging</span>
-      <span class="hero-marquee-sep"></span>
-      <span class="hero-marquee-item"><i class="bi bi-heart"></i> Cruelty-Free</span>
-      <span class="hero-marquee-sep"></span>
-      <span class="hero-marquee-item"><i class="bi bi-flask"></i> Clinically Studied Formulas</span>
-      <span class="hero-marquee-sep"></span>
-      <span class="hero-marquee-item"><i class="bi bi-people"></i> 2,400+ Verified Reviews</span>
-      <span class="hero-marquee-sep"></span>
-      <!-- Set 2 (duplicate for seamless loop) -->
-      <span class="hero-marquee-item"><i class="bi bi-shield-check"></i> Dermatologist Tested</span>
-      <span class="hero-marquee-sep"></span>
-      <span class="hero-marquee-item"><i class="bi bi-droplet"></i> Fragrance-Free Options</span>
-      <span class="hero-marquee-sep"></span>
-      <span class="hero-marquee-item"><i class="bi bi-patch-check"></i> No Parabens</span>
-      <span class="hero-marquee-sep"></span>
-      <span class="hero-marquee-item"><i class="bi bi-award"></i> 4.9★ Average Rating</span>
-      <span class="hero-marquee-sep"></span>
-      <span class="hero-marquee-item"><i class="bi bi-recycle"></i> Sustainable Packaging</span>
-      <span class="hero-marquee-sep"></span>
-      <span class="hero-marquee-item"><i class="bi bi-heart"></i> Cruelty-Free</span>
-      <span class="hero-marquee-sep"></span>
-      <span class="hero-marquee-item"><i class="bi bi-flask"></i> Clinically Studied Formulas</span>
-      <span class="hero-marquee-sep"></span>
-      <span class="hero-marquee-item"><i class="bi bi-people"></i> 2,400+ Verified Reviews</span>
-      <span class="hero-marquee-sep"></span>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     SECTION 1 — SKIN QUIZ TEASER
-     ============================================================ -->
-<section class="section-py quiz-section" id="skin-quiz" aria-label="Skin Quiz">
-  <div class="container-brand">
-    <div class="row align-items-center g-5">
-      <div class="col-lg-5 fade-up">
-        <span class="section-label">Personalised For You</span>
-        <h2>Find Your Perfect Skincare Routine</h2>
-        <div class="brand-divider"></div>
-        <p>Answer five simple questions and discover which Luméra products may be best suited to your skin's unique needs. This is a guide — not a diagnosis.</p>
-        <ul class="list-unstyled mt-3" style="display:flex; flex-direction:column; gap:0.6rem;">
-          <li style="display:flex; align-items:center; gap:0.5rem; font-size:0.88rem; color:var(--text-body);">
-            <i class="bi bi-check-circle-fill" style="color:var(--color-primary)"></i> Tailored to your skin's feel and behaviour
-          </li>
-          <li style="display:flex; align-items:center; gap:0.5rem; font-size:0.88rem; color:var(--text-body);">
-            <i class="bi bi-check-circle-fill" style="color:var(--color-primary)"></i> Takes under 2 minutes
-          </li>
-          <li style="display:flex; align-items:center; gap:0.5rem; font-size:0.88rem; color:var(--text-body);">
-            <i class="bi bi-check-circle-fill" style="color:var(--color-primary)"></i> Results in personalised product suggestions
-          </li>
-        </ul>
-      </div>
-      <div class="col-lg-7 fade-up" style="transition-delay:120ms">
-        <div id="skinQuizTeaser"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     SECTION 2 — BESTSELLING PRODUCTS
-     ============================================================ -->
-<section class="section-py" id="bestsellers" aria-label="Bestselling Products">
-  <div class="container-brand">
-    <div class="section-header d-flex justify-content-between align-items-end flex-wrap gap-2">
-      <div class="fade-up">
-        <span class="section-label">Customer Favourites</span>
-        <h2>Bestselling Products</h2>
-        <div class="brand-divider"></div>
-      </div>
-      <a href="shop.html" class="btn-outline-brand fade-up" style="transition-delay:80ms">View All Products <i class="bi bi-arrow-right"></i></a>
-    </div>
-    <div class="products-grid">
-      <!-- Product 1 -->
-      <div class="product-card fade-up" style="transition-delay:0ms">
-        <div class="product-img-wrap">
-          <img src="assets/images/shop1_1.png" alt="Hydra-Boost Hyaluronic Serum" loading="lazy">
-          <div class="product-badges">
-            <span class="badge-brand badge-bestseller">BESTSELLER</span>
-          </div>
-          <div class="product-quick-overlay">
-            <button class="btn-product-cta" data-add-cart type="button"><i class="bi bi-bag-plus"></i> Quick Add</button>
-          </div>
-        </div>
-        <div class="product-body">
-          <div class="product-category">Serum</div>
-          <h3 class="product-name">Hydra-Boost Hyaluronic Serum</h3>
-          <p class="product-function">Deep hydration serum that draws moisture to all skin layers</p>
-          <div class="product-meta">
-            <span class="product-meta-item">All Skin Types</span>
-            <span class="product-meta-item">AM + PM</span>
-          </div>
-          <div class="product-ingredient"><i class="bi bi-droplet-fill"></i> Hyaluronic Acid · 30ml</div>
-        </div>
-        <div class="product-footer">
-          <div class="product-price">
-            <span class="price-current">$48</span>
-            <span class="price-size">30ml</span>
-          </div>
-          <div style="text-align:right">
-            <div class="product-rating"><span class="star-rating">★★★★★</span> <span>(312)</span></div>
-            <a href="shop.html" class="btn-product-cta mt-1">Shop Now</a>
-          </div>
-        </div>
-      </div>
-      <!-- Product 2 -->
-      <div class="product-card fade-up" style="transition-delay:80ms">
-        <div class="product-img-wrap">
-          <img src="assets/images/shop1_2.png" alt="Niacinamide Clarity Serum" loading="lazy">
-          <div class="product-badges">
-            <span class="badge-brand badge-new">NEW</span>
-          </div>
-          <div class="product-quick-overlay">
-            <button class="btn-product-cta" data-add-cart type="button"><i class="bi bi-bag-plus"></i> Quick Add</button>
-          </div>
-        </div>
-        <div class="product-body">
-          <div class="product-category">Serum</div>
-          <h3 class="product-name">Niacinamide 10% Clarity Serum</h3>
-          <p class="product-function">Supports even skin tone and minimises the appearance of pores</p>
-          <div class="product-meta">
-            <span class="product-meta-item">Oily Skin</span>
-            <span class="product-meta-item">Combination</span>
-          </div>
-          <div class="product-ingredient"><i class="bi bi-droplet-fill"></i> Niacinamide · 30ml</div>
-        </div>
-        <div class="product-footer">
-          <div class="product-price">
-            <span class="price-current">$42</span>
-            <span class="price-size">30ml</span>
-          </div>
-          <div style="text-align:right">
-            <div class="product-rating"><span class="star-rating">★★★★★</span> <span>(208)</span></div>
-            <a href="shop.html" class="btn-product-cta mt-1">Shop Now</a>
-          </div>
-        </div>
-      </div>
-      <!-- Product 3 -->
-      <div class="product-card fade-up" style="transition-delay:160ms">
-        <div class="product-img-wrap">
-          <img src="assets/images/shop1_3.png" alt="Ceramide Barrier Cream" loading="lazy">
-          <div class="product-badges">
-            <span class="badge-brand badge-bestseller">BESTSELLER</span>
-          </div>
-          <div class="product-quick-overlay">
-            <button class="btn-product-cta" data-add-cart type="button"><i class="bi bi-bag-plus"></i> Quick Add</button>
-          </div>
-        </div>
-        <div class="product-body">
-          <div class="product-category">Moisturiser</div>
-          <h3 class="product-name">Ceramide Barrier Repair Cream</h3>
-          <p class="product-function">Restores and supports the skin's natural protective barrier</p>
-          <div class="product-meta">
-            <span class="product-meta-item">Dry Skin</span>
-            <span class="product-meta-item">Sensitive</span>
-          </div>
-          <div class="product-ingredient"><i class="bi bi-droplet-fill"></i> Ceramides NP · 50ml</div>
-        </div>
-        <div class="product-footer">
-          <div class="product-price">
-            <span class="price-current">$56</span>
-            <span class="price-size">50ml</span>
-          </div>
-          <div style="text-align:right">
-            <div class="product-rating"><span class="star-rating">★★★★★</span> <span>(445)</span></div>
-            <a href="shop.html" class="btn-product-cta mt-1">Shop Now</a>
-          </div>
-        </div>
-      </div>
-      <!-- Product 4 -->
-      <div class="product-card fade-up" style="transition-delay:240ms">
-        <div class="product-img-wrap">
-          <img src="assets/images/shop1_4.png" alt="Vitamin C Brightening Serum" loading="lazy">
-          <div class="product-badges">
-            <span class="badge-brand badge-skin">FRAGRANCE FREE</span>
-          </div>
-          <div class="product-quick-overlay">
-            <button class="btn-product-cta" data-add-cart type="button"><i class="bi bi-bag-plus"></i> Quick Add</button>
-          </div>
-        </div>
-        <div class="product-body">
-          <div class="product-category">Serum</div>
-          <h3 class="product-name">Vitamin C 15% Brightening Serum</h3>
-          <p class="product-function">Visibly supports skin radiance and antioxidant protection</p>
-          <div class="product-meta">
-            <span class="product-meta-item">Normal Skin</span>
-            <span class="product-meta-item">Dull Skin</span>
-          </div>
-          <div class="product-ingredient"><i class="bi bi-droplet-fill"></i> L-Ascorbic Acid · 30ml</div>
-        </div>
-        <div class="product-footer">
-          <div class="product-price">
-            <span class="price-current">$52</span>
-            <span class="price-size">30ml</span>
-          </div>
-          <div style="text-align:right">
-            <div class="product-rating"><span class="star-rating">★★★★☆</span> <span>(189)</span></div>
-            <a href="shop.html" class="btn-product-cta mt-1">Shop Now</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
+  <!-- ============================================================
      SECTION 3 — SHOP BY SKIN CONCERN
      ============================================================ -->
-<section class="section-py section-bg" id="concerns" aria-label="Shop by Skin Concern">
-  <div class="container-brand">
-    <div class="section-header text-center fade-up">
-      <span class="section-label">Find What Works For You</span>
-      <h2>Shop by Skin Concern</h2>
-      <div class="brand-divider center"></div>
-      <p>Whether you're targeting hydration, uneven texture or oil control — explore products designed with your specific concern in mind.</p>
+  <section class="section-py section-bg" id="concerns" aria-label="Shop by Skin Concern">
+    <div class="container-brand">
+      <div class="section-header text-center fade-up">
+        <span class="section-label">Find What Works For You</span>
+        <h2>Shop by Skin Concern</h2>
+        <div class="brand-divider center"></div>
+        <p>Whether you're targeting hydration, uneven texture or oil control — explore products designed with your
+          specific concern in mind.</p>
+      </div>
+      <div class="concern-bento">
+        <a href="shop.html?concern=hydration" class="concern-card fade-up" style="transition-delay:0ms">
+          <div class="concern-img-wrap">
+            <img src="assets/images/shop_by_keep_1.png" alt="Hydration skincare concern" loading="lazy">
+          </div>
+          <div class="concern-name">Hydration</div>
+          <div class="concern-desc">Intense moisture for dry, parched skin</div>
+        </a>
+        <a href="shop.html?concern=dullness" class="concern-card fade-up" style="transition-delay:60ms">
+          <div class="concern-img-wrap">
+            <img src="assets/images/shop_by_keep_2.png" alt="Dullness skincare concern" loading="lazy">
+          </div>
+          <div class="concern-name">Dullness</div>
+          <div class="concern-desc">Support for a more radiant complexion</div>
+        </a>
+        <a href="shop.html?concern=texture" class="concern-card fade-up" style="transition-delay:120ms">
+          <div class="concern-img-wrap">
+            <img src="assets/images/shop_by_keep_3.png" alt="Uneven Texture skincare concern" loading="lazy">
+          </div>
+          <div class="concern-name">Uneven Texture</div>
+          <div class="concern-desc">Smooth and refine the skin's surface</div>
+        </a>
+        <a href="shop.html?concern=blemishes" class="concern-card fade-up" style="transition-delay:180ms">
+          <div class="concern-img-wrap">
+            <img src="assets/images/shop_by_keep_4.png" alt="Blemishes skincare concern" loading="lazy">
+          </div>
+          <div class="concern-name">Blemishes</div>
+          <div class="concern-desc">Targeted support for breakout-prone skin</div>
+        </a>
+        <a href="shop.html?concern=oil-control" class="concern-card fade-up" style="transition-delay:240ms">
+          <div class="concern-img-wrap">
+            <img src="assets/images/shop_by_keep_5.png" alt="Oil Control skincare concern" loading="lazy">
+          </div>
+          <div class="concern-name">Oil Control</div>
+          <div class="concern-desc">Balance sebum without over-drying</div>
+        </a>
+        <a href="shop.html?concern=barrier" class="concern-card fade-up" style="transition-delay:300ms">
+          <div class="concern-img-wrap">
+            <img src="assets/images/shop_by_keep_6.png" alt="Barrier Support skincare concern" loading="lazy">
+          </div>
+          <div class="concern-name">Barrier Support</div>
+          <div class="concern-desc">Strengthen and protect your skin barrier</div>
+        </a>
+        <a href="shop.html?concern=fine-lines" class="concern-card fade-up" style="transition-delay:360ms">
+          <div class="concern-img-wrap">
+            <img src="assets/images/shop_by_keep_7.png" alt="Fine Lines skincare concern" loading="lazy">
+          </div>
+          <div class="concern-name">Fine Lines</div>
+          <div class="concern-desc">Visibly support skin firmness and elasticity</div>
+        </a>
+        <a href="shop.html" class="concern-card fade-up"
+          style="transition-delay:420ms; border-style: dashed; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+          <div class="concern-icon" style="margin-top:0;"><i class="bi bi-plus-circle"></i></div>
+          <div class="concern-name">Browse All</div>
+          <div class="concern-desc">Explore the full Luméra collection</div>
+        </a>
+      </div>
     </div>
-    <div class="concern-bento">
-      <a href="shop.html?concern=hydration" class="concern-card fade-up" style="transition-delay:0ms">
-        <div class="concern-img-wrap">
-          <img src="assets/images/shop_by_keep_1.png" alt="Hydration skincare concern" loading="lazy">
-        </div>
-        <div class="concern-name">Hydration</div>
-        <div class="concern-desc">Intense moisture for dry, parched skin</div>
-      </a>
-      <a href="shop.html?concern=dullness" class="concern-card fade-up" style="transition-delay:60ms">
-        <div class="concern-img-wrap">
-          <img src="assets/images/shop_by_keep_2.png" alt="Dullness skincare concern" loading="lazy">
-        </div>
-        <div class="concern-name">Dullness</div>
-        <div class="concern-desc">Support for a more radiant complexion</div>
-      </a>
-      <a href="shop.html?concern=texture" class="concern-card fade-up" style="transition-delay:120ms">
-        <div class="concern-img-wrap">
-          <img src="assets/images/shop_by_keep_3.png" alt="Uneven Texture skincare concern" loading="lazy">
-        </div>
-        <div class="concern-name">Uneven Texture</div>
-        <div class="concern-desc">Smooth and refine the skin's surface</div>
-      </a>
-      <a href="shop.html?concern=blemishes" class="concern-card fade-up" style="transition-delay:180ms">
-        <div class="concern-img-wrap">
-          <img src="assets/images/shop_by_keep_4.png" alt="Blemishes skincare concern" loading="lazy">
-        </div>
-        <div class="concern-name">Blemishes</div>
-        <div class="concern-desc">Targeted support for breakout-prone skin</div>
-      </a>
-      <a href="shop.html?concern=oil-control" class="concern-card fade-up" style="transition-delay:240ms">
-        <div class="concern-img-wrap">
-          <img src="assets/images/shop_by_keep_5.png" alt="Oil Control skincare concern" loading="lazy">
-        </div>
-        <div class="concern-name">Oil Control</div>
-        <div class="concern-desc">Balance sebum without over-drying</div>
-      </a>
-      <a href="shop.html?concern=barrier" class="concern-card fade-up" style="transition-delay:300ms">
-        <div class="concern-img-wrap">
-          <img src="assets/images/shop_by_keep_6.png" alt="Barrier Support skincare concern" loading="lazy">
-        </div>
-        <div class="concern-name">Barrier Support</div>
-        <div class="concern-desc">Strengthen and protect your skin barrier</div>
-      </a>
-      <a href="shop.html?concern=fine-lines" class="concern-card fade-up" style="transition-delay:360ms">
-        <div class="concern-img-wrap">
-          <img src="assets/images/shop_by_keep_7.png" alt="Fine Lines skincare concern" loading="lazy">
-        </div>
-        <div class="concern-name">Fine Lines</div>
-        <div class="concern-desc">Visibly support skin firmness and elasticity</div>
-      </a>
-      <a href="shop.html" class="concern-card fade-up" style="transition-delay:420ms; border-style: dashed; display:flex; flex-direction:column; justify-content:center; align-items:center;">
-        <div class="concern-icon" style="margin-top:0;"><i class="bi bi-plus-circle"></i></div>
-        <div class="concern-name">Browse All</div>
-        <div class="concern-desc">Explore the full Luméra collection</div>
-      </a>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============================================================
+  <!-- ============================================================
      SECTION 4 — DAILY SKINCARE ESSENTIALS
      ============================================================ -->
-<section class="section-py" id="essentials" aria-label="Daily Skincare Essentials">
-  <div class="container-brand">
-    <div class="section-header text-center fade-up">
-      <span class="section-label">Build Your Routine</span>
-      <h2>Daily Skincare Essentials</h2>
-      <div class="brand-divider center"></div>
-      <p>A complete routine starts with the right foundation. Discover each step — from cleansing to sun care.</p>
+  <section class="section-py" id="essentials" aria-label="Daily Skincare Essentials">
+    <div class="container-brand">
+      <div class="section-header text-center fade-up">
+        <span class="section-label">Build Your Routine</span>
+        <h2>Daily Skincare Essentials</h2>
+        <div class="brand-divider center"></div>
+        <p>A complete routine starts with the right foundation. Discover each step — from cleansing to sun care.</p>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="routine-tabs-nav fade-up">
+        <button class="routine-tab-btn active" type="button" onclick="filterRoutineSteps('all', this)">All Steps
+          (01-08)</button>
+        <button class="routine-tab-btn" type="button" onclick="filterRoutineSteps('am', this)"><i
+            class="bi bi-sunrise me-1"></i> Morning Routine</button>
+        <button class="routine-tab-btn" type="button" onclick="filterRoutineSteps('pm', this)"><i
+            class="bi bi-moon-stars me-1"></i> Evening Routine</button>
+      </div>
+
+      <div class="trendy-essentials-grid">
+        <!-- 01 Cleanser -->
+        <a href="shop.html?category=cleansers" class="trendy-routine-card fade-up" data-routine-step="all am pm"
+          style="transition-delay:0ms">
+          <img src="assets/images/SKIN-1.png" alt="Cleanser essential" class="trendy-routine-bg" loading="lazy">
+          <div class="trendy-routine-overlay"></div>
+          <div class="trendy-routine-badge">01 STEP</div>
+          <div class="trendy-routine-content">
+            <div class="trendy-routine-name">
+              <span>Cleanser</span>
+              <span class="trendy-routine-arrow"><i class="bi bi-arrow-up-right"></i></span>
+            </div>
+            <p class="trendy-routine-desc">Remove impurities without disrupting the skin barrier</p>
+          </div>
+        </a>
+
+        <!-- 02 Toner -->
+        <a href="shop.html?category=toners" class="trendy-routine-card fade-up" data-routine-step="all am"
+          style="transition-delay:60ms">
+          <img src="assets/images/SKIN-2.png" alt="Toner essential" class="trendy-routine-bg" loading="lazy">
+          <div class="trendy-routine-overlay"></div>
+          <div class="trendy-routine-badge">02 STEP</div>
+          <div class="trendy-routine-content">
+            <div class="trendy-routine-name">
+              <span>Toner</span>
+              <span class="trendy-routine-arrow"><i class="bi bi-arrow-up-right"></i></span>
+            </div>
+            <p class="trendy-routine-desc">Balance and prep skin to better absorb serums</p>
+          </div>
+        </a>
+
+        <!-- 03 Serum -->
+        <a href="shop.html?category=serums" class="trendy-routine-card fade-up" data-routine-step="all am pm"
+          style="transition-delay:120ms">
+          <img src="assets/images/SKIN-3.png" alt="Serum essential" class="trendy-routine-bg" loading="lazy">
+          <div class="trendy-routine-overlay"></div>
+          <div class="trendy-routine-badge">03 STEP</div>
+          <div class="trendy-routine-content">
+            <div class="trendy-routine-name">
+              <span>Serum</span>
+              <span class="trendy-routine-arrow"><i class="bi bi-arrow-up-right"></i></span>
+            </div>
+            <p class="trendy-routine-desc">Concentrated actives targeted to your key concern</p>
+          </div>
+        </a>
+
+        <!-- 04 Moisturiser -->
+        <a href="shop.html?category=moisturizers" class="trendy-routine-card fade-up" data-routine-step="all am pm"
+          style="transition-delay:180ms">
+          <img src="assets/images/SKIN-4.png" alt="Moisturiser essential" class="trendy-routine-bg" loading="lazy">
+          <div class="trendy-routine-overlay"></div>
+          <div class="trendy-routine-badge">04 STEP</div>
+          <div class="trendy-routine-content">
+            <div class="trendy-routine-name">
+              <span>Moisturiser</span>
+              <span class="trendy-routine-arrow"><i class="bi bi-arrow-up-right"></i></span>
+            </div>
+            <p class="trendy-routine-desc">Seal in hydration and support skin softness</p>
+          </div>
+        </a>
+
+        <!-- 05 Sunscreen -->
+        <a href="shop.html?category=sunscreens" class="trendy-routine-card fade-up" data-routine-step="all am"
+          style="transition-delay:240ms">
+          <img src="assets/images/SKIN-5.png" alt="Sunscreen essential" class="trendy-routine-bg" loading="lazy">
+          <div class="trendy-routine-overlay"></div>
+          <div class="trendy-routine-badge">05 STEP · AM</div>
+          <div class="trendy-routine-content">
+            <div class="trendy-routine-name">
+              <span>Sunscreen</span>
+              <span class="trendy-routine-arrow"><i class="bi bi-arrow-up-right"></i></span>
+            </div>
+            <p class="trendy-routine-desc">Daily SPF protection — the most important step</p>
+          </div>
+        </a>
+
+        <!-- 06 Eye Care -->
+        <a href="shop.html?category=eye-care" class="trendy-routine-card fade-up" data-routine-step="all pm"
+          style="transition-delay:300ms">
+          <img src="assets/images/SKIN-6.png" alt="Eye Care essential" class="trendy-routine-bg" loading="lazy">
+          <div class="trendy-routine-overlay"></div>
+          <div class="trendy-routine-badge">06 STEP · PM</div>
+          <div class="trendy-routine-content">
+            <div class="trendy-routine-name">
+              <span>Eye Care</span>
+              <span class="trendy-routine-arrow"><i class="bi bi-arrow-up-right"></i></span>
+            </div>
+            <p class="trendy-routine-desc">Gentle formulas for the delicate periorbital area</p>
+          </div>
+        </a>
+
+        <!-- 07 Face Mask -->
+        <a href="shop.html?category=masks" class="trendy-routine-card fade-up" data-routine-step="all pm"
+          style="transition-delay:360ms">
+          <img src="assets/images/SKIN-7.png" alt="Face Mask essential" class="trendy-routine-bg" loading="lazy">
+          <div class="trendy-routine-overlay"></div>
+          <div class="trendy-routine-badge">07 STEP · PM</div>
+          <div class="trendy-routine-content">
+            <div class="trendy-routine-name">
+              <span>Face Mask</span>
+              <span class="trendy-routine-arrow"><i class="bi bi-arrow-up-right"></i></span>
+            </div>
+            <p class="trendy-routine-desc">Weekly treatments to deeply nourish and reset skin</p>
+          </div>
+        </a>
+
+        <!-- 08 Treatments -->
+        <a href="shop.html?category=treatments" class="trendy-routine-card fade-up" data-routine-step="all pm"
+          style="transition-delay:420ms">
+          <img src="assets/images/SKIN-8.png" alt="Treatments essential" class="trendy-routine-bg" loading="lazy">
+          <div class="trendy-routine-overlay"></div>
+          <div class="trendy-routine-badge">08 STEP · PM</div>
+          <div class="trendy-routine-content">
+            <div class="trendy-routine-name">
+              <span>Treatments</span>
+              <span class="trendy-routine-arrow"><i class="bi bi-arrow-up-right"></i></span>
+            </div>
+            <p class="trendy-routine-desc">Targeted spot or area-specific formulations</p>
+          </div>
+        </a>
+      </div>
     </div>
+  </section>
 
-    <!-- Filter Buttons -->
-    <div class="routine-tabs-nav fade-up">
-      <button class="routine-tab-btn active" type="button" onclick="filterRoutineSteps('all', this)">All Steps (01-08)</button>
-      <button class="routine-tab-btn" type="button" onclick="filterRoutineSteps('am', this)"><i class="bi bi-sunrise me-1"></i> Morning Routine</button>
-      <button class="routine-tab-btn" type="button" onclick="filterRoutineSteps('pm', this)"><i class="bi bi-moon-stars me-1"></i> Evening Routine</button>
-    </div>
-
-    <div class="trendy-essentials-grid">
-      <!-- 01 Cleanser -->
-      <a href="shop.html?category=cleansers" class="trendy-routine-card fade-up" data-routine-step="all am pm" style="transition-delay:0ms">
-        <img src="assets/images/SKIN-1.png" alt="Cleanser essential" class="trendy-routine-bg" loading="lazy">
-        <div class="trendy-routine-overlay"></div>
-        <div class="trendy-routine-badge">01 STEP</div>
-        <div class="trendy-routine-content">
-          <div class="trendy-routine-name">
-            <span>Cleanser</span>
-            <span class="trendy-routine-arrow"><i class="bi bi-arrow-up-right"></i></span>
-          </div>
-          <p class="trendy-routine-desc">Remove impurities without disrupting the skin barrier</p>
-        </div>
-      </a>
-
-      <!-- 02 Toner -->
-      <a href="shop.html?category=toners" class="trendy-routine-card fade-up" data-routine-step="all am" style="transition-delay:60ms">
-        <img src="assets/images/SKIN-2.png" alt="Toner essential" class="trendy-routine-bg" loading="lazy">
-        <div class="trendy-routine-overlay"></div>
-        <div class="trendy-routine-badge">02 STEP</div>
-        <div class="trendy-routine-content">
-          <div class="trendy-routine-name">
-            <span>Toner</span>
-            <span class="trendy-routine-arrow"><i class="bi bi-arrow-up-right"></i></span>
-          </div>
-          <p class="trendy-routine-desc">Balance and prep skin to better absorb serums</p>
-        </div>
-      </a>
-
-      <!-- 03 Serum -->
-      <a href="shop.html?category=serums" class="trendy-routine-card fade-up" data-routine-step="all am pm" style="transition-delay:120ms">
-        <img src="assets/images/SKIN-3.png" alt="Serum essential" class="trendy-routine-bg" loading="lazy">
-        <div class="trendy-routine-overlay"></div>
-        <div class="trendy-routine-badge">03 STEP</div>
-        <div class="trendy-routine-content">
-          <div class="trendy-routine-name">
-            <span>Serum</span>
-            <span class="trendy-routine-arrow"><i class="bi bi-arrow-up-right"></i></span>
-          </div>
-          <p class="trendy-routine-desc">Concentrated actives targeted to your key concern</p>
-        </div>
-      </a>
-
-      <!-- 04 Moisturiser -->
-      <a href="shop.html?category=moisturizers" class="trendy-routine-card fade-up" data-routine-step="all am pm" style="transition-delay:180ms">
-        <img src="assets/images/SKIN-4.png" alt="Moisturiser essential" class="trendy-routine-bg" loading="lazy">
-        <div class="trendy-routine-overlay"></div>
-        <div class="trendy-routine-badge">04 STEP</div>
-        <div class="trendy-routine-content">
-          <div class="trendy-routine-name">
-            <span>Moisturiser</span>
-            <span class="trendy-routine-arrow"><i class="bi bi-arrow-up-right"></i></span>
-          </div>
-          <p class="trendy-routine-desc">Seal in hydration and support skin softness</p>
-        </div>
-      </a>
-
-      <!-- 05 Sunscreen -->
-      <a href="shop.html?category=sunscreens" class="trendy-routine-card fade-up" data-routine-step="all am" style="transition-delay:240ms">
-        <img src="assets/images/SKIN-5.png" alt="Sunscreen essential" class="trendy-routine-bg" loading="lazy">
-        <div class="trendy-routine-overlay"></div>
-        <div class="trendy-routine-badge">05 STEP · AM</div>
-        <div class="trendy-routine-content">
-          <div class="trendy-routine-name">
-            <span>Sunscreen</span>
-            <span class="trendy-routine-arrow"><i class="bi bi-arrow-up-right"></i></span>
-          </div>
-          <p class="trendy-routine-desc">Daily SPF protection — the most important step</p>
-        </div>
-      </a>
-
-      <!-- 06 Eye Care -->
-      <a href="shop.html?category=eye-care" class="trendy-routine-card fade-up" data-routine-step="all pm" style="transition-delay:300ms">
-        <img src="assets/images/SKIN-6.png" alt="Eye Care essential" class="trendy-routine-bg" loading="lazy">
-        <div class="trendy-routine-overlay"></div>
-        <div class="trendy-routine-badge">06 STEP · PM</div>
-        <div class="trendy-routine-content">
-          <div class="trendy-routine-name">
-            <span>Eye Care</span>
-            <span class="trendy-routine-arrow"><i class="bi bi-arrow-up-right"></i></span>
-          </div>
-          <p class="trendy-routine-desc">Gentle formulas for the delicate periorbital area</p>
-        </div>
-      </a>
-
-      <!-- 07 Face Mask -->
-      <a href="shop.html?category=masks" class="trendy-routine-card fade-up" data-routine-step="all pm" style="transition-delay:360ms">
-        <img src="assets/images/SKIN-7.png" alt="Face Mask essential" class="trendy-routine-bg" loading="lazy">
-        <div class="trendy-routine-overlay"></div>
-        <div class="trendy-routine-badge">07 STEP · PM</div>
-        <div class="trendy-routine-content">
-          <div class="trendy-routine-name">
-            <span>Face Mask</span>
-            <span class="trendy-routine-arrow"><i class="bi bi-arrow-up-right"></i></span>
-          </div>
-          <p class="trendy-routine-desc">Weekly treatments to deeply nourish and reset skin</p>
-        </div>
-      </a>
-
-      <!-- 08 Treatments -->
-      <a href="shop.html?category=treatments" class="trendy-routine-card fade-up" data-routine-step="all pm" style="transition-delay:420ms">
-        <img src="assets/images/SKIN-8.png" alt="Treatments essential" class="trendy-routine-bg" loading="lazy">
-        <div class="trendy-routine-overlay"></div>
-        <div class="trendy-routine-badge">08 STEP · PM</div>
-        <div class="trendy-routine-content">
-          <div class="trendy-routine-name">
-            <span>Treatments</span>
-            <span class="trendy-routine-arrow"><i class="bi bi-arrow-up-right"></i></span>
-          </div>
-          <p class="trendy-routine-desc">Targeted spot or area-specific formulations</p>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
+  <!-- ============================================================
      SECTION 5 — INGREDIENT SPOTLIGHT
      ============================================================ -->
-<section class="section-py section-bg" id="ingredients" aria-label="Ingredient Spotlight">
-  <div class="container-brand">
-    <div class="ingredient-spotlight">
-      <div class="ingredient-spotlight-img fade-up">
-        <img src="assets/images/ingredient-macro.jpg" alt="Macro photography of hyaluronic acid serum droplet — pure hydration ingredient" loading="lazy">
-      </div>
-      <div class="fade-up" style="transition-delay:120ms">
-        <span class="section-label">Ingredient Spotlight</span>
-        <h2>Hyaluronic Acid</h2>
-        <div class="brand-divider"></div>
-        <p>A naturally occurring molecule found in the skin that may help bind and retain water. A single gram can hold up to six litres of water — making it one of the most studied hydration ingredients in skincare formulation.</p>
-        <p class="mt-3" style="font-size:0.88rem; color:var(--text-muted);">Luméra formulations use a multi-weight hyaluronic acid blend to support hydration at multiple skin depths. Suitable for all skin types, including sensitive skin.</p>
-        <div class="ingredient-tag-row">
-          <span class="ingredient-tag">Hydration</span>
-          <span class="ingredient-tag">All Skin Types</span>
-          <span class="ingredient-tag">AM + PM</span>
-          <span class="ingredient-tag">Fragrance Free</span>
+  <section class="section-py section-bg" id="ingredients" aria-label="Ingredient Spotlight">
+    <div class="container-brand">
+      <div class="ingredient-spotlight">
+        <div class="ingredient-spotlight-img fade-up">
+          <img src="assets/images/ingredient-macro.jpg"
+            alt="Macro photography of hyaluronic acid serum droplet — pure hydration ingredient" loading="lazy">
         </div>
-        <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-          <a href="ingredients.html" class="btn-primary-brand">Explore All Ingredients <i class="bi bi-arrow-right"></i></a>
-          <a href="shop.html?concern=hydration" class="btn-outline-brand">Shop Hydration</a>
+        <div class="fade-up" style="transition-delay:120ms">
+          <span class="section-label">Ingredient Spotlight</span>
+          <h2>Hyaluronic Acid</h2>
+          <div class="brand-divider"></div>
+          <p>A naturally occurring molecule found in the skin that may help bind and retain water. A single gram can
+            hold up to six litres of water — making it one of the most studied hydration ingredients in skincare
+            formulation.</p>
+          <p class="mt-3" style="font-size:0.88rem; color:var(--text-muted);">Luméra formulations use a multi-weight
+            hyaluronic acid blend to support hydration at multiple skin depths. Suitable for all skin types, including
+            sensitive skin.</p>
+          <div class="ingredient-tag-row">
+            <span class="ingredient-tag">Hydration</span>
+            <span class="ingredient-tag">All Skin Types</span>
+            <span class="ingredient-tag">AM + PM</span>
+            <span class="ingredient-tag">Fragrance Free</span>
+          </div>
+          <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+            <a href="ingredients.html" class="btn-primary-brand">Explore All Ingredients <i
+                class="bi bi-arrow-right"></i></a>
+            <a href="shop.html?concern=hydration" class="btn-outline-brand">Shop Hydration</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============================================================
+  <!-- ============================================================
      SECTION 6 — WHY CHOOSE LUMÉRA
      ============================================================ -->
-<section class="section-py" id="why-lumera" aria-label="Why Choose Luméra Skin">
-  <div class="container-brand">
-    <!-- 1. Section Header at Top -->
-    <div class="section-header text-center fade-up" style="margin-bottom: 2.5rem;">
-      <span class="section-label">Our Commitment</span>
-      <h2>Why Choose Luméra Skin</h2>
-      <div class="brand-divider center"></div>
-      <p>We believe effective skincare should be transparent, evidence-informed and kind to your skin.</p>
-    </div>
+  <section class="section-py" id="why-lumera" aria-label="Why Choose Luméra Skin">
+    <div class="container-brand">
+      <!-- 1. Section Header at Top -->
+      <div class="section-header text-center fade-up" style="margin-bottom: 2.5rem;">
+        <span class="section-label">Our Commitment</span>
+        <h2>Why Choose Luméra Skin</h2>
+        <div class="brand-divider center"></div>
+        <p>We believe effective skincare should be transparent, evidence-informed and kind to your skin.</p>
+      </div>
 
-    <!-- 2. Image Grid After Section Name -->
-    <div class="commitment-hero-img-wrap fade-up" style="margin-bottom: 2.5rem;">
-      <img src="assets/images/our_commitment.png" alt="Luméra Skin Our Commitment — Clean, transparent, science-backed skincare" loading="lazy">
-      <div class="commitment-badge">
-        <i class="bi bi-shield-check me-1"></i> Our Commitment
-      </div>
-    </div>
-
-    <!-- 3. Four Grid Cards Aligned 2 by 2 Below Image -->
-    <div class="why-grid">
-      <div class="trust-card fade-up" style="transition-delay:0ms">
-        <div class="trust-icon"><i class="bi bi-eye"></i></div>
-        <div class="trust-title">Ingredient Transparency</div>
-        <div class="trust-desc">Every ingredient in every formula is fully disclosed — including the function it serves and why it was chosen.</div>
-      </div>
-      <div class="trust-card fade-up" style="transition-delay:80ms">
-        <div class="trust-icon"><i class="bi bi-shield-check"></i></div>
-        <div class="trust-title">Dermatologist Reviewed</div>
-        <div class="trust-desc">All Luméra formulations are reviewed by qualified dermatologists before they reach our range.</div>
-      </div>
-      <div class="trust-card fade-up" style="transition-delay:160ms">
-        <div class="trust-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M10 2v7.314a2 2 0 0 0 .206.874L15 20H9l4.794-9.812a2 2 0 0 0 .206-.874V2"/>
-            <path d="M8.5 2h7"/>
-          </svg>
+      <!-- 2. Image Grid After Section Name -->
+      <div class="commitment-hero-img-wrap fade-up" style="margin-bottom: 2.5rem;">
+        <img src="assets/images/our_commitment.png"
+          alt="Luméra Skin Our Commitment — Clean, transparent, science-backed skincare" loading="lazy">
+        <div class="commitment-badge">
+          <i class="bi bi-shield-check me-1"></i> Our Commitment
         </div>
-        <div class="trust-title">Science-Informed</div>
-        <div class="trust-desc">Ingredient selections are guided by peer-reviewed research. We use actives at studied concentrations.</div>
       </div>
-      <div class="trust-card fade-up" style="transition-delay:240ms">
-        <div class="trust-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
-            <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
-          </svg>
+
+      <!-- 3. Four Grid Cards Aligned 2 by 2 Below Image -->
+      <div class="why-grid">
+        <div class="trust-card fade-up" style="transition-delay:0ms">
+          <div class="trust-icon"><i class="bi bi-eye"></i></div>
+          <div class="trust-title">Ingredient Transparency</div>
+          <div class="trust-desc">Every ingredient in every formula is fully disclosed — including the function it
+            serves and why it was chosen.</div>
         </div>
-        <div class="trust-title">Responsible Formulation</div>
-        <div class="trust-desc">Luméra excludes parabens, common irritants and unsupported claims from every formulation.</div>
+        <div class="trust-card fade-up" style="transition-delay:80ms">
+          <div class="trust-icon"><i class="bi bi-shield-check"></i></div>
+          <div class="trust-title">Dermatologist Reviewed</div>
+          <div class="trust-desc">All Luméra formulations are reviewed by qualified dermatologists before they reach our
+            range.</div>
+        </div>
+        <div class="trust-card fade-up" style="transition-delay:160ms">
+          <div class="trust-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 2v7.314a2 2 0 0 0 .206.874L15 20H9l4.794-9.812a2 2 0 0 0 .206-.874V2" />
+              <path d="M8.5 2h7" />
+            </svg>
+          </div>
+          <div class="trust-title">Science-Informed</div>
+          <div class="trust-desc">Ingredient selections are guided by peer-reviewed research. We use actives at studied
+            concentrations.</div>
+        </div>
+        <div class="trust-card fade-up" style="transition-delay:240ms">
+          <div class="trust-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
+              <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+            </svg>
+          </div>
+          <div class="trust-title">Responsible Formulation</div>
+          <div class="trust-desc">Luméra excludes parabens, common irritants and unsupported claims from every
+            formulation.</div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============================================================
+  <!-- ============================================================
      SECTION 7 — CUSTOMER EXPERIENCES
      ============================================================ -->
-<section class="section-py section-bg" id="reviews" aria-label="Customer Reviews">
-  <div class="container-brand">
-    <div class="section-header text-center fade-up">
-      <span class="section-label">What Our Customers Say</span>
-      <h2>Customer Experiences</h2>
-      <div class="brand-divider center"></div>
-      <p>Real feedback from real customers. We share both positive experiences and constructive responses.</p>
+  <section class="section-py section-bg" id="reviews" aria-label="Customer Reviews">
+    <div class="container-brand">
+      <div class="section-header text-center fade-up">
+        <span class="section-label">What Our Customers Say</span>
+        <h2>Customer Experiences</h2>
+        <div class="brand-divider center"></div>
+        <p>Real feedback from real customers. We share both positive experiences and constructive responses.</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card fade-up" style="transition-delay:0ms">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"After months of trying different serums, the Hyaluronic Acid Serum from Luméra is
+            the first one that made a visible difference to my skin's texture within two weeks. I appreciate that they
+            list exactly what percentage of actives they use."</p>
+          <div class="testimonial-author">
+            <img src="assets/images/sarah.png" alt="Sarah M. customer review avatar" class="testimonial-avatar-img"
+              loading="lazy">
+            <div>
+              <div class="testimonial-name">Sarah M.</div>
+              <div class="testimonial-skin-type">Dry Skin · Verified Purchase</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-up" style="transition-delay:80ms">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"The Niacinamide serum genuinely worked for my oily skin. I was sceptical but the
+            formulation is really clean and the ingredient transparency page gave me full confidence before purchasing.
+            Skin quiz was spot-on too."</p>
+          <div class="testimonial-author">
+            <img src="assets/images/james.png" alt="James K. customer review avatar" class="testimonial-avatar-img"
+              loading="lazy">
+            <div>
+              <div class="testimonial-name">James K.</div>
+              <div class="testimonial-skin-type">Oily Skin · Verified Purchase</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-up" style="transition-delay:160ms">
+          <div class="testimonial-stars">★★★★☆</div>
+          <p class="testimonial-text">"The Ceramide Barrier Cream is incredible for my sensitive skin. No reaction, no
+            fragrance, and it actually keeps my skin hydrated all day. The consultation team was also really helpful
+            when I wasn't sure which products to combine."</p>
+          <div class="testimonial-author">
+            <img src="assets/images/amara.png" alt="Amara P. customer review avatar" class="testimonial-avatar-img"
+              loading="lazy">
+            <div>
+              <div class="testimonial-name">Amara P.</div>
+              <div class="testimonial-skin-type">Sensitive Skin · Verified Purchase</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="testimonials-grid">
-      <div class="testimonial-card fade-up" style="transition-delay:0ms">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"After months of trying different serums, the Hyaluronic Acid Serum from Luméra is the first one that made a visible difference to my skin's texture within two weeks. I appreciate that they list exactly what percentage of actives they use."</p>
-        <div class="testimonial-author">
-          <img src="assets/images/sarah.png" alt="Sarah M. customer review avatar" class="testimonial-avatar-img" loading="lazy">
-          <div>
-            <div class="testimonial-name">Sarah M.</div>
-            <div class="testimonial-skin-type">Dry Skin · Verified Purchase</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card fade-up" style="transition-delay:80ms">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"The Niacinamide serum genuinely worked for my oily skin. I was sceptical but the formulation is really clean and the ingredient transparency page gave me full confidence before purchasing. Skin quiz was spot-on too."</p>
-        <div class="testimonial-author">
-          <img src="assets/images/james.png" alt="James K. customer review avatar" class="testimonial-avatar-img" loading="lazy">
-          <div>
-            <div class="testimonial-name">James K.</div>
-            <div class="testimonial-skin-type">Oily Skin · Verified Purchase</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card fade-up" style="transition-delay:160ms">
-        <div class="testimonial-stars">★★★★☆</div>
-        <p class="testimonial-text">"The Ceramide Barrier Cream is incredible for my sensitive skin. No reaction, no fragrance, and it actually keeps my skin hydrated all day. The consultation team was also really helpful when I wasn't sure which products to combine."</p>
-        <div class="testimonial-author">
-          <img src="assets/images/amara.png" alt="Amara P. customer review avatar" class="testimonial-avatar-img" loading="lazy">
-          <div>
-            <div class="testimonial-name">Amara P.</div>
-            <div class="testimonial-skin-type">Sensitive Skin · Verified Purchase</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============================================================
+  <!-- ============================================================
      SECTION 8 — FINAL CTA
      ============================================================ -->
-<section class="cta-section" id="final-cta" style="background-image: url('assets/images/home1-cta.png');" aria-label="Shop call to action">
-  <div class="overlay-dark"></div>
-  <div class="cta-inner fade-up">
-    <span class="section-label" style="color:rgba(255,255,255,.7)">Ready to Begin?</span>
-    <h2 style="font-size: clamp(1.8rem, 4vw, 3rem); margin: 0.75rem 0 1rem;">Build a Routine That Fits Your Skin</h2>
-    <p style="max-width:520px; margin: 0 auto 2rem; opacity:.9; font-size:1rem;">Start with the skin quiz to find your skin type, explore the ingredients behind our formulations, or browse the full collection now.</p>
-    <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
-      <a href="shop.html" class="btn-primary-brand">Shop Now <i class="bi bi-arrow-right"></i></a>
-      <a href="#skin-quiz" class="btn-outline-brand" style="border-color:rgba(255,255,255,.7); color:#fff !important;">Take Skin Quiz</a>
+  <section class="cta-section" id="final-cta" style="background-image: url('assets/images/home1-cta.png');"
+    aria-label="Shop call to action">
+    <div class="overlay-dark"></div>
+    <div class="cta-inner fade-up">
+      <span class="section-label" style="color:rgba(255,255,255,.7)">Ready to Begin?</span>
+      <h2 style="font-size: clamp(1.8rem, 4vw, 3rem); margin: 0.75rem 0 1rem;">Build a Routine That Fits Your Skin</h2>
+      <p style="max-width:520px; margin: 0 auto 2rem; opacity:.9; font-size:1rem;">Start with the skin quiz to find your
+        skin type, explore the ingredients behind our formulations, or browse the full collection now.</p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a href="shop.html" class="btn-primary-brand">Shop Now <i class="bi bi-arrow-right"></i></a>
+        <a href="#skin-quiz" class="btn-outline-brand"
+          style="border-color:rgba(255,255,255,.7); color:#fff !important;">Take Skin Quiz</a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ============================================================
+  <!-- ============================================================
      FOOTER
      ============================================================ -->
-<footer class="lumera-footer" aria-label="Site footer">
-  <div class="container-brand">
-    <div class="footer-grid">
-      <!-- Brand -->
-      <div class="footer-brand-col">
-        <a href="index.html" class="footer-logo-wrap" aria-label="Luméra Skin Home">
-          <div class="footer-logo" aria-hidden="true">
-            <img src="assets/images/logo.png" alt="Luméra Skin Logo">
+  <footer class="lumera-footer" aria-label="Site footer">
+    <div class="container-brand">
+      <div class="footer-grid">
+        <!-- Brand -->
+        <div class="footer-brand-col">
+          <a href="index.html" class="footer-logo-wrap" aria-label="Luméra Skin Home">
+            <div class="footer-logo" aria-hidden="true">
+              <img src="assets/images/logo.png" alt="Luméra Skin Logo">
+            </div>
+            <span class="footer-brand-name">Luméra Skin</span>
+          </a>
+          <p class="footer-tagline">Clarity for Your Skin. Care You Can Trust.<br>Science-backed formulations for your
+            daily rituals.</p>
+          <div class="footer-social" aria-label="Social media links">
+            <a href="#" class="social-icon-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
           </div>
-          <span class="footer-brand-name">Luméra Skin</span>
-        </a>
-        <p class="footer-tagline">Clarity for Your Skin. Care You Can Trust.<br>Science-backed formulations for your daily rituals.</p>
-        <div class="footer-social" aria-label="Social media links">
-          <a href="#" class="social-icon-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-          <a href="#" class="social-icon-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-          <a href="#" class="social-icon-btn" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
-          <a href="#" class="social-icon-btn" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        </div>
+        <!-- Shop -->
+        <div>
+          <span class="footer-col-title">Shop</span>
+          <ul class="footer-nav-list">
+            <li><a href="shop.html">All Products</a></li>
+            <li><a href="bundle-deals.html">Routine Bundles</a></li>
+            <li><a href="shop.html?category=serums">Best Sellers</a></li>
+            <li><a href="shop.html?sort=newest">New Releases</a></li>
+          </ul>
+        </div>
+        <!-- Learn -->
+        <div>
+          <span class="footer-col-title">Learn</span>
+          <ul class="footer-nav-list">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="ingredients.html">Ingredient Library</a></li>
+            <li><a href="skin-type-guide.html">Skin Type Guide</a></li>
+            <li><a href="home2.html">Daily Routines</a></li>
+          </ul>
+        </div>
+        <!-- Support -->
+        <div>
+          <span class="footer-col-title">Support</span>
+          <ul class="footer-nav-list">
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="contact.html#faq">Help & FAQ</a></li>
+            <li><a href="contact.html#shipping">Shipping Policy</a></li>
+            <li><a href="contact.html#returns">Returns & Guarantee</a></li>
+          </ul>
+        </div>
+        <!-- Newsletter -->
+        <div>
+          <span class="footer-col-title">Newsletter</span>
+          <form data-lumera-form aria-label="Newsletter signup">
+            <div class="newsletter-input-wrap">
+              <input type="email" class="input-brand" placeholder="Your email address" required>
+              <button type="submit" class="newsletter-submit-btn">Subscribe</button>
+            </div>
+            <div class="form-success-msg mt-2" style="display:none;">Thank you for subscribing!</div>
+          </form>
         </div>
       </div>
-      <!-- Shop -->
-      <div>
-        <span class="footer-col-title">Shop</span>
-        <ul class="footer-nav-list">
-          <li><a href="shop.html">All Products</a></li>
-          <li><a href="bundle-deals.html">Routine Bundles</a></li>
-          <li><a href="shop.html?category=serums">Best Sellers</a></li>
-          <li><a href="shop.html?sort=newest">New Releases</a></li>
-        </ul>
-      </div>
-      <!-- Learn -->
-      <div>
-        <span class="footer-col-title">Learn</span>
-        <ul class="footer-nav-list">
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="ingredients.html">Ingredient Library</a></li>
-          <li><a href="skin-type-guide.html">Skin Type Guide</a></li>
-          <li><a href="home2.html">Daily Routines</a></li>
-        </ul>
-      </div>
-      <!-- Support -->
-      <div>
-        <span class="footer-col-title">Support</span>
-        <ul class="footer-nav-list">
-          <li><a href="contact.html">Contact Us</a></li>
-          <li><a href="contact.html#faq">Help & FAQ</a></li>
-          <li><a href="contact.html#shipping">Shipping Policy</a></li>
-          <li><a href="contact.html#returns">Returns & Guarantee</a></li>
-        </ul>
-      </div>
-      <!-- Newsletter -->
-      <div>
-        <span class="footer-col-title">Newsletter</span>
-        <form data-lumera-form aria-label="Newsletter signup">
-          <div class="newsletter-input-wrap">
-            <input type="email" class="input-brand" placeholder="Your email address" required>
-            <button type="submit" class="newsletter-submit-btn">Subscribe</button>
-          </div>
-          <div class="form-success-msg mt-2" style="display:none;">Thank you for subscribing!</div>
-        </form>
+      <!-- Bottom Bar -->
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2026 Luméra Skin. All rights reserved. Skincare recommendations are for general
+          guidance only.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Cookie Policy</a>
+        </div>
       </div>
     </div>
-    <!-- Bottom Bar -->
-    <div class="footer-bottom">
-      <p class="footer-copyright">© 2026 Luméra Skin. All rights reserved. Skincare recommendations are for general guidance only.</p>
-      <div class="footer-bottom-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Use</a>
-        <a href="#">Cookie Policy</a>
-      </div>
-    </div>
-  </div>
-</footer>
+  </footer>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Custom JS -->
-<script src="js/main.js"></script>
-<script src="js/quiz.js"></script>
-<script>
-function filterRoutineSteps(filter, btn) {
-  document.querySelectorAll('.routine-tab-btn').forEach(b => b.classList.remove('active'));
-  if(btn) btn.classList.add('active');
-  const cards = document.querySelectorAll('.trendy-routine-card');
-  cards.forEach(card => {
-    const steps = card.getAttribute('data-routine-step') || '';
-    if(filter === 'all' || steps.includes(filter)) {
-      card.style.display = 'flex';
-    } else {
-      card.style.display = 'none';
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="js/main.js"></script>
+  <script src="js/quiz.js"></script>
+  <script>
+    function filterRoutineSteps(filter, btn) {
+      document.querySelectorAll('.routine-tab-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      const cards = document.querySelectorAll('.trendy-routine-card');
+      cards.forEach(card => {
+        const steps = card.getAttribute('data-routine-step') || '';
+        if (filter === 'all' || steps.includes(filter)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
     }
-  });
-}
-</script>
-<!-- Back to Top Button -->
-<button type="button" class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top" title="Scroll to top"><i class="bi bi-arrow-up"></i></button>
+  </script>
+  <!-- Back to Top Button -->
+  <button type="button" class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top" title="Scroll to top"><i
+      class="bi bi-arrow-up"></i></button>
 </body>
+
 </html>
