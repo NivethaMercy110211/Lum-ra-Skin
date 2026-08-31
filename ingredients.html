@@ -235,7 +235,13 @@
         gap: 1.5rem !important;
       }
     }
-    @media (max-width: 576px) { .avoid-grid { grid-template-columns: 1fr; grid-auto-rows: auto; gap: 0.75rem; } }
+    @media (max-width: 576px) {
+      .avoid-grid {
+        grid-template-columns: minmax(0, 1fr) !important;
+        grid-auto-rows: auto;
+        gap: 0.75rem !important;
+      }
+    }
     .avoid-card {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
@@ -278,10 +284,10 @@
 <nav class="lumera-navbar" id="mainNavbar">
   <div class="navbar-inner">
     <a href="index.html" class="navbar-brand-wrap"><div class="navbar-logo"><img src="assets/images/logo.png" alt="Luméra Skin Logo"></div><div class="navbar-brand-text"><span class="navbar-brand-name">Luméra Skin</span><span class="navbar-brand-tagline">Clarity for Your Skin. Care You Can Trust.</span></div></a>
-    <ul class="navbar-nav-center"><li><a href="index.html" class="nav-link">Home</a></li><li><a href="about.html" class="nav-link">About</a></li><li><a href="home2.html" class="nav-link">Routines</a></li><li><a href="shop.html" class="nav-link">Shop</a></li><li><a href="ingredients.html" class="nav-link active">Ingredients</a></li><li><a href="skin-type-guide.html" class="nav-link">Skin Guide</a></li><li><a href="bundle-deals.html" class="nav-link">Bundles</a></li><li><a href="contact.html" class="nav-link">Contact</a></li></ul>
+    <ul class="navbar-nav-center"><li><a href="index.html" class="nav-link">Home</a></li><li><a href="home2.html" class="nav-link">Home 2</a></li><li><a href="about.html" class="nav-link">About</a></li><li><a href="shop.html" class="nav-link">Shop</a></li><li><a href="ingredients.html" class="nav-link active">Ingredients</a></li><li><a href="skin-type-guide.html" class="nav-link">Skin Guide</a></li><li><a href="bundle-deals.html" class="nav-link">Bundles</a></li><li><a href="contact.html" class="nav-link">Contact</a></li></ul>
     <div class="navbar-utils"><button class="navbar-util-btn theme-toggle-btn" aria-label="Toggle dark mode"><i class="bi bi-moon theme-toggle-icon"></i></button><button class="navbar-util-btn navbar-rtl-btn rtl-toggle-btn">RTL</button><a href="login.html" class="btn-login-nav"><i class="bi bi-person"></i> Login</a><button class="navbar-mobile-toggle" id="navMobileToggle" aria-expanded="false"><i class="bi bi-list"></i></button></div>
   </div>
-  <div class="navbar-mobile-menu" id="navMobileMenu"><a href="index.html" class="nav-link">Home</a><a href="about.html" class="nav-link">About</a><a href="home2.html" class="nav-link">Routines</a><a href="shop.html" class="nav-link">Shop</a><a href="ingredients.html" class="nav-link active">Ingredients</a><a href="skin-type-guide.html" class="nav-link">Skin Guide</a><a href="bundle-deals.html" class="nav-link">Bundles</a><a href="contact.html" class="nav-link">Contact</a><div class="mobile-utils"><button class="navbar-util-btn theme-toggle-btn"><i class="bi bi-moon theme-toggle-icon"></i></button><button class="navbar-util-btn navbar-rtl-btn rtl-toggle-btn">RTL</button><a href="login.html" class="btn-login-nav ms-auto"><i class="bi bi-person"></i> Login</a></div></div>
+  <div class="navbar-mobile-menu" id="navMobileMenu"><a href="index.html" class="nav-link">Home</a><a href="home2.html" class="nav-link">Home 2</a><a href="about.html" class="nav-link">About</a><a href="shop.html" class="nav-link">Shop</a><a href="ingredients.html" class="nav-link active">Ingredients</a><a href="skin-type-guide.html" class="nav-link">Skin Guide</a><a href="bundle-deals.html" class="nav-link">Bundles</a><a href="contact.html" class="nav-link">Contact</a><div class="mobile-utils"><button class="navbar-util-btn theme-toggle-btn"><i class="bi bi-moon theme-toggle-icon"></i></button><button class="navbar-util-btn navbar-rtl-btn rtl-toggle-btn">RTL</button><a href="login.html" class="btn-login-nav ms-auto"><i class="bi bi-person"></i> Login</a></div></div>
 </nav>
 
 <!-- PAGE BANNER -->
@@ -609,9 +615,12 @@
           <div class="footer-logo" aria-hidden="true">
             <img src="assets/images/logo.png" alt="Luméra Skin Logo">
           </div>
-          <span class="footer-brand-name">Luméra Skin</span>
+          <div class="footer-brand-text">
+            <span class="footer-brand-name">Luméra Skin</span>
+            <span class="footer-brand-tagline">Clarity for Your Skin. Care You Can Trust.</span>
+          </div>
         </a>
-        <p class="footer-tagline">Clarity for Your Skin. Care You Can Trust.<br>Science-backed formulations for your daily rituals.</p>
+        <p class="footer-tagline">Science-backed formulations for your daily rituals.</p>
         <div class="footer-social" aria-label="Social media links">
           <a href="#" class="social-icon-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
           <a href="#" class="social-icon-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
@@ -636,7 +645,7 @@
           <li><a href="about.html">About Us</a></li>
           <li><a href="ingredients.html">Ingredient Library</a></li>
           <li><a href="skin-type-guide.html">Skin Type Guide</a></li>
-          <li><a href="home2.html">Daily Routines</a></li>
+          <li><a href="home2.html">Home 2</a></li>
         </ul>
       </div>
       <!-- Support -->

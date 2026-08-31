@@ -243,7 +243,19 @@
   direction: rtl;
 }
 
+[dir="rtl"] .footer-brand-text {
+  text-align: right;
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
 [dir="rtl"] .footer-brand-name {
+  text-align: right;
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+[dir="rtl"] .footer-brand-tagline {
   text-align: right;
   direction: ltr;
   unicode-bidi: isolate;

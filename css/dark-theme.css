@@ -167,6 +167,7 @@
 /* ---- Footer ---- */
 [data-theme="dark"] .lumera-footer { background: var(--bg-secondary); border-color: var(--border-color); }
 [data-theme="dark"] .footer-brand-name { color: var(--text-heading); }
+[data-theme="dark"] .footer-brand-tagline { color: var(--text-muted); }
 [data-theme="dark"] .footer-col-title { color: var(--text-heading); }
 [data-theme="dark"] .footer-nav-list li a { color: var(--text-body); }
 [data-theme="dark"] .footer-nav-list li a:hover { color: var(--accent); }

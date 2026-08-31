@@ -513,6 +513,12 @@
     [data-theme="dark"] .hero-image-chip {
       background: rgba(41, 47, 42, .92);
       border-color: rgba(96, 121, 107, .3);
+      color: #e7f0ea;
+    }
+
+    [data-theme="dark"] .hero-image-chip .chip-dot {
+      background: #74d68a;
+      box-shadow: 0 0 0 3px rgba(116, 214, 138, .16);
     }
 
     /* ---- Trust Marquee Strip ---- */
@@ -613,7 +619,13 @@
       }
 
       .hero-image-chip {
-        display: none;
+        display: flex;
+        top: 0.85rem;
+        right: 0.85rem;
+        max-width: calc(100% - 1.7rem);
+        padding: 0.42rem 0.72rem;
+        font-size: 0.68rem;
+        line-height: 1.2;
       }
 
       .hero-trust {
@@ -1538,8 +1550,8 @@
       <!-- Center Nav -->
       <ul class="navbar-nav-center" role="list">
         <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
+        <li class="nav-item"><a href="home2.html" class="nav-link">Home 2</a></li>
         <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-        <li class="nav-item"><a href="home2.html" class="nav-link">Routines</a></li>
         <li class="nav-item"><a href="shop.html" class="nav-link">Shop</a></li>
         <li class="nav-item"><a href="ingredients.html" class="nav-link">Ingredients</a></li>
         <li class="nav-item"><a href="skin-type-guide.html" class="nav-link">Skin Guide</a></li>
@@ -1566,8 +1578,8 @@
     <!-- Mobile Menu -->
     <div class="navbar-mobile-menu" id="navMobileMenu" role="navigation" aria-label="Mobile navigation">
       <a href="index.html" class="nav-link active">Home</a>
+      <a href="home2.html" class="nav-link">Home 2</a>
       <a href="about.html" class="nav-link">About</a>
-      <a href="home2.html" class="nav-link">Routines</a>
       <a href="shop.html" class="nav-link">Shop</a>
       <a href="ingredients.html" class="nav-link">Ingredients</a>
       <a href="skin-type-guide.html" class="nav-link">Skin Guide</a>
@@ -2277,10 +2289,12 @@
             <div class="footer-logo" aria-hidden="true">
               <img src="assets/images/logo.png" alt="Luméra Skin Logo">
             </div>
-            <span class="footer-brand-name">Luméra Skin</span>
+            <div class="footer-brand-text">
+              <span class="footer-brand-name">Luméra Skin</span>
+              <span class="footer-brand-tagline">Clarity for Your Skin. Care You Can Trust.</span>
+            </div>
           </a>
-          <p class="footer-tagline">Clarity for Your Skin. Care You Can Trust.<br>Science-backed formulations for your
-            daily rituals.</p>
+          <p class="footer-tagline">Science-backed formulations for your daily rituals.</p>
           <div class="footer-social" aria-label="Social media links">
             <a href="#" class="social-icon-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
             <a href="#" class="social-icon-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
@@ -2305,7 +2319,7 @@
             <li><a href="about.html">About Us</a></li>
             <li><a href="ingredients.html">Ingredient Library</a></li>
             <li><a href="skin-type-guide.html">Skin Type Guide</a></li>
-            <li><a href="home2.html">Daily Routines</a></li>
+            <li><a href="home2.html">Home 2</a></li>
           </ul>
         </div>
         <!-- Support -->
