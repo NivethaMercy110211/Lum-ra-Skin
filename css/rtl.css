@@ -98,7 +98,7 @@
 
 /* Use the compact navigation through 1024px. The full RTL navigation and
    utility group cannot fit safely at iPad Pro / small-laptop widths. */
-@media (max-width: 1100px) {
+@media (max-width: 991.98px) {
   [dir="rtl"] .navbar-inner {
     position: relative;
     display: flex;

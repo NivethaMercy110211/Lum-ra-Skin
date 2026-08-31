@@ -292,13 +292,34 @@ body:has(> .lumera-navbar) {
   padding-top: 1rem;
 }
 
-/* ---- Responsive Breakpoints: Hamburger Drawer Nav on iPad Pro & Tablet View (max-width: 1366px) ---- */
-@media (max-width: 1366px) {
+/* ---- Intermediate Desktop Viewports (992px – 1199px) ---- */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .navbar-inner {
+    padding: 0 16px;
+    gap: 0.5rem;
+  }
+
+  .navbar-nav-center {
+    gap: 0.15rem;
+  }
+
+  .navbar-nav-center .nav-link {
+    padding: 0.4rem 0.5rem;
+    font-size: 0.78rem;
+  }
+
+  .navbar-brand-tagline {
+    display: none;
+  }
+}
+
+/* ---- Responsive Breakpoints: Hamburger Drawer Nav on Mobile & Tablet View (max-width: 991.98px) ---- */
+@media (max-width: 991.98px) {
   .navbar-inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 24px;
+    padding: 0 20px;
   }
 
   .navbar-nav-center {
