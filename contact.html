@@ -120,6 +120,414 @@
     .faq-answer-inner { padding:0.25rem 0 1.25rem; font-size:0.88rem; color:var(--text-body); line-height:1.7; }
     .faq-item.open .faq-answer { max-height:300px; }
     .faq-item.open .faq-icon { transform:rotate(45deg); }
+
+    /* =========================================
+       Location Map Section
+       ========================================= */
+    .location-section-grid {
+      display: grid;
+      grid-template-columns: 440px 1fr;
+      gap: 2rem;
+      align-items: stretch;
+    }
+    .location-info-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: 2.25rem;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition-base);
+    }
+    .location-info-panel:hover {
+      border-color: rgba(96,121,107,.35);
+      box-shadow: var(--shadow-md);
+    }
+    .location-badge-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(96,121,107,.1);
+      color: var(--color-primary);
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-bottom: 1.25rem;
+      width: fit-content;
+    }
+    .location-status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: #2e7d32;
+      box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.25);
+      animation: pulse-dot 2s infinite ease-in-out;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.3); opacity: 0.6; }
+    }
+    .location-title {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 500;
+      color: var(--text-heading);
+      margin-bottom: 0.5rem;
+      line-height: 1.25;
+    }
+    .location-desc {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.35rem;
+    }
+    .location-address-box {
+      background: rgba(96,121,107,.05);
+      border: 1px dashed var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.15rem;
+      margin-bottom: 1.35rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.85rem;
+    }
+    [dir="rtl"] .location-address-box {
+      text-align: right;
+    }
+    .location-address-text {
+      font-size: 0.86rem;
+      color: var(--text-body);
+      line-height: 1.5;
+    }
+    .location-address-text strong {
+      display: block;
+      color: var(--text-heading);
+      font-size: 0.92rem;
+      margin-bottom: 0.2rem;
+    }
+    .copy-addr-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--color-primary);
+      border-radius: var(--radius-sm);
+      padding: 0.45rem 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      white-space: nowrap;
+      transition: all var(--transition-fast);
+      flex-shrink: 0;
+    }
+    .copy-addr-btn:hover {
+      background: var(--color-primary);
+      color: #fff;
+      border-color: var(--color-primary);
+    }
+    .location-meta-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-bottom: 1.35rem;
+      list-style: none;
+      padding: 0;
+    }
+    .location-meta-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      font-size: 0.84rem;
+      color: var(--text-body);
+    }
+    [dir="rtl"] .location-meta-item {
+      text-align: right;
+    }
+    .location-meta-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: var(--radius-sm);
+      background: rgba(96,121,107,.1);
+      color: var(--color-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      flex-shrink: 0;
+    }
+    .location-meta-title {
+      font-weight: 600;
+      color: var(--text-heading);
+      display: block;
+      font-size: 0.82rem;
+      margin-bottom: 0.15rem;
+    }
+    .location-amenities {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 1.5rem;
+    }
+    .amenity-pill {
+      font-size: 0.73rem;
+      background: rgba(96,121,107,.06);
+      border: 1px solid var(--border-color);
+      color: var(--text-body);
+      padding: 0.3rem 0.65rem;
+      border-radius: var(--radius-pill);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .amenity-pill i {
+      color: var(--color-primary);
+      font-size: 0.8rem;
+    }
+    .location-actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: auto;
+    }
+    .location-actions .btn-primary-brand,
+    .location-actions .btn-outline-brand {
+      padding: 0.65rem 1.15rem;
+      font-size: 0.82rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      text-decoration: none;
+    }
+
+    /* Map Showcase Box */
+    .location-map-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition-base);
+      position: relative;
+    }
+    .location-map-card:hover {
+      border-color: rgba(96,121,107,.35);
+      box-shadow: var(--shadow-md);
+    }
+    .location-map-topbar {
+      padding: 0.85rem 1.25rem;
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .location-tabs-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(96,121,107,.08);
+      padding: 0.25rem;
+      border-radius: var(--radius-pill);
+    }
+    .location-tab-btn {
+      background: transparent;
+      border: none;
+      padding: 0.35rem 0.85rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .location-tab-btn.active {
+      background: var(--color-primary);
+      color: #fff;
+      box-shadow: var(--shadow-sm);
+    }
+    .location-tab-btn:not(.active):hover {
+      color: var(--text-heading);
+    }
+    .location-map-viewport {
+      position: relative;
+      width: 100%;
+      flex: 1;
+      min-height: 480px;
+      overflow: hidden;
+      background: #e8e6e1;
+    }
+    .location-map-iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 480px;
+      border: 0;
+      display: block;
+      transition: filter var(--transition-base), opacity 200ms ease;
+    }
+    [data-theme="dark"] .location-map-iframe {
+      filter: invert(90%) hue-rotate(180deg) contrast(95%);
+    }
+    .location-map-float-card {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 0.75rem 1rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      max-width: 320px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      pointer-events: auto;
+    }
+    [dir="rtl"] .location-map-float-card {
+      left: auto;
+      right: 1rem;
+      text-align: right;
+    }
+    .location-float-pin {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--color-primary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(96,121,107,0.4);
+    }
+    .location-float-title {
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      line-height: 1.25;
+    }
+    .location-float-rating {
+      font-size: 0.74rem;
+      color: #d97706;
+      margin-top: 0.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .location-float-rating span {
+      color: var(--text-muted);
+    }
+    .location-map-bottombar {
+      padding: 0.75rem 1.25rem;
+      background: var(--bg-card);
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+    .location-quick-links {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .location-quick-link {
+      color: var(--color-primary);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: color var(--transition-fast);
+      font-size: 0.8rem;
+    }
+    .location-quick-link:hover {
+      color: var(--color-primary-hover);
+      text-decoration: underline;
+    }
+    .studio-jump-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 0.55rem 1.2rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-heading);
+      text-decoration: none;
+      transition: all var(--transition-fast);
+      box-shadow: var(--shadow-sm);
+    }
+    .studio-jump-link:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    @media (max-width: 1080px) {
+      .location-section-grid {
+        grid-template-columns: 1fr;
+      }
+      .location-map-viewport, .location-map-iframe {
+        min-height: 420px;
+      }
+    }
+    @media (max-width: 576px) {
+      .location-info-panel {
+        padding: 1.5rem 1.15rem;
+      }
+      .location-address-box {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .copy-addr-btn {
+        align-self: flex-start;
+      }
+      [dir="rtl"] .copy-addr-btn {
+        align-self: flex-end;
+      }
+      .location-map-viewport, .location-map-iframe {
+        min-height: 340px;
+      }
+      .location-map-float-card {
+        top: 0.75rem;
+        left: 0.75rem;
+        right: 0.75rem;
+        max-width: none;
+      }
+      .location-map-topbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .location-tabs-wrap {
+        width: 100%;
+      }
+      .location-tab-btn {
+        flex: 1;
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 <body>
@@ -203,6 +611,13 @@
             <a href="#" class="social-icon-btn" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
             <a href="#" class="social-icon-btn" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
           </div>
+          <div class="mt-4">
+            <a href="#location" class="studio-jump-link">
+              <i class="bi bi-geo-alt-fill" style="color:var(--color-primary);"></i>
+              <span>Visiting us in London? Explore our Flagship Studio & Location Map</span>
+              <i class="bi bi-arrow-down"></i>
+            </a>
+          </div>
         </div>
       </div>
   </div>
@@ -280,8 +695,146 @@
   </div>
 </section>
 
-<!-- SECTION 3: FREE CONSULTATION -->
-<section class="section-py section-bg" id="consultation" aria-label="Free skin consultation">
+<!-- SECTION 3: LOCATION & INTERACTIVE MAP -->
+<section class="section-py section-bg" id="location" aria-label="Our flagship studio location and interactive map">
+  <div class="container-brand">
+    <div class="section-header text-center fade-up">
+      <span class="section-label"><i class="bi bi-geo-alt-fill me-1"></i> Visit Us in London</span>
+      <h2 style="font-size: clamp(1.8rem, 3.5vw, 2.4rem); margin-bottom: 0.5rem;">Flagship Studio & Aesthetics Lab</h2>
+      <p style="color: var(--text-muted); max-width: 620px; margin: 0 auto 1.25rem;">Experience personalised skin consultations, sample our active clean formulations at the botanical testing bar, or pick up your online orders in central London.</p>
+      <div class="brand-divider center"></div>
+    </div>
+
+    <div class="location-section-grid mt-4">
+      <!-- Left: Studio Details & Experience Card -->
+      <div class="location-info-panel fade-up" style="transition-delay: 100ms;">
+        <div>
+          <div class="location-badge-status" id="locationStatusBadge">
+            <span class="location-status-dot"></span>
+            <span id="locationStatusText">Open Today · 10:00 AM – 7:00 PM</span>
+          </div>
+
+          <h3 class="location-title" id="locationName">Luméra Flagship Studio & Skin Lab</h3>
+          <p class="location-desc" id="locationDesc">Our primary sanctuary in central London. Walk-ins welcome for quick diagnostics, product testing, and bottle returns.</p>
+
+          <div class="location-address-box">
+            <div class="location-address-text">
+              <strong>Address</strong>
+              <span id="locationAddressText">34 Floral Street, Covent Garden<br>London, WC2E 9DS, United Kingdom</span>
+            </div>
+            <button type="button" class="copy-addr-btn" id="copyAddressBtn" title="Copy address to clipboard">
+              <i class="bi bi-copy"></i> Copy
+            </button>
+          </div>
+
+          <ul class="location-meta-list">
+            <li class="location-meta-item">
+              <div class="location-meta-icon"><i class="bi bi-clock-fill"></i></div>
+              <div>
+                <span class="location-meta-title">Opening Hours</span>
+                <span id="locationHoursText">Mon – Sat: 10:00 AM – 7:00 PM<br>Sunday: 11:30 AM – 5:00 PM</span>
+              </div>
+            </li>
+            <li class="location-meta-item">
+              <div class="location-meta-icon"><i class="bi bi-telephone-fill"></i></div>
+              <div>
+                <span class="location-meta-title">Direct Studio Line</span>
+                <span id="locationPhoneText">+44 (0) 20 7946 0888</span>
+              </div>
+            </li>
+            <li class="location-meta-item">
+              <div class="location-meta-icon"><i class="bi bi-train-front-fill"></i></div>
+              <div>
+                <span class="location-meta-title">Nearest Tube & Transit</span>
+                <span id="locationTransitText">Covent Garden (Piccadilly Line, 2 min walk)<br>Leicester Square (Northern & Piccadilly, 5 min walk)</span>
+              </div>
+            </li>
+          </ul>
+
+          <div class="location-amenities">
+            <span class="amenity-pill"><i class="bi bi-droplet-half"></i> Skin Diagnostics</span>
+            <span class="amenity-pill"><i class="bi bi-box2-heart"></i> 2h Click & Collect</span>
+            <span class="amenity-pill"><i class="bi bi-recycle"></i> Glass Refill Hub</span>
+            <span class="amenity-pill"><i class="bi bi-flower1"></i> Texture Testing Bar</span>
+          </div>
+        </div>
+
+        <div class="location-actions">
+          <a href="https://www.google.com/maps/dir/?api=1&destination=34+Floral+Street+Covent+Garden+London+WC2E+9DS" target="_blank" rel="noopener noreferrer" class="btn-primary-brand" id="getDirectionsBtn">
+            <i class="bi bi-cursor-fill"></i> Get Directions
+          </a>
+          <a href="mailto:consultations@lumeraskin.com?subject=Studio%20Visit%20Appointment" class="btn-outline-brand">
+            <i class="bi bi-calendar-event"></i> Book Visit
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Interactive Map Showcase -->
+      <div class="location-map-card fade-up" style="transition-delay: 180ms;">
+        <div class="location-map-topbar">
+          <div class="location-tabs-wrap" role="tablist" aria-label="Select Studio Location">
+            <button type="button" class="location-tab-btn active" data-loc="covent-garden" role="tab" aria-selected="true">
+              <i class="bi bi-geo-alt"></i> Covent Garden Flagship
+            </button>
+            <button type="button" class="location-tab-btn" data-loc="mayfair" role="tab" aria-selected="false">
+              <i class="bi bi-building"></i> Mayfair Lab & HQ
+            </button>
+          </div>
+          <a href="https://maps.google.com/?q=34+Floral+Street+Covent+Garden+London+WC2E+9DS" target="_blank" rel="noopener noreferrer" class="location-quick-link" id="viewFullMapLink">
+            <span>View Full Google Map</span> <i class="bi bi-box-arrow-up-right"></i>
+          </a>
+        </div>
+
+        <div class="location-map-viewport">
+          <!-- Floating Boutique Badge -->
+          <div class="location-map-float-card">
+            <div class="location-float-pin">
+              <i class="bi bi-geo-alt-fill"></i>
+            </div>
+            <div>
+              <div class="location-float-title" id="floatLocTitle">Luméra Covent Garden</div>
+              <div class="location-float-rating">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <span>4.9 (184 reviews)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Embedded Map -->
+          <iframe
+            id="interactiveMapIframe"
+            class="location-map-iframe"
+            title="Luméra Skin London Location Map"
+            src="https://maps.google.com/maps?q=34%20Floral%20Street%2C%20Covent%20Garden%2C%20London%20WC2E%209DS%2C%20UK&t=&z=16&ie=UTF8&iwloc=&output=embed"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+        <div class="location-map-bottombar">
+          <div class="d-flex align-items-center gap-3 flex-wrap">
+            <span><i class="bi bi-check2-circle text-primary me-1"></i> Walk-ins Welcome</span>
+            <span><i class="bi bi-shield-check text-primary me-1"></i> Wheelchair Accessible</span>
+            <span><i class="bi bi-cup-hot text-primary me-1"></i> Complimentary Tea</span>
+          </div>
+          <div class="location-quick-links">
+            <button type="button" class="copy-addr-btn" style="border:none; padding:0; background:transparent; font-size:0.78rem;" id="copyCoordinatesBtn">
+              <i class="bi bi-pin-map"></i> 51.5126° N, 0.1246° W
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: FREE CONSULTATION -->
+<section class="section-py" id="consultation" aria-label="Free skin consultation">
   <div class="container-brand">
     <div style="max-width:680px; margin:0 auto; text-align:center;" class="fade-up">
       <span class="section-label">Complimentary Service</span>
@@ -297,8 +850,8 @@
   </div>
 </section>
 
-<!-- SECTION 4: FAQ -->
-<section class="section-py" id="faq" aria-label="Frequently asked questions">
+<!-- SECTION 5: FAQ -->
+<section class="section-py section-bg" id="faq" aria-label="Frequently asked questions">
   <div class="container-brand">
     <div class="section-header text-center fade-up">
       <span class="section-label">Common Questions</span>
@@ -374,6 +927,7 @@
         <span class="footer-col-title">Support</span>
         <ul class="footer-nav-list">
           <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="contact.html#location">Flagship Studio & Map</a></li>
           <li><a href="contact.html#faq">Help & FAQ</a></li>
           <li><a href="contact.html#shipping">Shipping Policy</a></li>
           <li><a href="contact.html#returns">Returns & Guarantee</a></li>
@@ -405,6 +959,142 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="js/main.js"></script>
+<script>
+  // Location Map Interactive Logic
+  document.addEventListener('DOMContentLoaded', () => {
+    const locationData = {
+      'covent-garden': {
+        name: 'Luméra Flagship Studio & Skin Lab',
+        desc: 'Our primary sanctuary in central London. Walk-ins welcome for quick diagnostics, product testing, and bottle returns.',
+        addressText: '34 Floral Street, Covent Garden<br>London, WC2E 9DS, United Kingdom',
+        addressPlain: '34 Floral Street, Covent Garden, London WC2E 9DS, UK',
+        hours: 'Mon – Sat: 10:00 AM – 7:00 PM<br>Sunday: 11:30 AM – 5:00 PM',
+        phone: '+44 (0) 20 7946 0888',
+        transit: 'Covent Garden (Piccadilly Line, 2 min walk)<br>Leicester Square (Northern & Piccadilly, 5 min walk)',
+        badgeText: 'Open Today · 10:00 AM – 7:00 PM',
+        coords: '51.5126° N, 0.1246° W',
+        floatTitle: 'Luméra Covent Garden',
+        floatRating: '4.9 (184 reviews)',
+        mapSrc: 'https://maps.google.com/maps?q=34%20Floral%20Street%2C%20Covent%20Garden%2C%20London%20WC2E%209DS%2C%20UK&t=&z=16&ie=UTF8&iwloc=&output=embed',
+        directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=34+Floral+Street+Covent+Garden+London+WC2E+9DS',
+        fullMapUrl: 'https://maps.google.com/?q=34+Floral+Street+Covent+Garden+London+WC2E+9DS'
+      },
+      'mayfair': {
+        name: 'Luméra Mayfair Aesthetics & Lab HQ',
+        desc: 'Our clinical research hub and VIP bespoke formulation suite. Private consultations and dermatologist sessions by appointment.',
+        addressText: '18 Berkeley Street, Mayfair<br>London, W1J 8EE, United Kingdom',
+        addressPlain: '18 Berkeley Street, Mayfair, London W1J 8EE, UK',
+        hours: 'Mon – Fri: 9:00 AM – 6:00 PM<br>Saturday & Sunday: By Appointment',
+        phone: '+44 (0) 20 7946 0912',
+        transit: 'Green Park Station (Piccadilly, Victoria, Jubilee lines, 3 min walk)',
+        badgeText: 'Open Mon–Fri · 9:00 AM – 6:00 PM',
+        coords: '51.5088° N, 0.1441° W',
+        floatTitle: 'Luméra Mayfair Lab HQ',
+        floatRating: '5.0 (92 reviews)',
+        mapSrc: 'https://maps.google.com/maps?q=18%20Berkeley%20Street%2C%20Mayfair%2C%20London%20W1J%208EE%2C%20UK&t=&z=16&ie=UTF8&iwloc=&output=embed',
+        directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=18+Berkeley+Street+Mayfair+London+W1J+8EE',
+        fullMapUrl: 'https://maps.google.com/?q=18+Berkeley+Street+Mayfair+London+W1J+8EE'
+      }
+    };
+
+    let currentLocKey = 'covent-garden';
+
+    const tabBtns = document.querySelectorAll('.location-tab-btn');
+    const nameEl = document.getElementById('locationName');
+    const descEl = document.getElementById('locationDesc');
+    const addrEl = document.getElementById('locationAddressText');
+    const hoursEl = document.getElementById('locationHoursText');
+    const phoneEl = document.getElementById('locationPhoneText');
+    const transitEl = document.getElementById('locationTransitText');
+    const statusEl = document.getElementById('locationStatusText');
+    const floatTitleEl = document.getElementById('floatLocTitle');
+    const floatRatingEl = document.querySelector('.location-float-rating span');
+    const mapIframe = document.getElementById('interactiveMapIframe');
+    const directionsBtn = document.getElementById('getDirectionsBtn');
+    const fullMapLink = document.getElementById('viewFullMapLink');
+    const coordsBtn = document.getElementById('copyCoordinatesBtn');
+    const copyAddrBtn = document.getElementById('copyAddressBtn');
+
+    function switchLocation(key) {
+      if (!locationData[key]) return;
+      currentLocKey = key;
+      const d = locationData[key];
+
+      tabBtns.forEach(btn => {
+        const isActive = btn.dataset.loc === key;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+
+      if (nameEl) nameEl.textContent = d.name;
+      if (descEl) descEl.textContent = d.desc;
+      if (addrEl) addrEl.innerHTML = d.addressText;
+      if (hoursEl) hoursEl.innerHTML = d.hours;
+      if (phoneEl) phoneEl.textContent = d.phone;
+      if (transitEl) transitEl.innerHTML = d.transit;
+      if (statusEl) statusEl.textContent = d.badgeText;
+      if (floatTitleEl) floatTitleEl.textContent = d.floatTitle;
+      if (floatRatingEl) floatRatingEl.textContent = d.floatRating;
+      if (directionsBtn) directionsBtn.href = d.directionsUrl;
+      if (fullMapLink) fullMapLink.href = d.fullMapUrl;
+      if (coordsBtn) coordsBtn.innerHTML = `<i class="bi bi-pin-map"></i> ${d.coords}`;
+
+      if (mapIframe) {
+        mapIframe.style.opacity = '0.3';
+        mapIframe.src = d.mapSrc;
+        mapIframe.onload = () => { mapIframe.style.opacity = '1'; };
+      }
+    }
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        switchLocation(btn.dataset.loc);
+      });
+    });
+
+    if (copyAddrBtn) {
+      copyAddrBtn.addEventListener('click', async () => {
+        const text = locationData[currentLocKey]?.addressPlain || '';
+        try {
+          await navigator.clipboard.writeText(text);
+          copyAddrBtn.innerHTML = '<i class="bi bi-check-lg"></i> Copied!';
+          if (typeof showToast === 'function') {
+            showToast('Studio address copied to clipboard!');
+          }
+          setTimeout(() => {
+            copyAddrBtn.innerHTML = '<i class="bi bi-copy"></i> Copy';
+          }, 2000);
+        } catch (err) {
+          const ta = document.createElement('textarea');
+          ta.value = text;
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          copyAddrBtn.innerHTML = '<i class="bi bi-check-lg"></i> Copied!';
+          if (typeof showToast === 'function') {
+            showToast('Studio address copied to clipboard!');
+          }
+          setTimeout(() => {
+            copyAddrBtn.innerHTML = '<i class="bi bi-copy"></i> Copy';
+          }, 2000);
+        }
+      });
+    }
+
+    if (coordsBtn) {
+      coordsBtn.addEventListener('click', async () => {
+        const text = locationData[currentLocKey]?.coords || '';
+        try {
+          await navigator.clipboard.writeText(text);
+          if (typeof showToast === 'function') {
+            showToast('GPS coordinates copied!');
+          }
+        } catch (e) {}
+      });
+    }
+  });
+</script>
 <!-- Back to Top Button -->
 <button type="button" class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top" title="Scroll to top"><i class="bi bi-arrow-up"></i></button>
 </body>

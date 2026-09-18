@@ -219,6 +219,32 @@
       border: 1px solid rgba(169, 194, 181, .28);
     }
 
+    /* Keep the complete desktop hero inside the viewport below the fixed nav. */
+    @media (min-width: 992px) {
+      .home2-hero {
+        height: calc(100svh - 66px);
+        min-height: 600px;
+        padding: clamp(1.5rem, 3.5vh, 2.5rem) 0;
+        display: flex;
+        align-items: center;
+      }
+
+      .home2-hero > .container-brand {
+        width: 100%;
+      }
+
+      .home2-hero-image {
+        width: auto;
+        max-width: 100%;
+        height: min(680px, calc(100svh - 66px - 3rem));
+        justify-self: center;
+      }
+
+      .home2-hero-title {
+        font-size: clamp(2.75rem, min(5.4vw, 9vh), 5.25rem);
+      }
+    }
+
     @media (max-width:991px) {
       .home2-hero-inner {
         grid-template-columns: 1fr;
@@ -1609,22 +1635,24 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/main.js"></script>
   <script>
-      (() =>           const headings = document.querySelectorAll('main h2, body > section h2            headings.forEach((heading) => heading.classList.add('heading-reveal      
+    (() => {
+      const headings = document.querySelectorAll('main h2, body > section h2');
+      headings.forEach((heading) => heading.classList.add('heading-reveal'));
 
-      if (!('IntersectionObserver' in win        {
-        headings.forEach((heading) => heading.classList.add('heading-vi        ));
-          ret      
+      if (!('IntersectionObserver' in window)) {
+        headings.forEach((heading) => heading.classList.add('heading-visible'));
+        return;
       }
 
-      const headingObserver = new IntersectionObserver((entries,        ver) => {
-        entries.for          try) => {
-          if (!entry.isIn          ng) return;
-          entry.target.classList.ad          ng-visible');
-          observer.u        ve(e      .target);
+      const headingObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('heading-visible');
+          observer.unobserve(entry.target);
         });
-      }, { threshold: 0.3, rootMar       '0px 0px -8% 0px' });
+      }, { threshold: 0.3, rootMargin: '0px 0px -8% 0px' });
 
-      headings.forEach((heading) => headi    Observer.obsading));
+      headings.forEach((heading) => headingObserver.observe(heading));
     })();
   </script>
   <!-- Back to Top Button -->

@@ -59,10 +59,12 @@
   --bg-secondary:  #202521;
   --bg-card:       #292F2A;
   --text-heading:  #FAF8F4;
-  --text-body:     #C8CEC9;
-  --text-muted:    #8A9490;
-  --border-color:  #3A4040;
-  --accent:        #8FA79A;
+  --text-body:     #E1E7E2;
+  --text-muted:    #B4BFB8;
+  --border-color:  #56615B;
+  --accent:        #AFC9BB;
+  --color-primary: #AFC9BB;
+  --color-primary-hover: #CAE0D4;
   --color-secondary: #202521;
 }
 
