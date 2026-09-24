@@ -270,7 +270,8 @@
       left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
+      object-position: center;
       transition: transform 600ms ease;
     }
 
@@ -346,7 +347,10 @@
     .routine-card-img {
       width: 100%;
       height: 220px;
-      object-fit: cover;
+      object-fit: contain;
+      object-position: center;
+      background: var(--bg-secondary);
+      padding: clamp(0.35rem, 1vw, 0.75rem);
       display: block;
     }
 
