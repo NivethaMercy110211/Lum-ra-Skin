@@ -4,14 +4,14 @@
    ========================================= */
 
 @media (min-width: 1440px) {
+  :root { --page-gutter: 40px; }
+
   .container-brand {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-inline: var(--page-gutter);
   }
 
   .navbar-inner {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-inline: var(--page-gutter);
   }
 
   h1 {
@@ -57,9 +57,10 @@
    ========================================= */
 
 @media (max-width: 1199px) {
+  :root { --page-gutter: 28px; }
+
   .container-brand {
-    padding-left: 28px;
-    padding-right: 28px;
+    padding-inline: var(--page-gutter);
   }
 
   .section-py {
@@ -91,13 +92,14 @@
 }
 
 @media (max-width: 1024px) {
+  :root { --page-gutter: 24px; }
+
   .container-brand {
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-inline: var(--page-gutter);
   }
 
   .navbar-inner {
-    padding: 0 24px;
+    padding-inline: var(--page-gutter);
   }
 
   .hero-editorial {

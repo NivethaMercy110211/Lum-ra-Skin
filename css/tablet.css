@@ -7,9 +7,10 @@
 
 /* ---- Tablet Landscape & Medium Screens (1024px – 1366px) ---- */
 @media (min-width: 992px) and (max-width: 1366px) {
+  :root { --page-gutter: 28px; }
+
   .container-brand {
-    padding-left: 28px;
-    padding-right: 28px;
+    padding-inline: var(--page-gutter);
   }
 
   /* ALL card grids aligned 2 by 2 on iPad Pro (1024x1366) */
@@ -86,9 +87,10 @@
 
 /* ---- Tablet View (max-width: 991px) ---- */
 @media (max-width: 991px) {
+  :root { --page-gutter: 22px; }
+
   .container-brand {
-    padding-left: 22px;
-    padding-right: 22px;
+    padding-inline: var(--page-gutter);
   }
 
   .section-py {
@@ -195,9 +197,10 @@
 
 /* ---- Tablet Portrait (768px * 1024px) ---- */
 @media (max-width: 768px) {
+  :root { --page-gutter: 20px; }
+
   .container-brand {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-inline: var(--page-gutter);
   }
 
   .section-py {
@@ -224,7 +227,7 @@
 
   /* Navbar */
   .navbar-inner {
-    padding: 0 20px;
+    padding-inline: var(--page-gutter);
   }
 
   /* Products */

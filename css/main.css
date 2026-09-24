@@ -33,6 +33,7 @@
   /* Spacing */
   --section-py:    80px;
   --section-py-sm: 48px;
+  --page-gutter:   36px;
 
   /* Transitions */
   --transition-fast:   150ms ease;
@@ -317,8 +318,7 @@ img { max-width: 100%; height: auto; display: block; }
   max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 36px;
-  padding-right: 36px;
+  padding-inline: var(--page-gutter);
 }
 
 /* ---- Scrollbar Styling ---- */
@@ -361,7 +361,7 @@ img { max-width: 100%; height: auto; display: block; }
   z-index: 2;
   text-align: center;
   color: #fff;
-  padding: var(--section-py) 20px;
+  padding: var(--section-py) var(--page-gutter);
   width: 100%;
 }
 .cta-section .cta-inner h2,

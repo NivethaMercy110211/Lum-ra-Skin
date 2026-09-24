@@ -4,9 +4,10 @@
    ========================================= */
 
 @media (max-width: 576px) {
+  :root { --page-gutter: 16px; }
+
   .container-brand {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-inline: var(--page-gutter);
   }
   .section-py { padding-top: 36px; padding-bottom: 36px; }
   h1 { font-size: 1.9rem; }
@@ -15,7 +16,7 @@
   h4 { font-size: 1.1rem; }
 
   /* Navbar */
-  .navbar-inner { padding: 0 16px; min-height: 58px; }
+  .navbar-inner { padding-inline: var(--page-gutter); min-height: 58px; }
   .navbar-brand-tagline {
     display: block;
     max-width: 190px;
@@ -98,7 +99,7 @@
 
   /* CTA section */
   .cta-section { min-height: 280px; }
-  .cta-section .cta-inner { padding: 40px 16px; }
+  .cta-section .cta-inner { padding: 40px var(--page-gutter); }
   .cta-section .cta-inner h2 { font-size: 1.55rem; }
 
   /* Filters */
@@ -203,7 +204,8 @@
 
 /* ---- Very small devices 360px x 740px ---- */
 @media (max-width: 380px) {
-  .container-brand { padding-left: 12px; padding-right: 12px; }
+  :root { --page-gutter: 12px; }
+  .container-brand { padding-inline: var(--page-gutter); }
   h1 { font-size: 1.7rem; }
   h2 { font-size: 1.35rem; }
 
