@@ -189,7 +189,7 @@
 [data-theme="dark"] .bg-secondary-brand { background-color: var(--bg-secondary) !important; }
 
 /* ---- Section Labels & Dividers ---- */
-[data-theme="dark"] .section-label { color: var(--accent); }
+[data-theme="dark"] .section-label { color: var(--accent); background: rgba(143,167,154,.14); }
 [data-theme="dark"] .brand-divider { background: var(--accent); }
 [data-theme="dark"] .step-num { background: rgba(143,167,154,.15); color: var(--accent); }
 

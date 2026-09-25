@@ -136,14 +136,31 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* ---- Section Labels ---- */
 .section-label {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-pill);
+  background: rgba(96, 121, 107, 0.1);
   font-family: var(--font-body);
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  line-height: 1.2;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-primary);
-  margin-bottom: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.section-header.text-center .section-label,
+.cta-inner .section-label {
+  margin-inline: auto;
+}
+
+.cta-section .section-label {
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.12);
 }
 
 /* ---- Section Headers ---- */

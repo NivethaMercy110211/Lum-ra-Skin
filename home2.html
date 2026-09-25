@@ -322,21 +322,22 @@
     /* Unified section heading style */
     section.section-py .section-label,
     .cta-section .section-label {
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 0.55rem;
+      gap: 0.5rem;
       width: fit-content;
-      padding: 0.42rem 0.85rem;
-      margin-bottom: 0.9rem;
-      border: 1px solid rgba(96, 121, 107, 0.22);
+      padding: 0.35rem 0.9rem;
+      margin-bottom: 1.25rem;
+      border: 0;
       border-radius: var(--radius-pill);
-      background: linear-gradient(135deg, rgba(96, 121, 107, 0.12), rgba(194, 154, 122, 0.1));
-      letter-spacing: 0.14em;
-      line-height: 1;
+      background: rgba(96, 121, 107, .1);
+      letter-spacing: 0.1em;
+      line-height: 1.2;
     }
 
     section.section-py .section-label::before,
     .cta-section .section-label::before {
+      display: none;
       content: "";
       width: 6px;
       height: 6px;
